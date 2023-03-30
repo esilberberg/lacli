@@ -2,10 +2,11 @@ const base = 'https://docs.google.com/spreadsheets/d/';
 const ssid = '1-8GRi632fN2kijwKEWnppWKNqbyn7L-eTEWLzksCUwg';
 const q1 = '/gviz/tq?';
 const endpoint = `${base}${ssid}${q1}`
-const display = document.querySelector(".output")
+const display = document.querySelector(".display")
 
 
 function fetchData(url) {
+    console.log('ready')
     const data = [];
     return fetch(url)
         .then(res => res.text())
@@ -24,10 +25,12 @@ function fetchData(url) {
                 const row = {};
                 keys.forEach((key, ind) => {
                     // Check and handle null values
-                    row[key] = (main.c[ind] != null) ? main.c[ind].v : '';
+                    row[key] = (main.c[ind] != null) ? main.c[ind].v : 'none';
                 });
                 data.push(row);
             });
+            // Sort the array of objects alphabetically by the name element
+            data.sort((a, b) => a.name.localeCompare(b.name));
             return data;
         })
         .catch(error => {
@@ -35,6 +38,28 @@ function fetchData(url) {
         });
 }
 
-fetchData(endpoint).then(data => {
-    console.log(data);
-});
+
+fetchData(endpoint)
+  .then(payload => {
+    let htmlString = "";
+    for (let i = 0; i < payload.length; i++) { 
+        const name = payload[i].name;
+        const url = payload[i].url;
+        const country = payload[i].country;
+        const institution = payload[i].institution;
+        const type = payload[i].resource_type;
+        const summary = payload[i].summary;
+        
+      htmlString += `
+      <h2><a target="_blank" rel="noopener noreferrer" href="${url}">${name}</a></h2>
+      <p>${institution}</p>
+      <p>${summary}</p>
+      <p>Country: ${country}</p>
+      <p>Resource Type: ${type}</p>
+      `
+    }
+    display.innerHTML = htmlString;
+  })
+  .catch(error => {
+    console.log(error);
+  });
