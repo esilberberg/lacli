@@ -1,3 +1,12 @@
+// NEED HTML
+// <div class="intro">
+//   <input type="text" id="search" placeholder="Search...">
+// </div>
+
+// <div class="display"></div>
+
+
+
 const base = 'https://docs.google.com/spreadsheets/d/';
 const ssid = '1-8GRi632fN2kijwKEWnppWKNqbyn7L-eTEWLzksCUwg';
 const q1 = '/gviz/tq?';
