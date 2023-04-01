@@ -30,6 +30,25 @@ async function fetchData(url) {
     data.sort((a, b) => a.name.localeCompare(b.name));
     console.log(data);
 
+
+    // Country filter
+    const countries = [];
+    data.forEach((d)=>{
+      countries.push(d.country)
+    })
+    let countryList = new Set(countries)
+    countryList = Array.from(countryList)
+    countryList.sort()
+    
+    const countrySelector = document.querySelector("#countries");
+    let countryOptions = "";
+    for (let i = 0; i < countryList.length; i++) {
+      countryOptions += `<option value="${countryList[i]}">${countryList[i]}</option>`
+    }
+    
+    countrySelector.innerHTML = countryOptions;
+
+    // Search bar 
     const searchInput = document.querySelector("#search");
     searchInput.addEventListener('keyup', (e) => {
       const query = e.target.value.toLowerCase();
@@ -41,6 +60,8 @@ async function fetchData(url) {
       });
       displayData(filterData);
     });
+    // Display all data on page load
+    displayData(data);
   } catch (error) {
     console.log(error);
   }
@@ -78,4 +99,6 @@ function displayData(payload) {
   display.innerHTML = htmlString;
 }
 
-fetchData(endpoint);
+document.addEventListener('DOMContentLoaded', () => {
+  fetchData(endpoint);
+});
