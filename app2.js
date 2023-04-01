@@ -4,7 +4,7 @@ console.log(`api endpoint:: ${endpoint}`);
 
 async function fetchData(url) {
   console.log('fetch data');
-  const data = [];
+  let data = [];
   try {
     const response = await fetch(url);
     const text = await response.text();
@@ -30,7 +30,6 @@ async function fetchData(url) {
     data.sort((a, b) => a.name.localeCompare(b.name));
     console.log(data);
 
-
     // Country filter
     const countries = [];
     data.forEach((d)=>{
@@ -41,23 +40,48 @@ async function fetchData(url) {
     countryList.sort()
     
     const countrySelector = document.querySelector("#countries");
-    let countryOptions = "";
+    let countryOptions = "<option value='All'>All</option>";
     for (let i = 0; i < countryList.length; i++) {
       countryOptions += `<option value="${countryList[i]}">${countryList[i]}</option>`
     }
     
     countrySelector.innerHTML = countryOptions;
 
-    // Search bar 
+    // Country filter functionality
+    countrySelector.addEventListener('change', (e) => {
+      const selectedCountries = Array.from(e.target.selectedOptions, option => option.value);
+      let filterData = data.filter((d) => {
+        return selectedCountries.includes(d.country) || selectedCountries.includes('All');
+      });
+      const searchQuery = document.querySelector("#search").value.toLowerCase();
+      if (searchQuery.length > 0) {
+        filterData = filterData.filter((d) => {
+          return (
+            d.name.toLowerCase().includes(searchQuery) ||
+            d.country.toLowerCase().includes(searchQuery) ||
+            d.summary.toLowerCase().includes(searchQuery)
+          )
+        });
+      }
+      displayData(filterData);
+    });
+
+    // Search bar functionality
     const searchInput = document.querySelector("#search");
     searchInput.addEventListener('keyup', (e) => {
       const query = e.target.value.toLowerCase();
-      const filterData = data.filter((d) => {
+      let filterData = data.filter((d) => {
         return (
           d.name.toLowerCase().includes(query) ||
           d.country.toLowerCase().includes(query) ||
           d.summary.toLowerCase().includes(query))
       });
+      const selectedCountries = Array.from(document.querySelector("#countries").selectedOptions, option => option.value);
+      if (selectedCountries.length > 0 && selectedCountries[0] !== "All") {
+        filterData = filterData.filter((d) => {
+          return selectedCountries.includes(d.country);
+        });
+      }
       displayData(filterData);
     });
     // Display all data on page load
@@ -66,6 +90,7 @@ async function fetchData(url) {
     console.log(error);
   }
 }
+
 
 function displayData(payload) {
   const display = document.querySelector("#display");
