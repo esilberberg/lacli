@@ -4,24 +4,85 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="app.js"></script> 
+
+    <script src="https://kit.fontawesome.com/1d9765704f.js" crossorigin="anonymous"></script>
+    
+    <link rel="stylesheet" href="styles.css">
+
+    <script src="app.js"></script>
 
     <title>LACLI</title>
 </head>
 <body>
     <header>
-        <h1>LACLI</h1>
-        <div>
-            <input type="text" id="search" placeholder="Search...">
-            <button id="search-button">Search</button>
+        <nav>
+            <div class="topnav">
+                <a href="index.html">LACLI</a>
+                <a href="#" class="split">Add a Resource</a>
+                <a href="#" class="split">Indexing</a>
+                <a href="#" class="split">About</a>
+              </div>
+            </nav>
+      
+        <section id="searchfield">
+            <input type="text" id="search" placeholder="Search">
+            <button id="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
             <p id="count"></p>
-        </div>
+        </section>
     </header>
     
     <main>
         <section id="display"></section>
+
+        <!-- <div class="resource">
+            <div class="heading">
+                <h2><a target="blank" href="${object.URL}">${object.Resource_Title>}</a></h2>
+                <p class="institution">${object.Institutional_Host}</p>
+                <p class="broad-subject"><span class="inline-label">Subjects: </span>${object.Broad_Subject_Categories}</p>
+                <p class="type"><span class="inline-label">Type: </span>${object.Resource_Type}</p>
+            </div>
+            <button class="accordion">Details <i class="fa-solid fa-caret-down"></i></button>
+            <div class="panel">
+                <div class="field">
+                    <p class="label">Summary</p>
+                    <p class="value">${object.Summary}</p>
+                </div>
+                <div class="field">
+                    <p class="label">Languages</p>
+                    <p class="value">${object.Language}</p>
+                </div>
+                <div class="field">
+                    <p class="label">Subjects in English:</p>
+                    <p class="value">${object.Subjects_English}</p>
+                </div>
+                <div class="field">
+                    <p class="label">Materias en Español:</p>
+                    <p class="value">${object.Subjects_Spanish}</p>
+                </div>
+                <div class="field">
+                    <p class="label">Assuntos em Português:</p>
+                    <p class="value">${object.Subjects_Portuguese}</p>
+                </div>
+                <div class="field">
+                    <p class="label">Format:</p>
+                    <p class="value">${object.Specific_Formats}</p>
+                </div>
+                <div class="field">
+                    <p class="label">Region:</p>
+                    <p class="value">${object.Geographical_Area_Coverage}</p>
+                </div>
+                <div class="field">
+                    <p class="label">Countries:</p>
+                    <p class="value">${object.Geographical_Area_Coverage}</p>
+                </div>
+                <div class="field">
+                    <p class="label">Time Coverage:</p>
+                    <p class="value">${object.Time_Coverage}</p>
+                </div>
+            </div>
+        </div> -->
     </main>
-      
+   
 </body>
 
 </html>

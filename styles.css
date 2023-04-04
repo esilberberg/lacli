@@ -1,0 +1,136 @@
+:root {
+    --primary: #19505D;
+    --secondary: #54514a;
+    --tertiary: #9B0000;
+    --highlight: #FDEFC8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    background-color: var(--primary);
+}
+
+main, #searchfield {
+    padding: 0 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.topnav {
+    overflow: hidden;
+    padding: 5px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+
+.topnav a {
+    float: left;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+
+.topnav a:hover {
+    background-color: var(--highlight);
+    color: black;
+    border-radius: 5px;
+}
+
+.topnav a.split {
+    float: right;
+}
+
+
+#searchfield {
+    margin: 4rem auto 2rem auto; 
+}
+
+#search {
+    padding: 5px;
+    width: 300px;
+}
+
+#search-button {
+    padding: 7px 10px;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+}
+
+#search-button:hover {
+    background-color: var(--tertiary);
+    cursor: pointer;
+}
+
+#count {
+    font-style: italic;
+}
+
+
+h2 {
+    font-size: 1.2rem;
+}
+
+a {
+    color: var(--primary);
+}
+
+.resource {
+    margin: 2rem 0;
+}
+
+.resource a:hover {
+    color: var(--tertiary);
+}
+
+.institution {
+    font-style: italic;
+    margin-bottom: 0.2rem;
+}
+
+.heading {
+    margin-bottom: 0.5rem;
+}
+
+.heading p {
+    margin-bottom: 0.5rem;
+}
+
+.inline-label, .label {
+    color: var(--tertiary);
+}
+
+.accordion {
+    background-color: white;
+    color: var(--secondary);
+    cursor: pointer;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+  }
+  
+  .active, .accordion:hover {
+    background-color: white;
+    color: var(--primary);
+  }
+  
+  .panel {
+    padding: 0 18px;
+    display: none;
+    background-color: white;
+    overflow: hidden;
+  }
+
+  .field {
+    margin-top: 0.4rem;
+  }

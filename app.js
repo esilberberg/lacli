@@ -26,19 +26,81 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let dataDisplay = filteredData.map((object)=>{
             return `
-                <div class="resource">
+            <div class="resource">
+                <div class="heading">
                     <h2><a target="blank" href="${object.URL}">${object.Resource_Title}</a></h2>
-                    <p>${object.Resource_Type}</p>
+                    <p class="institution">${object.Institutional_Host}</p>
+                    <p><span class="inline-label">Subjects: </span>${object.Broad_Subject_Categories}</p>
+                    <p><span class="inline-label">Country: </span>${object.Country_Coverage}</p>
+                    <p><span class="inline-label">Type: </span>${object.Resource_Type}</p>
                 </div>
+                <button class="accordion">Details <i class="fa-solid fa-caret-down"></i></button>
+                <div class="panel">
+                    <div class="field">
+                        <p class="label">Summary</p>
+                        <p class="value">${object.Summary}</p>
+                    </div>
+                    <div class="field">
+                        <p class="label">Languages</p>
+                        <p class="value">${object.Language}</p>
+                    </div>
+                    <div class="field">
+                        <p class="label">Subjects in English:</p>
+                        <p class="value">${object.Subjects_English}</p>
+                    </div>
+                    <div class="field">
+                        <p class="label">Materias en Español:</p>
+                        <p class="value">${object.Subjects_Spanish}</p>
+                    </div>
+                    <div class="field">
+                        <p class="label">Assuntos em Português:</p>
+                        <p class="value">${object.Subjects_Portuguese}</p>
+                    </div>
+                    <div class="field">
+                        <p class="label">Format:</p>
+                        <p class="value">${object.Specific_Formats}</p>
+                    </div>
+                    <div class="field">
+                        <p class="label">Region:</p>
+                        <p class="value">${object.Geographical_Area_Coverage}</p>
+                    </div>
+                    <div class="field">
+                        <p class="label">Countries:</p>
+                        <p class="value">${object.Country_Coverage}</p>
+                    </div>
+                    <div class="field">
+                        <p class="label">Time Coverage:</p>
+                        <p class="value">${object.Time_Coverage}</p>
+                    </div>
+                </div>
+            </div>
             `
         }).join('');
 
         display.innerHTML = dataDisplay;
 
         count.textContent = `Showing ${filteredData.length} result${filteredData.length !== 1 ? 's' : ''}`;
+        
+        // ----- ACCORDION -----
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+            console.log('accordion')
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+            panel.style.display = "none";
+            } else {
+            panel.style.display = "block";
+            }
+        });
+        }
     }
 
     displayData(apiEndpoint);
+
 
     searchButton.addEventListener("click", ()=>{
         displayData(apiEndpoint);
