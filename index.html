@@ -4,22 +4,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="app.js"></script> 
+
     <title>LACLI</title>
 </head>
 <body>
+    <header>
+        <h1>LACLI</h1>
+        <div>
+            <input type="text" id="search" placeholder="Search...">
+            <button id="search-button">Search</button>
+            <p id="count"></p>
+        </div>
+    </header>
+    
     <main>
-        <nav>
-            <h1>LACLI</h1>
-            <input type="text" id="search" name="search" placeholder="Search">
-            <select name="countries" id="countries" multiple></select>
-            <button type="button" onClick="window.location.reload();">Refresh</button>
-        </nav>
-        <div id="resource-count"></div>
-        <section>
-            <div id="display"></div>
-
-        </section>
-    </main> 
-    <script src="app2.js"></script>
+        <section id="display"></section>
+    </main>
+      
 </body>
+
 </html>
