@@ -1,29 +1,52 @@
+// Wait for the page to load
 document.addEventListener('DOMContentLoaded', () => {
 
+    // Define API endpoint and elements to interact with
     const apiEndpoint = 'https://script.google.com/macros/s/AKfycbwd6T2yIHT0e0ifSgVrf5yAIB1A24ata21InKodZeLISG8IWf6jNLd59kNCk9AbPYGz/exec';
-    
     const display = document.querySelector('#display');
+    const loader = document.getElementById("loader");
     const search = document.querySelector('#search');
     const searchButton = document.querySelector('#search-button');
     const count = document.querySelector('#count');
 
+    // Removes diacritics from strings
+    function removeDiacritics(str) {
+        return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    }
+
+    // Fetch data from API
     async function fetchData(url) {
         const response = await fetch(url);
         const data = await response.json();
-        return data
+        return data;
     }
 
+    // Display data on the page
     async function displayData(url) {
-        let query = search.value;
-        console.log('Query::', query);
 
+        // Show loading animation
+        loader.style.display = "block";
+        display.style.display = "none";
+
+        // Get search value
+        let query = search.value.trim();
+
+        // Fetch data from API and filter based on search query
         const payload = await fetchData(url);
-
+        let searchTerms = query.toLowerCase().split(/\s+/).map(term => removeDiacritics(term));
         let filteredData = payload.filter((eventData)=>{
-            if (query === "") {return eventData}  
-            else if (eventData.Resource_Title.toLowerCase().includes(query.toLowerCase())){ return eventData}
+            if (query === "") {
+                return true;
+            } else {
+                return searchTerms.every(term => {
+                    return Object.values(eventData).some(value => {
+                        return value && removeDiacritics(value.toString().toLowerCase()).includes(term);
+                    });
+                });
+            }
         });
 
+        // Generate HTML for filtered data and display on the page
         let dataDisplay = filteredData.map((object)=>{
             return `
             <div class="resource">
@@ -54,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                     <div class="field">
                         <p class="label">Assuntos em Português:</p>
-                        <p class="value">${object.Subjects_Portuguese}</p>
+                        <p class="value">${object.Subjects_Portuguese}</p
                     </div>
                     <div class="field">
                         <p class="label">Format:</p>
@@ -77,11 +100,18 @@ document.addEventListener('DOMContentLoaded', () => {
             `
         }).join('');
 
+        // Print LACLI data to HTML
         display.innerHTML = dataDisplay;
+
+        // Hide loader
+        loader.style.display = "none";
+        
+        // Show display
+        display.style.display = "block";
 
         count.textContent = `Showing ${filteredData.length} result${filteredData.length !== 1 ? 's' : ''}`;
         
-        // ----- ACCORDION -----
+        // Accordion for resource records display
         var acc = document.getElementsByClassName("accordion");
         var i;
 
@@ -100,7 +130,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     displayData(apiEndpoint);
-
 
     searchButton.addEventListener("click", ()=>{
         displayData(apiEndpoint);

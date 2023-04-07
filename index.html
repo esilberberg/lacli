@@ -18,71 +18,22 @@
         <nav>
             <div class="topnav">
                 <a href="index.html">LACLI</a>
-                <a href="#" class="split">Add a Resource</a>
-                <a href="#" class="split">Indexing</a>
+                <a href="#" class="split">Help</a>
+                <a href="#" class="split">Submit a Resource</a>
                 <a href="#" class="split">About</a>
-              </div>
-            </nav>
-      
+            </div>
+        </nav>
         <section id="searchfield">
             <input type="text" id="search" placeholder="Search">
             <button id="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
             <p id="count"></p>
         </section>
     </header>
-    
     <main>
+        <section id="loader">
+            <div class="loader"></div>
+        </section>
         <section id="display"></section>
-
-        <!-- <div class="resource">
-            <div class="heading">
-                <h2><a target="blank" href="${object.URL}">${object.Resource_Title>}</a></h2>
-                <p class="institution">${object.Institutional_Host}</p>
-                <p class="broad-subject"><span class="inline-label">Subjects: </span>${object.Broad_Subject_Categories}</p>
-                <p class="type"><span class="inline-label">Type: </span>${object.Resource_Type}</p>
-            </div>
-            <button class="accordion">Details <i class="fa-solid fa-caret-down"></i></button>
-            <div class="panel">
-                <div class="field">
-                    <p class="label">Summary</p>
-                    <p class="value">${object.Summary}</p>
-                </div>
-                <div class="field">
-                    <p class="label">Languages</p>
-                    <p class="value">${object.Language}</p>
-                </div>
-                <div class="field">
-                    <p class="label">Subjects in English:</p>
-                    <p class="value">${object.Subjects_English}</p>
-                </div>
-                <div class="field">
-                    <p class="label">Materias en Español:</p>
-                    <p class="value">${object.Subjects_Spanish}</p>
-                </div>
-                <div class="field">
-                    <p class="label">Assuntos em Português:</p>
-                    <p class="value">${object.Subjects_Portuguese}</p>
-                </div>
-                <div class="field">
-                    <p class="label">Format:</p>
-                    <p class="value">${object.Specific_Formats}</p>
-                </div>
-                <div class="field">
-                    <p class="label">Region:</p>
-                    <p class="value">${object.Geographical_Area_Coverage}</p>
-                </div>
-                <div class="field">
-                    <p class="label">Countries:</p>
-                    <p class="value">${object.Geographical_Area_Coverage}</p>
-                </div>
-                <div class="field">
-                    <p class="label">Time Coverage:</p>
-                    <p class="value">${object.Time_Coverage}</p>
-                </div>
-            </div>
-        </div> -->
     </main>
-   
 </body>
-
 </html>
