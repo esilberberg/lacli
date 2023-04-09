@@ -10,71 +10,168 @@
     padding: 0;
 }
 
-nav {
+header {
     background-color: var(--primary);
+    font-family: 'EB Garamond', serif;
 }
 
-.topnav {
-    overflow: hidden;
-    padding: 5px;
+/* ----- NAVIGATION ----- */
+
+nav {
+    box-sizing: border-box;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     max-width: 800px;
     margin: 0 auto;
 }
 
-.topnav a {
-    float: left;
+.logo a {
+    font-size: 2rem;  
     color: white;
-    text-align: center;
-    padding: 14px 16px;
+    font-weight: 700;
+}
+
+nav ul {
+    display: flex;
+}
+
+nav li, a {
     text-decoration: none;
-    font-size: 17px;
+    list-style: none;
 }
 
-.topnav a:hover {
-    background-color: var(--highlight);
-    color: black;
-    border-radius: 3px;
+.nav-links a {
+    display: inline-block;
+    color: white;
+    padding: 5px 0;
+    margin: 0 10px;
+    border: 3px solid transparent;
+    font-size: 1.3rem;
 }
 
-.topnav a.split {
-    float: right;
+.nav-links a:hover {
+    border-bottom-color: var(--highlight);
+    transition: 0.3s;
 }
 
-main, #searchfield {
-    padding: 0 1rem;
+.hamburger {
+    cursor: pointer;
+    display: none;
+}
+
+.hamburger i {
+    font-size: 1.8rem;
+    color: white;
+}
+
+.hamburger i:hover {
+    color: var(--highlight);
+}
+
+@media only screen and (max-width: 900px){
+    nav {
+        padding: 0 1rem;
+    }
+}
+
+@media only screen and (max-width: 700px){
+    .hamburger {
+        display: block;
+    } 
+    .nav-links {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: -200%;
+        top: 70px;
+        background: var(--secondary);
+        text-align: center;
+        font-size: 1.5rem;
+        transition: 0.3s;
+    }
+    #nav_check:checked ~.nav-links {
+        left: 0;
+        height: 100%;
+    }
+    .nav-links ul {
+        margin-top: 2rem;
+        display: block;
+    }
+    .nav-links a {
+        margin: 0.6rem 0;
+    }
+}
+
+/* ----- MAIN ----- */
+
+main {
     max-width: 800px;
     margin: 0 auto;
+    padding: 0 1rem;
+    font-family: 'Lato', sans-serif;
 }
+
+/* ----- SEARCHING ----- */
 
 #searchfield {
-    margin: 4rem auto 2rem auto;
+    margin: 4rem auto;
+    width: 85%;
+}
+
+.search-wrapper {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    max-width: 500px;
 }
 
 #search {
-    padding: 5px;
-    width: 70%;
-    max-width: 300px;
+    width: 80%;
+    border: 1px solid var(--secondary);
+    border-right: none;
+    padding: 10px 0 10px 10px;
+    font-size: 16px;
+}
+
+textarea:focus, input:focus{
+    outline: none;
 }
 
 #search-button {
-    padding: 7px 10px;
-    background-color: var(--primary);
-    color: white;
+    width: 20%;
+    max-width: 70px;
     border: none;
-    border-radius: 3px;
+    color: white;
+    background-color: var(--primary);
+    font-size: 18px;
 }
 
 #search-button:hover {
-    background-color: var(--tertiary);
+    background: var(--tertiary);
     cursor: pointer;
+}
+
+.count-wrapper {
+    max-width: 500px;
+    margin: 0 auto;
+    padding-left: 2.2%;
 }
 
 #count {
     font-style: italic;
+    font-weight: 300;
+    padding-top: 5px;
+    font-size: 0.8rem;
 }
 
+/* ----- RESOURCE DISPLAY ----- */
+
 h2 {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
+    font-family: 'EB Garamond', serif;
 }
 
 a {
@@ -83,6 +180,11 @@ a {
 
 .resource {
     margin: 2rem 0;
+}
+
+.resource p {
+    font-size: 1rem;
+    font-weight: 300;
 }
 
 .resource a:hover {
@@ -99,7 +201,7 @@ a {
 }
 
 .heading p {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.3rem;
 }
 
 .inline-label, .label {
@@ -130,7 +232,7 @@ a {
 }
 
 .field {
-    margin-top: 0.4rem;
+    margin-top: 0.5rem;
 }
 
 
@@ -161,4 +263,53 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+/* ----- SUBPAGES ----- */
+#about h1, #help h1 {
+    font-family: 'EB Garamond', serif;
+    font-size: 2.5rem;
+    margin: 3rem 0 2rem 0;
+    text-align: center;
+}
+
+#about a, #help a {
+    text-decoration: underline;
+}
+
+#about a:hover, #help a:hover {
+    color: var(--tertiary)
+}
+
+#about h2, #help h2 {
+    margin-top: 2.5rem;
+    padding-bottom: 1rem;
+    font-family: 'EB Garamond', serif;
+}
+
+/* ----- ABOUT ----- */
+
+#about img {
+    width: 20%;
+    max-width: 100px;
+}
+
+.about-wrapper p {
+    margin-bottom: 1rem;
+}
+
+.contributors {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.team-member {
+    margin-bottom: 1rem;
+}
+
+.team-title {
+    font-style: italic;
+    font-weight: 200;
+    margin: 0;
 }

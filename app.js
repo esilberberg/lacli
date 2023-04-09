@@ -60,11 +60,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 <button class="accordion">Details <i class="fa-solid fa-caret-down"></i></button>
                 <div class="panel">
                     <div class="field">
-                        <p class="label">Summary</p>
+                        <p class="label">Summary:</p>
                         <p class="value">${object.Summary}</p>
                     </div>
                     <div class="field">
-                        <p class="label">Languages</p>
+                        <p class="label">Languages:</p>
                         <p class="value">${object.Language}</p>
                     </div>
                     <div class="field">
