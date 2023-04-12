@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://kit.fontawesome.com/1d9765704f.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;700&family=Lato:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/x-icon" href="media/lane-logo.jpg">
+
+    <link rel="stylesheet" href="styles.css">
+
+    <title>LACLI</title>
+</head>
+<body>
+    <header>
+        <div class="container"> 
+            <div class="languages">
+                <ul class="lang-nav">
+                    <li class="lang">
+                        <a href="#" class="lang-link">ES</a>
+                    </li>
+                    <li class="lang">
+                        <a href="#" class="lang-link">PT</a>
+                    </li>
+                    <li class="lang">
+                        <a href="index.html" class="lang-link">EN</a>
+                    </li>
+                </ul>
+            </div>
+           <nav>
+              <a href="index.html" class="nav-logo">LACLI</a>
+              <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html#about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfJGksX1uBHoNNTHSPsRv9wQp4K0yYc4a-OmLMUrciXYqfwMg/viewform" target="_blank" class="nav-link">Nominate</a>
+                </li>
+                <li class="nav-item">
+                    <a href="help.html" class="nav-link">Help</a>
+                </li>
+                <li class="nav-item">
+                  <a href="https://github.com/esilberberg/lacli" class="nav-link" target="_blank"><i class="fa-brands fa-github"></i></a>
+                </li>
+              </ul>
+              <div class="hamburger">
+                 <span class="bar"></span>
+                 <span class="bar"></span>
+                 <span class="bar"></span>
+              </div>
+           </nav>
+        </div>
+     </header>
+     <section id="hero">
+        <div class="hero-wrapper">
+            <div class="hero-content">
+              <!-- <h1>LACLI</h1> -->
+              <p>An international collaboration to catalog digital collections about Latin American, Caribbean, U.S. Latinx, and Iberian culture.</p>
+            <section id="searchfield">
+            <div class="search-wrapper">
+                <input autocomplete="off" type="text" id="search" placeholder="Search...">
+                <button id="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+            <div class="count-wrapper">
+                <p id="count"></p>
+            </div>
+            </section>
+
+            </div>
+            <p class="hero-credit">
+                Source: "Mapa de la Relación Geográfica de Metztitlan." Benson Latin American Collection, University of Texas at Austin.
+            </p>
+        </div>
+      <main>
+   
+
+
+
+     </main>
+
+
+<script>
+   // ----- NAVIGATION -----
+   const hamburger = document.querySelector(".hamburger");
+   const navMenu = document.querySelector(".nav-menu"); 
+
+   hamburger.addEventListener("click", () => {
+      hamburger.classList.toggle("active-hamburger");
+      navMenu.classList.toggle("active-hamburger");
+   })
+
+   document.querySelectorAll(".nav-link").forEach(n => n.   addEventListener("click", () => {
+      hamburger.classList.remove("active-hamburger");
+      navMenu.classList.remove("active-hamburger");
+   }))
+</script>
+</body>
+</html>
