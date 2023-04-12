@@ -10,47 +10,139 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;700&family=Lato:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
 
+    <link rel="icon" type="image/x-icon" href="media/lane-logo.jpg">
+
     <link rel="stylesheet" href="styles.css">
-
-    <script src="app.js"></script>
-
-    <link rel="icon" type="image/x-icon" href="https://salalm.org/content_images/New%20LANE%20square%20with%20letters1%20copy(3).jpg">
 
     <title>LACLI</title>
 </head>
 <body>
     <header>
-        <nav>
-        <div class="logo"><a href="index.html">LACLI</a></div>
-        <input type="checkbox" id="nav_check" hidden>
-        <div class="nav-links">
-            <ul>
-                <li><a href="#">Random</a></li>
-                <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfJGksX1uBHoNNTHSPsRv9wQp4K0yYc4a-OmLMUrciXYqfwMg/viewform" target="_blank">Nominate</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="help.html">Help</a></li>
-                <li><a href="https://github.com/esilberberg/lacli" target="_blank"><i class="fa-brands fa-github"></i></a></li>
-            </ul>
+        <div class="container"> 
+           <nav>
+              <a href="index.html" class="nav-logo">LACLI</a>
+              <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="library.html" class="nav-link">Library</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfJGksX1uBHoNNTHSPsRv9wQp4K0yYc4a-OmLMUrciXYqfwMg/viewform" target="_blank" class="nav-link">Nominate</a>
+                </li>
+                <li class="nav-item">
+                    <a href="help.html" class="nav-link">Help</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link"><i class="fa-solid fa-globe"></i></a>
+                 </li>
+                <li class="nav-item">
+                  <a href="https://github.com/esilberberg/lacli" class="nav-link" target="_blank"><i class="fa-brands fa-github"></i></a>
+                </li>
+              </ul>
+              <div class="hamburger">
+                 <span class="bar"></span>
+                 <span class="bar"></span>
+                 <span class="bar"></span>
+              </div>
+           </nav>
         </div>
-        <label for="nav_check" class="hamburger">
-            <i class="fa-solid fa-bars"></i>
-        </label>
-        </nav>
-    </header>
-    <main>
-        <section id="searchfield">
-            <div class="search-wrapper">
-                <input autocomplete="off" type="text" id="search" placeholder="Search...">
-                <button id="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
-            </div>
-            <div class="count-wrapper">
-                <p id="count"></p>
-            </div>
-        </section>
-        <section id="loader">
-            <div class="loader"></div>
-        </section>
-        <section id="display"></section>
-    </main>
+     </header>
+     <section id="hero">
+      <div class="hero-wrapper">
+          <div class="hero-text">
+              <h1>LACLI</h1>
+              <p>An international collaboration to make digital collections about Latin American, Caribbean, U.S. Latinx, and Iberian culture freely available online.</p>
+              <a class="enter-btn" href="library.html">Enter Library</a>
+          </div>
+      </div>
+      </section>
+      <main>
+         <section id="about">
+             <h1>About</h1>
+             <div class="about-wrapper">
+                 <p>Since the beginning of this project in March 2020, Latin American, Caribbean, U.S. Latinx, and Iberian Online Free E-Resources (LACLI) has been a collective effort to share with the world a warehouse of online free e-resources with Latin American, Caribbean, U.S. Latinx, and Iberian full content. This project was launched and is managed by the <a target="blank" href="https://salalm.org/lane">Latin America Northeast Libraries Consortium (LANE)</a>. LACLI was originally spearheaded by LANE members Jesús Alonso-Regalado (University at Albany, SUNY), Paloma Celis Carbajal (NYPL), and Talía Guzmán González.</p>
+                 <p>We would like to acknowledge Judith Alspach and James Simon from the Center for Research Libraries (CRL) for sharing the data that helped start this project and Orchid Mazurkiewicz for authorizing us to adapt the Hispanic American Periodicals Index (HAPI) subjects list. We are also thankful to the many people that have contributed to this project.   
+                 </p>
+                 <p>In 2022, the Latin America North East Libraries Network (LANE); El Colegio de México. Biblioteca Daniel Cosío Villegas; and the Fundação Getulio Vargas. Centro de Pesquisa e Documentação de História Contemporânea do Brasil (CPDOC), received a Seminar on the Acquisition of Latin American Library Materials (SALALM) Award for Institutional Collaborative Initiatives to expand the multilingual access to the resources included in LACLI by adding metadata in English, Spanish, and Portuguese.
+                 </p>
+ 
+                 <div class="contributors">
+                    <img src="media/salalm-logo.png" alt="SALALM logo"> 
+                    <img src="media/lane-logo.jpg" alt="LANE logo">
+                     <img src="media/colmex-bib-logo.png" alt="Biblioteca Daniel Cosío Villegas">
+                     <img src="media/fgv-cpdoc-logo.png" alt="FGV CPDOC">
+                 </div>
+             </div>
+             <div class="team">
+                 <h2>Executive Team</h2>
+                 <div class="team-member">
+                     <p>Jesús Alonso-Regalado</p>
+                     <p class="team-title">Principal Coordinator. LANE member. University at Albany, SUNY</p>
+                 </div>
+                 <div class="team-member">
+                     <p>Cate Kellett</p>
+                     <p class="team-title">Metadata Coordinator. LANE member. Yale Law Library</p>
+                 </div>
+                 <div class="team-member">
+                    <p>Eric Silberberg</p>
+                    <p class="team-title">Web Coordinator. LANE member. Queens College, CUNY</p>
+                </div>
+                 <h2>Quality Control & Review Team</h2>
+                 <div class="team-member">
+                     <p>Jesús Alonso-Regalado</p>
+                     <p class="team-title">Quality control coordinator. LANE member. University at Albany, SUNY</p>
+                 </div>
+                 <div class="team-member">
+                     <p>Anabel Gutiérrez</p>
+                     <p class="team-title">LANE member. New York University
+                     </p>
+                 </div>
+                 <div class="team-member">
+                     <p>Cate Kellett</p>
+                     <p class="team-title">LANE member. Yale Law Library</p>
+                 </div>
+                 <div class="team-member">
+                     <p>Sonia Morcillo</p>
+                     <p class="team-title">Cambridge University Library</p>
+                 </div>
+                 <h2>Collaborators (Past and Present)</h2>
+                 <div class="team-member">
+                     <p>Fernando Acosta-Rodríguez</p>
+                     <p class="team-title">LANE member. Princeton University</p>
+                 </div>
+                 <div class="team-member">
+                     <p>Arón Alvar Sánchez López</p>
+                     <p class="team-title">El Colegio de México</p>
+                 </div>
+                 <div class="team-member">
+                     <p>... etc...</p>
+                     <p class="team-title"></p>
+                 </div>
+                 <div class="team-member">
+                     <p></p>
+                     <p class="team-title"></p>
+                 </div>
+             </div>
+         </section>
+     </main>
+
+
+<script>
+   // ----- NAVIGATION -----
+   const hamburger = document.querySelector(".hamburger");
+   const navMenu = document.querySelector(".nav-menu"); 
+
+   hamburger.addEventListener("click", () => {
+      hamburger.classList.toggle("active-hamburger");
+      navMenu.classList.toggle("active-hamburger");
+   })
+
+   document.querySelectorAll(".nav-link").forEach(n => n.   addEventListener("click", () => {
+      hamburger.classList.remove("active-hamburger");
+      navMenu.classList.remove("active-hamburger");
+   }))
+</script>
 </body>
 </html>

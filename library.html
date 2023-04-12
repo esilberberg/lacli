@@ -14,6 +14,8 @@
 
     <link rel="stylesheet" href="styles.css">
 
+    <script src="app.js"></script>
+
     <title>LACLI</title>
 </head>
 <body>
@@ -36,7 +38,7 @@
                  </li>
                  <li class="nav-item">
                   <a href="#" class="nav-link"><i class="fa-solid fa-globe"></i></a>
-                  </li>
+               </li>
                  <li class="nav-item">
                   <a href="https://github.com/esilberberg/lacli" class="nav-link" target="_blank"><i class="fa-brands fa-github"></i></a>
                </li>
@@ -50,18 +52,21 @@
         </div>
      </header>
     <main>
-        <section id="help">
-            <h1>Help & Tutorials</h1>
-            <h2>Searching</h2>
-            <p>Not case sensitive
-                Each search term separated by a space is treated as an independent search term
-                Search covers all resource description fields
-                Search only returns those resources that have all search terms in any of their description fields.
-                Ignores diacritics</p>
-            <h2>Indexing</h2>
-            <p>LACLI uses The Hispanic American Periodicals Index (HAPI) Subject Headings....</p>
-        </section>  
+        <section id="searchfield">
+            <div class="search-wrapper">
+                <input autocomplete="off" type="text" id="search" placeholder="Search...">
+                <button id="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+            <div class="count-wrapper">
+                <p id="count"></p>
+            </div>
+        </section>
+        <section id="loader">
+            <div class="loader"></div>
+        </section>
+        <section id="display"></section>    
     </main>
+
 
 <script>
    // ----- NAVIGATION -----
