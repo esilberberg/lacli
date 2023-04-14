@@ -1,7 +1,7 @@
 // Wait for the page to load
 document.addEventListener('DOMContentLoaded', () => {
 
-    // Define API endpoint and elements to interact with
+    // Define API endpoint and DOM elements
     const apiEndpoint = 'https://script.google.com/macros/s/AKfycbwd6T2yIHT0e0ifSgVrf5yAIB1A24ata21InKodZeLISG8IWf6jNLd59kNCk9AbPYGz/exec';
     const display = document.querySelector('#display');
     const loader = document.getElementById("loader");
@@ -9,45 +9,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchButton = document.querySelector('#search-button');
     const count = document.querySelector('#count');
 
+
     // Removes diacritics from strings
     function removeDiacritics(str) {
         return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
     }
 
-    // Fetch data from API
+
+    // Fetch data from Google Sheets API
     async function fetchData(url) {
         const response = await fetch(url);
         const data = await response.json();
         return data;
     }
 
+
     // Display data on the page
-    async function displayData(url) {
-
-        // Show loading animation
-        loader.style.display = "block";
-        display.style.display = "none";
-
-        // Get search value
-        let query = search.value.trim();
-
-        // Fetch data from API and filter based on search query
-        const payload = await fetchData(url);
-        let searchTerms = query.toLowerCase().split(/\s+/).map(term => removeDiacritics(term));
-        let filteredData = payload.filter((eventData)=>{
-            if (query === "") {
-                return true;
-            } else {
-                return searchTerms.every(term => {
-                    return Object.values(eventData).some(value => {
-                        return value && removeDiacritics(value.toString().toLowerCase()).includes(term);
-                    });
-                });
-            }
-        });
-
+    function displayData(data) {
+        console.log('display')
         // Generate HTML for filtered data and display on the page
-        let dataDisplay = filteredData.map((object)=>{
+        let dataDisplay = data.map((object)=>{
             return `
             <div class="resource">
                 <div class="heading">
@@ -99,22 +80,16 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
             `
         }).join('');
-
-        // Print LACLI data to HTML
+    
+        // Print data to HTML
         display.innerHTML = dataDisplay;
-
-        // Hide loader
-        loader.style.display = "none";
-        
-        // Show display
-        display.style.display = "block";
-
-        count.textContent = `Showing ${filteredData.length} result${filteredData.length !== 1 ? 's' : ''}`;
-        
-        // Accordion for resource records display
+    
+        count.textContent = `Showing ${data.length} result${data.length !== 1 ? 's' : ''}`;
+    
+        // Accordion for extended resource records display
         var acc = document.getElementsByClassName("accordion");
         var i;
-
+    
         for (i = 0; i < acc.length; i++) {
         acc[i].addEventListener("click", function() {
             console.log('accordion')
@@ -127,18 +102,112 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
         }
+    
+        // Show display
+        display.style.display = "block";
     }
+    
+    // ----- TESTING FUNCTION -----
+    // async function getFacets(data, key) {
+    //     const facetObject = {};
+        
+    //     for (const object of data) {
+    //       const value = object[key];
+    //       if (value && value.trim() !== '') {
+    //         // Split the value by ';' or ',' if it's a string with multiple values
+    //         const valueArr = typeof value === 'string' ? value.split(/[;,]/) : [value];
+      
+    //         // Normalize each value, replace ʼ with ', and add to the facetObject
+    //         valueArr.forEach(v => {
+    //           const normalizedValue = removeDiacritics(v.trim().replace(/ʼ/g, "'")).toLowerCase();
+    //           if (normalizedValue !== '') {
+    //             facetObject[normalizedValue] = (facetObject[normalizedValue] || 0) + 1;
+    //           }
+    //         });
+    //       }
+    //     }
+        
+    //     // Convert the facetObject to an array of facet objects
+    //     const facetArray = Object.entries(facetObject).map(([name, tally]) => ({ name, tally }));
+      
+    //     // Sort the facet array by name in alphabetical order
+    //     facetArray.sort((a, b) => a.name.localeCompare(b.name));
+        
+    //     console.log(facetArray);
+    //   }
+      
 
-    displayData(apiEndpoint);
+    // Filter data based on search query
+    async function filterData(url) {
+        console.log('filtering')
+        // Show loading animation
+        loader.style.display = "block";
+        display.style.display = "none";
+    
+        // Get search value
+        let query = search.value.trim();
+        console.log('Query:: ' + query)
+    
+        // Fetch data from API and filter based on search query
+        const payload = await fetchData(url);
+        let searchTerms = query.toLowerCase().split(/\s+/).map(term => removeDiacritics(term));
+        let filteredData = payload.filter((eventData)=>{
+        if (query === "") {
+            return true;
+        } else {
+            return searchTerms.every(term => {
+            return Object.values(eventData).some(value => {
+                return value && removeDiacritics(value.toString().toLowerCase()).includes(term);
+            });
+            });
+        }
+        });
+    
+        // Hide loader
+        loader.style.display = "none";
+    
+        // Display filtered data
+        displayData(filteredData);
 
+        // -----TESTING FUNCTION-----
+        getFacets(filteredData, 'Language');
+        getFacets(filteredData, 'Geographical_Area_Coverage');
+        getFacets(filteredData, 'Broad_Subject_Categories');
+        getFacets(filteredData, 'Subjects_English');
+    }
+    
+    
+    // Display data on page on first load
+    async function displayInitialData(url) {
+        console.log('initial data load')
+        // Show loading animation
+        loader.style.display = "block";
+        display.style.display = "none";
+    
+        // Fetch data from API
+        const payload = await fetchData(url);
+    
+        // Display data
+        displayData(payload);
+    
+        // Hide loader
+        loader.style.display = "none";
+    
+        // Show display
+        display.style.display = "block";
+    }
+    
+    displayInitialData(apiEndpoint);
+    
     searchButton.addEventListener("click", ()=>{
-        displayData(apiEndpoint);
+        filterData(apiEndpoint);
     });
-
+    
     search.addEventListener('keypress', (event) => {
         if (event.keyCode === 13) {
-            displayData(apiEndpoint);
+        filterData(apiEndpoint);
         }
     });
 
-});
+
+});  

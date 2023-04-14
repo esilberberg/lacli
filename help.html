@@ -12,6 +12,8 @@
 
     <link rel="icon" type="image/x-icon" href="media/lane-logo.jpg">
 
+    <script src="app.js"></script>
+
     <link rel="stylesheet" href="styles.css">
 
     <title>LACLI</title>
@@ -19,27 +21,37 @@
 <body>
     <header>
         <div class="container"> 
+            <div class="languages">
+                <ul class="lang-nav">
+                    <li class="lang">
+                        <a href="#" class="lang-link">ES</a>
+                    </li>
+                    <li class="lang">
+                        <a href="#" class="lang-link">PT</a>
+                    </li>
+                    <li class="lang">
+                        <a href="index.html" class="lang-link">EN</a>
+                    </li>
+                </ul>
+            </div>
            <nav>
               <a href="index.html" class="nav-logo">LACLI</a>
               <ul class="nav-menu">
-                 <li class="nav-item">
-                    <a href="library.html" class="nav-link">Library</a>
-                 </li>
-                 <li class="nav-item">
-                    <a href="index.html#about" class="nav-link">About</a>
-                 </li>
-                 <li class="nav-item">
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
                     <a href="https://docs.google.com/forms/d/e/1FAIpQLSfJGksX1uBHoNNTHSPsRv9wQp4K0yYc4a-OmLMUrciXYqfwMg/viewform" target="_blank" class="nav-link">Nominate</a>
-                 </li>
-                 <li class="nav-item">
+                </li>
+                <li class="nav-item">
                     <a href="help.html" class="nav-link">Help</a>
-                 </li>
-                 <li class="nav-item">
-                  <a href="#" class="nav-link"><i class="fa-solid fa-globe"></i></a>
-                  </li>
-                 <li class="nav-item">
+                </li>
+                <li class="nav-item">
+                    <a href="mailto:lacliproject@gmail.com" target="_blank" class="nav-link">Contact</a>
+                </li>
+                <li class="nav-item">
                   <a href="https://github.com/esilberberg/lacli" class="nav-link" target="_blank"><i class="fa-brands fa-github"></i></a>
-               </li>
+                </li>
               </ul>
               <div class="hamburger">
                  <span class="bar"></span>
@@ -48,20 +60,30 @@
               </div>
            </nav>
         </div>
-     </header>
+    </header>
     <main>
-        <section id="help">
+        <div class="subpage">
             <h1>Help & Tutorials</h1>
             <h2>Searching</h2>
-            <p>Not case sensitive
-                Each search term separated by a space is treated as an independent search term
-                Search covers all resource description fields
-                Search only returns those resources that have all search terms in any of their description fields.
-                Ignores diacritics</p>
+            <ul>
+                <li>Our search function is not case sensitive and ignores diacritics.</li>
+                <li>Our search covers all the description fields for our resources.</li>
+                <li>Each search term separated by a space is treated as an independent search term and linked with the AND operator, which means that all terms must appear somewhere in the description fields for a resource to be returned in the results.</li>
+            </ul>
+            <h2>Tutorials</h2>
+            <p>Here are some suggestions on how to search with LACLI...</p>
             <h2>Indexing</h2>
             <p>LACLI uses The Hispanic American Periodicals Index (HAPI) Subject Headings....</p>
-        </section>  
+        </div>
     </main>
+
+    <footer>
+        <div class="footer-wrapper">
+            <p>Licensed under a Creative Commons<br> Attribution-NonCommercial-ShareAlike<br> 4.0 International License</p>
+            <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" class="cc-logo" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a>
+        </div>
+    </footer>
+
 
 <script>
    // ----- NAVIGATION -----
@@ -80,3 +102,5 @@
 </script>
 </body>
 </html>
+
+

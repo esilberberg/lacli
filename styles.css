@@ -8,22 +8,46 @@
     --secondary: #54514a;
     --tertiary: #9B0000;
     --highlight: #FDEFC8;
+    
+    min-height: 100vh;
+    position: relative;
 }
+
 
 /* ----- NAVIGATION ----- */
 header {
     background-color: var(--primary);
     font-family: 'EB Garamond', serif;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
-nav li{
+header li{
     list-style: none;
 }
 
-nav a{
+header a{
     color: white;
     text-decoration: none;
+}
+
+.lang-nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-top: 10px;
+}
+.lang {
+    padding-left: 10px;
+    font-family: 'Lato', sans-serif;
+}
+
+.lang-link {
+    transition: 0.3s ease-out;
+}
+
+.lang-link:hover {
+    font-weight: bold;
+
 }
 
 .container{
@@ -40,7 +64,7 @@ nav{
   }
 
 .nav-logo{
-    font-size: 2rem;
+    font-size: 3rem;
     font-weight: 700;
 }
 
@@ -97,14 +121,14 @@ nav{
    .nav-menu{
       position: fixed;
       left: -100%;
-      top: 70px;
+      top: 95px;
       gap: 0;
       flex-direction: column;
       background-color: var(--secondary);
       width: 100%;
       text-align: center;
       transition: 0.3s;
-      padding: 20px 0 300px 0;
+      padding: 20px 0 100vh 0;
       z-index: 100;
     }
    .nav-item{
@@ -115,122 +139,10 @@ nav{
     }
 }
 
-/* ----- HOMEPAGE ----- */
-#hero {
-    font-family: 'EB Garamond', serif;
-}
-
-.hero-wrapper {
-    position: relative;
-    height: 500px;
-    overflow: hidden;
-    background: url(media/mapa.png) no-repeat center;
-    background-size: cover;
-    box-shadow: inset 0 0 0 1000px rgba(0,0,0,.5);
-}
-
-.hero-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    text-align: center;
-    font-weight: 700;
-}
-
-.hero-text h1 {
-    font-size: 72px;
-    letter-spacing: 0.2rem;
-    border: 10px solid white;
-    padding: 6px 14px;
-    display: inline-block;
-}
-
-.hero-text p {
-    margin: 40px 0 50px 0;
-    display: block;
-    font-size: 18px;
-    text-shadow: 0 0 10px black;
-}
-
-.enter-btn {
-    color: white;
-    padding: 10px 15px;
-    font-size: 18px;
-    text-decoration: none;
-    background-color: var(--primary);
-    border-radius: 8px;
-    transition: 0.3s all;
-    box-shadow: rgb(0, 0, 0) 0px 20px 30px -10px;
-}
-
-.enter-btn:hover {
-    background-color: var(--tertiary);
-}
-
-
-/* ----- SUBPAGES ----- */
-main {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0 1rem;
-    font-family: 'Lato', sans-serif;
-}
-
-main h1 {
-    font-family: 'EB Garamond', serif;
-    font-size: 2.5rem;
-    margin: 3rem 0 2rem 0;
-    text-align: center;
-}
-
-#about a:hover, #help a:hover {
-    color: var(--tertiary)
-}
-
-#about h2, #help h2 {
-    margin-top: 2.5rem;
-    padding-bottom: 1rem;
-    font-family: 'EB Garamond', serif;
-}
-
-/* ----- ABOUT ----- */
-
-#about img {
-    width: 20%;
-    max-width: 100px;
-}
-
-.about-wrapper p {
-    margin-bottom: 1rem;
-}
-
-#about a {
-    color: var(--primary);
-    text-decoration: underline;
-}
-
-.contributors {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-}
-
-.team-member {
-    margin-bottom: 1rem;
-}
-
-.team-title {
-    font-style: italic;
-    font-weight: 200;
-    margin: 0;
-}
-
 /* ----- SEARCHING ----- */
 
 #searchfield {
-    margin: 4rem auto;
+    margin: 2rem auto 0 auto;
     width: 85%;
 }
 
@@ -243,7 +155,7 @@ main h1 {
 
 #search {
     width: 80%;
-    border: 1px solid var(--secondary);
+    border: 1px solid var(--primary);
     border-right: none;
     padding: 10px 0 10px 10px;
     font-size: 16px;
@@ -287,7 +199,7 @@ textarea:focus, input:focus{
 }
 
 .resource h2 {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-family: 'EB Garamond', serif;
 }
 
@@ -301,7 +213,7 @@ textarea:focus, input:focus{
 }
 
 .resource p {
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 300;
 }
 
@@ -329,8 +241,8 @@ textarea:focus, input:focus{
     border: none;
     text-align: left;
     outline: none;
-    font-size: 15px;
-    transition: 0.4s;
+    font-size: 0.8rem;
+    transition: 0.2s;
   }
   
 .active, .accordion:hover {
@@ -351,6 +263,9 @@ textarea:focus, input:focus{
 
 
 /* ----- LOADER ----- */
+#loader {
+    margin-top: 60px;
+}
 .loader {
     border: 8px solid #f3f3f3;
     border-top: 8px solid var(--tertiary);
@@ -378,3 +293,126 @@ textarea:focus, input:focus{
     align-items: center;
     justify-content: center;
 }
+
+
+/* ----- FOOTER ----- */
+
+
+footer {
+    position: absolute;
+    bottom: 0;
+    background-color: var(--primary);
+    width: 100%;
+}
+
+.footer-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1rem 1rem 0.5rem 1rem;
+    text-align: right;
+}
+
+.footer-wrapper p {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 100;
+    color: white;
+    padding-bottom: 5px;
+}
+
+.cc-logo {
+    width: 70px;
+}
+
+
+/* ----- MAIN ----- */
+
+main {
+    max-width: 800px;
+    margin: 0 auto 150px auto;
+    padding: 0 1rem;
+    font-family: 'Lato', sans-serif;
+}
+
+/* ----- SUBPAGES ----- */
+
+.subpage h1 {
+    font-family: 'EB Garamond', serif;
+    font-size: 2.5rem;
+    margin: 3rem 0 2rem 0;
+    text-align: center;
+}
+
+.subpage a {
+    color: var(--primary);
+    text-decoration: underline;
+}
+
+.subpage a:hover {
+    color: var(--tertiary)
+}
+
+.subpage h2 {
+    margin-top: 2.5rem;
+    padding-bottom: 1rem;
+    font-family: 'EB Garamond', serif;
+}
+
+.subpage p {
+    margin-bottom: 1rem;
+}
+
+.subpage ul {
+    list-style-type: circle;
+    padding-left: 2rem;
+}
+
+.subpage li {
+    padding-bottom: 1rem;
+}
+
+
+/* ----- ABOUT ----- */
+
+.contributors {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    padding: 2rem 0;
+}
+
+.contributors p {
+    font-weight: bold;
+}
+
+.main-contributor img {
+    max-width: 100px;
+}
+
+.collaborating-contributors {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.collaborating-contributors img {
+    max-width: 150px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.team-member {
+    margin-bottom: 1rem;
+}
+
+.team-member p {
+    margin-bottom: 0;
+}
+
+.team-title {
+    font-style: italic;
+    font-weight: 200;
+    margin: 0;
+}
+

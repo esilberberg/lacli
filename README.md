@@ -12,3 +12,6 @@ Google Sheet data is first processed with a [Google Apps Script function](https:
 - Search covers all resource description fields
 - Search only returns those resources that have all search terms in any of their description fields.
 - Ignores diacritics
+
+## getFacets
+This function is under development to determine feasability of creating faceted searching
