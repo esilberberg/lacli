@@ -11,16 +11,13 @@
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;700&family=Lato:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
 
     <link rel="icon" type="image/x-icon" href="media/lane-logo.jpg">
-
-    <script src="app.js"></script>
-
     <link rel="stylesheet" href="styles.css">
 
     <title>LACLI</title>
 </head>
 <body>
     <header>
-        <div class="container"> 
+        <div class="header-content"> 
             <div class="languages">
                 <ul class="lang-nav">
                     <li class="lang">
@@ -37,6 +34,9 @@
            <nav>
               <a href="index.html" class="nav-logo">LACLI</a>
               <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="library.html" class="nav-link">Library</a>
+                </li>
                 <li class="nav-item">
                     <a href="about.html" class="nav-link">About</a>
                 </li>
@@ -138,28 +138,13 @@
     </main>
     <footer>
         <div class="footer-wrapper">
-            <p>Licensed under a Creative Commons<br> Attribution-NonCommercial-ShareAlike<br> 4.0 International License</p>
+            <p class="footer-title">LACLI, 2023</p>
+            <p>Latin American, Caribbean, U.S. Latinx, and Iberian Online Free E-Resources</p>
+            <p>Creative Commons Attribution-Non Commercial-ShareAlike 4.0 International License</p>
             <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" class="cc-logo" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a>
         </div>
     </footer>
 
 
-<script>
-   // ----- NAVIGATION -----
-   const hamburger = document.querySelector(".hamburger");
-   const navMenu = document.querySelector(".nav-menu"); 
-
-   hamburger.addEventListener("click", () => {
-      hamburger.classList.toggle("active-hamburger");
-      navMenu.classList.toggle("active-hamburger");
-   })
-
-   document.querySelectorAll(".nav-link").forEach(n => n.   addEventListener("click", () => {
-      hamburger.classList.remove("active-hamburger");
-      navMenu.classList.remove("active-hamburger");
-   }))
-</script>
+<script src="scripts\navigation.js"></script>
 </body>
-</html>
-
-

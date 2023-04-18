@@ -15,7 +15,6 @@
 
     <title>LACLI</title>
 </head>
-
 <body>
     <header>
         <div class="header-content"> 
@@ -63,19 +62,24 @@
         </div>
     </header>
     <main>
-        <div class="subpage">
-            <h1>Help & Tutorials</h1>
-            <h2>Searching</h2>
-            <ul>
-                <li>Our search function is not case sensitive and ignores diacritics.</li>
-                <li>Our search covers all the description fields for our resources.</li>
-                <li>Each search term separated by a space is treated as an independent search term and linked with the AND operator, which means that all terms must appear somewhere in the description fields for a resource to be returned in the results.</li>
-            </ul>
-            <h2>Tutorials</h2>
-            <p>Here are some suggestions on how to search with LACLI...</p>
-            <h2>Indexing</h2>
-            <p>LACLI uses The Hispanic American Periodicals Index (HAPI) Subject Headings....</p>
-        </div>
+        <section id="library-searchfield">
+            <div class="search-top-line">
+                <div class="library-search-wrapper">
+                    <input autocomplete="off" type="text" id="library-search" placeholder="Search...">
+                    <button id="library-search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>  
+                </div>
+                <div class="search-tools">
+                    <button id="random-btn"><i class="fa-solid fa-bolt"></i> Random</button>
+                    <button id="export-btn"><i class="fa-solid fa-up-right-from-square"></i> Export</button>
+                </div>
+            </div>
+        </section>
+        <div id="search-summary"></div>
+
+        <section id="loader">
+            <div class="loader"></div>
+        </section>
+        <section id="display"></section>    
     </main>
     <footer>
         <div class="footer-wrapper">
@@ -85,5 +89,7 @@
             <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" class="cc-logo" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a>
         </div>
     </footer>
+
+<script src="scripts\app.js"></script>
 <script src="scripts\navigation.js"></script>
 </body>

@@ -8,13 +8,13 @@
     --secondary: #54514a;
     --tertiary: #9B0000;
     --highlight: #FDEFC8;
-    
+
     min-height: 100vh;
     position: relative;
 }
 
 
-/* ----- NAVIGATION ----- */
+/* ----- HEADER ----- */
 header {
     background-color: var(--primary);
     font-family: 'EB Garamond', serif;
@@ -30,6 +30,14 @@ header a{
     text-decoration: none;
 }
 
+.header-content {
+    max-width: 1500px;
+    padding: 0 2rem;
+    margin: 0 auto;
+}
+
+/* ----- HEADER LANGUAGE ----- */
+
 .lang-nav {
     display: flex;
     justify-content: flex-end;
@@ -37,7 +45,7 @@ header a{
     padding-top: 10px;
 }
 .lang {
-    padding-left: 10px;
+    padding-left: 20px;
     font-family: 'Lato', sans-serif;
 }
 
@@ -47,14 +55,9 @@ header a{
 
 .lang-link:hover {
     font-weight: bold;
-
 }
 
-.container{
-    max-width: 1100px;
-    width: 90%;
-    margin: 0 auto;
-}
+/* ----- HEADER NAVIGATION ----- */
 
 nav{
     min-height: 70px;
@@ -121,7 +124,7 @@ nav{
    .nav-menu{
       position: fixed;
       left: -100%;
-      top: 95px;
+      top: 99px;
       gap: 0;
       flex-direction: column;
       background-color: var(--secondary);
@@ -139,57 +142,209 @@ nav{
     }
 }
 
-/* ----- SEARCHING ----- */
-
-#searchfield {
-    margin: 2rem auto 0 auto;
-    width: 85%;
+/* ----- INDEX HERO ----- */
+#index-searchfield .hero-img {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/media/mapa-metztitlan.png");
+    position: relative;
+    height: 60vh;
+    overflow: hidden;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
-.search-wrapper {
-    margin: 0 auto;
+#index-searchfield .hero-content {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    text-align: center;
+    width: 80vw;
+    max-width: 800px;
+}
+
+#index-searchfield .hero-content p {
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: 3rem;
+    text-shadow: 0 0 10px black;
+}
+
+#index-searchfield .hero-search-wrapper {
     display: flex;
     justify-content: center;
-    max-width: 500px;
+
 }
 
-#search {
-    width: 80%;
+#index-search {
+    width: 100%;
     border: 1px solid var(--primary);
     border-right: none;
-    padding: 10px 0 10px 10px;
-    font-size: 16px;
+    padding: 15px 0 15px 15px;
+    font-family: 'Lato', sans-serif;
+    font-size: 20px;
 }
 
 textarea:focus, input:focus{
     outline: none;
 }
 
-#search-button {
+#index-search-btn {
     width: 20%;
-    max-width: 70px;
     border: none;
     color: white;
     background-color: var(--primary);
     font-size: 18px;
 }
 
-#search-button:hover {
+#index-search-btn i {
+    font-size: 20px;
+}
+
+#index-search-btn:hover {
     background: var(--tertiary);
     cursor: pointer;
 }
 
-.count-wrapper {
-    max-width: 500px;
-    margin: 0 auto;
-    padding-left: 2.2%;
+/* ----- INDEX NEWS ----- */
+#news {
+    max-width: 1500px;
+    padding: 0 1rem;
+    margin: 2rem auto;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 2rem;
 }
 
-#count {
-    font-style: italic;
-    font-weight: 300;
-    padding-top: 5px;
+#news .news-item {
+    padding: 20px;
+    height: 400px;
+    background-color: var(--primary);
+    color: white;
+}
+
+#news .news-item p {
+    font-family: 'Lato', sans-serif;
+    margin-top: 20px;
+}
+
+@media(max-width: 800px){
+    #news {
+        flex-direction: column;
+    }
+}
+
+
+/* ----- FOOTER ----- */
+footer {
+    position: absolute;
+    bottom: 0;
+    background-color: var(--primary);
+    width: 100%;
+}
+
+.footer-wrapper {
+    padding: 1rem 1rem 0.5rem 1rem;
+    text-align: center;
+}
+
+.footer-wrapper p {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 100;
+    color: white;
+    padding-bottom: 5px;
+}
+
+.cc-logo {
+    width: 70px;
+}
+
+/* ----- MAIN ----- */
+
+main {
+    max-width: 800px;
+    margin: 0 auto 150px auto;
+    padding: 0 1rem;
+    font-family: 'Lato', sans-serif;
+}
+
+/* ----- LIBRARY ----- */
+#library-searchfield {
+    margin-top: 3rem;
+}
+
+.search-top-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search-tools {
+    display: flex;
+    justify-content: right;
+    gap: 5px;
+}
+
+.search-tools button {
+    border: none;
+    color: #555;
     font-size: 0.8rem;
+    background-color: rgba(0,0,0,0.08);
+    padding: 0.8rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.search-tools button:hover {
+    background-color: var(--highlight);
+}
+
+.library-search-wrapper {
+    width: 70%;
+    display: flex;
+}
+
+#library-search {
+    width: 100%;
+    border: 1px solid var(--primary);
+    border-right: none;
+    padding: 0.5rem 0 0.5rem 1rem;
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+}
+
+#library-search-btn {
+    width: 15%;
+    border: none;
+    color: white;
+    background-color: var(--primary);
+    font-size: 18px;
+}
+
+#library-search-btn:hover {
+    background-color: var(--tertiary);
+    cursor: pointer;
+}
+
+#search-summary{
+    margin: 3rem 0;
+    padding: 10px 0 10px 1rem;
+    font-size: 0.9rem;
+    font-style: italic;
+    background-color: var(--highlight);
+}
+
+@media(max-width: 800px){
+    .search-top-line {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+    }
+    .library-search-wrapper {
+        width: 100%;
+    }
 }
 
 /* ----- RESOURCE DISPLAY ----- */
@@ -295,45 +450,6 @@ textarea:focus, input:focus{
 }
 
 
-/* ----- FOOTER ----- */
-
-
-footer {
-    position: absolute;
-    bottom: 0;
-    background-color: var(--primary);
-    width: 100%;
-}
-
-.footer-wrapper {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 1rem 1rem 0.5rem 1rem;
-    text-align: right;
-}
-
-.footer-wrapper p {
-    font-family: 'Lato', sans-serif;
-    font-size: 0.7rem;
-    font-weight: 100;
-    color: white;
-    padding-bottom: 5px;
-}
-
-.cc-logo {
-    width: 70px;
-}
-
-
-/* ----- MAIN ----- */
-
-main {
-    max-width: 800px;
-    margin: 0 auto 150px auto;
-    padding: 0 1rem;
-    font-family: 'Lato', sans-serif;
-}
-
 /* ----- SUBPAGES ----- */
 
 .subpage h1 {
@@ -402,6 +518,31 @@ main {
     object-fit: contain;
 }
 
+@media(max-width: 600px){
+    .contributors {
+        flex-direction: column;
+        align-items: center;
+    }
+    .collaborating-contributors {
+        padding-top: 3rem;
+    }
+    .contributors p{
+        margin-bottom: 0.5rem;
+    }
+
+    .main-contributor p{
+        text-align: center;
+    }
+    .main-contributor img {
+        max-width: 120px;
+    }
+    .collaborating-contributors img {
+        max-width: 180px;
+        height: 80px;
+    }
+
+}
+
 .team-member {
     margin-bottom: 1rem;
 }
@@ -415,4 +556,3 @@ main {
     font-weight: 200;
     margin: 0;
 }
-
