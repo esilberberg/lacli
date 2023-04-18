@@ -1,5 +1,5 @@
 const baseURL = window.location.origin;
-const searchURL = `${baseURL}/library.html?`;
+const searchURL = `${baseURL}/lacli/library.html?`;
 
 const indexSearchBtn = document.getElementById('index-search-btn');
 const indexSearchInput = document.getElementById('index-search');
