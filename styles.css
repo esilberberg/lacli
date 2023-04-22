@@ -8,9 +8,6 @@
     --secondary: #54514a;
     --tertiary: #9B0000;
     --highlight: #FDEFC8;
-
-    min-height: 100vh;
-    position: relative;
 }
 
 
@@ -47,10 +44,6 @@ header a{
 .lang {
     padding-left: 20px;
     font-family: 'Lato', sans-serif;
-}
-
-.lang-link {
-    transition: 0.3s ease-out;
 }
 
 .lang-link:hover {
@@ -146,7 +139,7 @@ nav{
 #index-searchfield .hero-img {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("media/mapa-metztitlan.png");
     position: relative;
-    height: 60vh;
+    height: 75vh;
     overflow: hidden;
     background-size: cover;
     background-repeat: no-repeat;
@@ -180,6 +173,7 @@ nav{
 #index-search {
     width: 100%;
     border: 1px solid var(--primary);
+    border-radius: 0;
     border-right: none;
     padding: 15px 0 15px 15px;
     font-family: 'Lato', sans-serif;
@@ -207,67 +201,129 @@ textarea:focus, input:focus{
     cursor: pointer;
 }
 
-/* ----- INDEX NEWS ----- */
-#news {
-    max-width: 1500px;
+/* ----- MAIN ----- */
+
+main {
+    max-width: 800px;
+    margin: 0 auto 6rem auto;
     padding: 0 1rem;
-    margin: 2rem auto;
-    display: flex;
-    justify-content: space-evenly;
-    gap: 2rem;
-}
-
-#news .news-item {
-    padding: 20px;
-    height: 400px;
-    background-color: var(--primary);
-    color: white;
-}
-
-#news .news-item p {
     font-family: 'Lato', sans-serif;
-    margin-top: 20px;
 }
 
-@media(max-width: 800px){
-    #news {
-        flex-direction: column;
-    }
+/* ----- INDEX CONTENT ----- */
+#index-content {
+    max-width: 1000px;
+    margin: 3rem auto;
+    padding: 0 2rem;
+}
+
+.index-item {
+    margin-bottom: 5rem;
+    padding-left: 2rem;
+    border-left: 5px solid var(--primary);
+}
+
+.index-item h2 {
+    font-size: 2rem;
+    color: var(--primary);
+    padding-bottom: 1rem;
+}
+
+.index-item p {
+    font-family: 'Lato', sans-serif;
 }
 
 
 /* ----- FOOTER ----- */
 footer {
-    position: absolute;
-    bottom: 0;
     background-color: var(--primary);
     width: 100%;
 }
 
 .footer-wrapper {
-    padding: 1rem 1rem 0.5rem 1rem;
-    text-align: center;
+    padding: 4rem 4rem 2rem 4rem;
+    font-family: 'EB Garamond', serif;
+    color: white;
+    font-size: 1rem;
+    display: flex;
+    justify-content: space-around;
+    max-width: 1500px;
+    margin: 0 auto;
 }
 
-.footer-wrapper p {
-    font-family: 'Lato', sans-serif;
-    font-size: 0.7rem;
-    font-weight: 100;
+.footer-identity {
+    width: 300px;
+}
+
+.footer-identity h2 {
+    font-size: 2.5rem;
+}
+
+.footer-wrapper li {
+    list-style: none;
+    padding-bottom: 2px;
+}
+
+.footer-wrapper a {
     color: white;
+    text-decoration: none;
+}
+
+.footer-wrapper a:hover {
+    color: var(--highlight);
+}
+
+.footer-col {
+    padding-right: 2rem;
+}
+
+#cc {
+    width: 250px;
+}
+
+#cc img {
+    display: block;
     padding-bottom: 5px;
 }
 
-.cc-logo {
-    width: 70px;
+@media(max-width: 1050px){
+    .footer-wrapper {
+        flex-wrap: wrap;
+        justify-content: space-between
+    }
+    #cc {
+        padding-top: 3rem;
+        width: 100%;
+        font-size: 0.8rem;
+    }
 }
-
-/* ----- MAIN ----- */
-
-main {
-    max-width: 800px;
-    margin: 0 auto 150px auto;
-    padding: 0 1rem;
-    font-family: 'Lato', sans-serif;
+@media(max-width: 750px){
+    .footer-wrapper {
+        display: block;
+        padding: 4rem 2rem 0 2rem;
+    }
+    .footer-identity {
+        border-bottom: 4px solid white;
+        width: 100%;
+        padding-bottom: 10px;
+        margin: 0 auto 2rem auto;
+        text-align: center;
+    }
+    .footer-col {
+        padding: 0 0 2.5rem 0;
+    }
+    .footer-col ul {
+        display: flex;
+        justify-content: space-evenly;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+    #cc {
+        text-align: center;
+    }
+    #cc img {
+        display: inline-block;
+    }
 }
 
 /* ----- LIBRARY ----- */
