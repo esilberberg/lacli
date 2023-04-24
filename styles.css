@@ -214,13 +214,33 @@ main {
 #index-content {
     max-width: 1000px;
     margin: 3rem auto;
-    padding: 0 2rem;
+    padding: 0 1rem;
 }
 
 .index-item {
     margin-bottom: 5rem;
-    padding-left: 2rem;
-    border-left: 5px solid var(--primary);
+}
+
+.populations {
+    display: flex;
+    justify-content: space-between;
+}
+
+.pop {
+    text-align: center;
+    width: 33%;
+    padding: 0 2rem;
+}
+
+@media(max-width:700px){
+    .populations {
+        flex-direction: column;
+        align-items: center;
+    }
+    .pop {
+        width: 60%;
+        padding: 0 0 5rem 0;
+    }
 }
 
 .index-item h2 {
