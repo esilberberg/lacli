@@ -28,6 +28,7 @@ async function fetchData(url) {
     return data;
 }
 
+
 function displayData(data, searchQuery) {
     storeData(data);
     // Generate HTML for filtered data and display on the page
@@ -149,9 +150,9 @@ async function filterData(url, searchQuery) {
     loader.style.display = 'none';
 
     // Display filtered data
-    
     displayData(filteredData, searchQuery);
 }
+
 
 async function getRandomResource() {
     // Show loading animation
