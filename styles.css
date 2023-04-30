@@ -254,13 +254,24 @@ main {
 }
 
 
-/* ----- FOOTER ----- */
-footer {
+/* ----- FOOTERS ----- */
+
+/* Secondary Footer: Only on library.html */
+footer.footer-secondary {
+    font-family: 'EB Garamond', serif;
+    color: var(--secondary);
+    text-align: center;
+    font-size: 0.8rem;
+    padding: 3rem 3rem 1rem 3rem;
+}
+
+/* Primary Footer: On all other pages */
+footer.footer-primary {
     background-color: var(--primary);
     width: 100%;
 }
 
-.footer-wrapper {
+.footer-wrapper-primary {
     padding: 4rem 4rem 2rem 4rem;
     font-family: 'EB Garamond', serif;
     color: white;
@@ -279,17 +290,17 @@ footer {
     font-size: 2.5rem;
 }
 
-.footer-wrapper li {
+.footer-wrapper-primary li {
     list-style: none;
     padding-bottom: 2px;
 }
 
-.footer-wrapper a {
+.footer-wrapper-primary a {
     color: white;
     text-decoration: none;
 }
 
-.footer-wrapper a:hover {
+.footer-wrapper-primary a:hover {
     color: var(--highlight);
 }
 
@@ -307,7 +318,7 @@ footer {
 }
 
 @media(max-width: 1050px){
-    .footer-wrapper {
+    .footer-wrapper-primary {
         flex-wrap: wrap;
         justify-content: space-between
     }
@@ -318,7 +329,7 @@ footer {
     }
 }
 @media(max-width: 750px){
-    .footer-wrapper {
+    .footer-wrapper-primary {
         display: block;
         padding: 4rem 2rem 0 2rem;
     }
@@ -385,6 +396,7 @@ footer {
 #library-search {
     width: 100%;
     border: 1px solid var(--primary);
+    border-radius: 0;
     border-right: none;
     padding: 0.5rem 0 0.5rem 1rem;
     font-family: 'Lato', sans-serif;
@@ -412,6 +424,20 @@ footer {
     background-color: var(--highlight);
 }
 
+.top-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+    z-index: 99;
+    border: none;
+    background-color: transparent;
+    font-size: 2.5rem;
+    color: var(--tertiary);
+    cursor: pointer;
+  }
+  
+
 @media(max-width: 800px){
     .search-top-line {
         flex-direction: column;
@@ -432,6 +458,9 @@ footer {
 .resource h2 {
     font-size: 1.3rem;
     font-family: 'EB Garamond', serif;
+    padding: 0;
+    margin: 0;
+    line-height: 1.2;
 }
 
 .resource a {
@@ -443,14 +472,14 @@ footer {
     color: var(--tertiary);
 }
 
+.institution {
+    font-style: italic;
+    padding-bottom: 0.4rem;
+}
+
 .resource p {
     font-size: 0.9rem;
     font-weight: 300;
-}
-
-.institution {
-    font-style: italic;
-    margin-bottom: 0.2rem;
 }
 
 .heading {
