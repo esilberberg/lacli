@@ -1,3 +1,5 @@
+// Carries search terms from index.html within the URL to the library.html for initial search
+
 const baseURL = window.location.origin;
 const searchURL = `${baseURL}/lacli/library.html?`;
 
