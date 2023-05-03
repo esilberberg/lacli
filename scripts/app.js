@@ -39,7 +39,7 @@ function displayData(data, searchQuery) {
             <div class="heading">
                 <h2><a target="blank" href="${object.URL}"><span class="counter">${counter++}. </span>${object.Resource_Title}</a></h2>
                 <p class="institution">${object.Institutional_Host}</p>
-                <p><span class="inline-label">Subjects: </span>${object.Broad_Subject_Categories}</p>
+                <p><span class="inline-label">Subject Area: </span>${object.Broad_Subject_Categories}</p>
                 <p><span class="inline-label">Country: </span>${object.Country_Coverage}</p>
                 <p><span class="inline-label">Type: </span>${object.Resource_Type}</p>
             </div>
