@@ -43,8 +43,8 @@ function displayData(data, searchQuery) {
                 <p><span class="inline-label">Country: </span>${object.Country_Coverage}</p>
                 <p><span class="inline-label">Type: </span>${object.Resource_Type}</p>
             </div>
-            <button class="accordion">Details <i class="fa-solid fa-caret-down"></i></button>
-            <div class="panel">
+            <button class="resource-accordion">Details <i class="fa-solid fa-caret-down"></i></button>
+            <div class="resource-panel">
                 <div class="field">
                     <p class="label">Summary:</p>
                     <p class="value">${object.Summary}</p>
@@ -96,12 +96,12 @@ function displayData(data, searchQuery) {
     }
 
     // Accordion for extended resource records display
-    var acc = document.getElementsByClassName("accordion");
+    var acc = document.getElementsByClassName("resource-accordion");
     var i;
 
     for (i = 0; i < acc.length; i++) {
     acc[i].addEventListener("click", function() {
-        this.classList.toggle("active");
+        this.classList.toggle("resource-accordion-active");
         var panel = this.nextElementSibling;
         if (panel.style.display === "block") {
         panel.style.display = "none";

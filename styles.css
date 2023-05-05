@@ -584,7 +584,7 @@ footer.footer-primary {
     color: var(--tertiary);
 }
 
-.accordion {
+.resource-accordion {
     background-color: white;
     color: var(--secondary);
     cursor: pointer;
@@ -595,12 +595,12 @@ footer.footer-primary {
     transition: 0.2s;
   }
   
-.active, .accordion:hover {
+.resource-accordion-active, .resource-accordion:hover {
     background-color: white;
     color: var(--primary);
 }
   
-.panel {
+.resource-panel {
     padding: 0 18px;
     display: none;
     background-color: white;
@@ -712,7 +712,64 @@ footer.footer-primary {
     display: none;
   }
   
-  #collaborators-accordion.active {
+  #collaborators-accordion.collaborators-accordion-active {
     display: block;
   }
+
+
+/* ----- HELP ----- */
+.help-accordion-wrapper {
+    padding-bottom: 100px;
+}
+
+.help-accordion-btn {
+    background-color: #eee;
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem ;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+}
   
+.help-accordion-active, .help-accordion-btn:hover {
+    background-color: #ccc;
+}
+
+.help-accordion-btn:after {
+    content: '\0002B'; /* Unicode character for "plus" sign (+) */
+    font-size: 18px;
+    font-weight: 600;
+    color: #777;
+    float: right;
+    margin-left: 5px;
+}
+  
+.help-accordion-active:after {
+    content: "\02013"; /* Unicode character for "minus" sign (-) */
+}
+  
+.help-accordion-panel {
+    padding: 0 18px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
+.help-accordion-panel ul {
+    padding: 1rem 2rem 2rem 2rem;
+}
+.help-accordion-panel p {
+    padding: 1rem 2rem 2rem 2rem;
+}
+.help-suggestion {
+    list-style: none;
+    font-style: italic;
+    padding-left: 5rem;
+    padding-bottom: 2rem !important;
+    color: var(--tertiary);
+}
