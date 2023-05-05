@@ -23,15 +23,26 @@ document.querySelectorAll(".nav-link").forEach((n) =>
 // Return to top button on library.html
 const topButton = document.getElementById('topButton');
 
-window.addEventListener('scroll', () => {
-  if (window.pageYOffset > 100) {
-    topButton.style.display = 'block';
-  } else {
-    topButton.style.display = 'none';
-  }
-});
+if (topButton) {
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 100) {
+            topButton.style.display = 'block';
+        } else {
+            topButton.style.display = 'none';
+        }
+    });
 
-topButton.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-  
+    topButton.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
+
+// About page contributors accordion
+const collaboratorsHeading = document.getElementById('collaborators-heading');
+const collaboratorsAccordion = document.getElementById('collaborators-accordion');
+
+if (collaboratorsHeading && collaboratorsAccordion) {
+    collaboratorsHeading.addEventListener('click', function() {
+        collaboratorsAccordion.classList.toggle('active');
+    });
+}
