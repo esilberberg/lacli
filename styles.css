@@ -719,7 +719,7 @@ footer.footer-primary {
 
 /* ----- HELP ----- */
 .help-accordion-wrapper {
-    padding-bottom: 100px;
+    padding-bottom: 150px;
 }
 
 .help-accordion-btn {
@@ -737,7 +737,7 @@ footer.footer-primary {
 }
   
 .help-accordion-active, .help-accordion-btn:hover {
-    background-color: #ccc;
+    background-color: var(--highlight);
 }
 
 .help-accordion-btn:after {
@@ -764,12 +764,25 @@ footer.footer-primary {
     padding: 1rem 2rem 2rem 2rem;
 }
 .help-accordion-panel p {
-    padding: 1rem 2rem 2rem 2rem;
+    padding: 1rem 2rem 2rem 0;
 }
-.help-suggestion {
+
+.sample-questions li {
+    padding-bottom: 0;
+}
+
+.sample-question-suggestion {
     list-style: none;
     font-style: italic;
-    padding-left: 5rem;
     padding-bottom: 2rem !important;
     color: var(--tertiary);
+}
+
+@media(max-width: 500px){
+    .help-accordion-btn:after {
+        content: none;
+    }
+    .help-accordion-active:after {
+        content: none;
+    }
 }
