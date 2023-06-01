@@ -72,58 +72,34 @@
     </header>
     <main>
         <div class="subpage">
-            <h1>Help</h1>
-            <div class="help-accordion-wrapper">
-                <button class="help-accordion-btn">How does the library search feature work?</button>
-                <div class="help-accordion-panel">
-                    <ul>
-                        <li>Searches are not case sensitive and ignore diacritics.</li>
-                        <li>Search terms separated by a space are treated as independent search terms and are linked with the AND operator.</li>
-                        <li>Truncation, wildcards, and quotation marks are not supported.</li>
-                        <li>Searches cover all resource description fields.</li>
-                        <li>All search terms must appear somewhere in the resource description fields for a resource to be returned in the results.</li>
-                        <li>There are two ways to save a search: Copy the url from the results page or use the export button to download the results data in a JSON file.</li>
-                    </ul>
+            <h1>Contact</h1>
+            <section id="contact">
+                <div class="contact-text">
+                    <p>LACLI is an ongoing project and we value your feedback.</p>
+                    <p>Share your thoughts or discoveries with us using the form provided or reach out via email at:</p>
+                    <p>lacliproject@gmail.com</p>
                 </div>
-                <button class="help-accordion-btn">What are some questions I can answer with LACLI? </button>
-                <div id="help-questions" class="help-accordion-panel">
-                    <ul class="sample-questions">
-                        <li>Where can I find free online visual images about Cuba in the 50s and 60s?
-                        </li>
-                        <li class="sample-question-suggestion">Try searching: Cuba images 1950</li>
-                        <li>Where can I find the most comprehensive open access data projects and resources on slavery?</li>
-                        <li class="sample-question-suggestion">Try searching: slavery data</li>
-                        <li>Where can I find freely available online encyclopedias, dictionaries, etc. to support my reference work?
-                        </li>
-                        <li class="sample-question-suggestion">Try searching: reference </li>
-                        <li>Where can I find a list of oral histories from Latin America?
-                        </li>
-                        <li class="sample-question-suggestion">Try searching: oral history</li>
-                        <li>Where can I find the most comprehensive resources focusing on Latin America ephemera?</li>
-                        <li class="sample-question-suggestion">Try searching: ephemera</li>
-                    </ul>
-                </div>
-                <button class="help-accordion-btn">What types of resources are in the repository?</button>
-                <div class="help-accordion-panel">
-                    <ul>
-                        <li>Resources with full content.</li>
-                        <li>Resources with valuable but partial online digital content. Example: <a href="https://www.loc.gov/rr/hispanic/archive.html" target="_blank">Archive of Hispanic Literature on Tape</a></li>
-                        <li>Resources that are part of a larger project but include a distinctive stable link to content within our scope. Example: <a href="https://www.loc.gov/collections/world-digital-library/about-this-collection/" target="_blank">World Digital Library : Latin America and the Caribbean</a></li>
-                        <li>Resources that include some content  of our interest such as international organizations, governmental agencies, think tanks etc. but they do not provide a distinctive stable link within our scope.</li>
-                        <li>Free does not always mean open access.
-                        </li>
-                    </ul>
-                </div>
-                <button class="help-accordion-btn">How are resources described?</button>
-                <div class="help-accordion-panel">
-                    <p>The Hispanic American Periodicals Index....</p>
-                </div>
-                <button class="help-accordion-btn">Can I suggest resources to the repository?</button>
-                <div class="help-accordion-panel">
-                    <p>Yes! Please use <a href="https://docs.google.com/forms/d/e/1FAIpQLSfJGksX1uBHoNNTHSPsRv9wQp4K0yYc4a-OmLMUrciXYqfwMg/viewform" target="_blank">this form to submit</a> your favorite online resources or a project you've developed.</p>
-                </div>
-
-            </div>
+                <div class="contact-form">
+                    <form target="_blank" action="https://formsubmit.co/ericsil218@gmail.com" method="POST">
+                      <div class="form-group">
+                        <div class="form-row">
+                          <div class="col">
+                            <input type="text" name="name" class="form-control" placeholder="Full Name" required>
+                          </div>
+                          <div class="col">
+                            <input type="email" name="email" class="form-control" placeholder="Email Address" required>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <textarea placeholder="Your Message" class="form-control" name="message" rows="10" required></textarea>
+                      </div>
+                      <button type="submit" class="contact-btn">Send</button>
+                      <input type="hidden" name="_next" value="http://127.0.0.1:5500/message-sent.html">
+                    </form>
+                  </div>
+            </section>
+            
 
         </div>
     </main>

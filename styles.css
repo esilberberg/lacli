@@ -786,3 +786,58 @@ footer.footer-primary {
         content: none;
     }
 }
+
+/* ----- CONTACT ----- */
+
+#contact {
+    display: flex;
+    gap: 2rem;
+}
+
+.form-control {
+    width: 500px;
+    font-family: 'Lato', sans-serif;
+    padding: 1rem 0.5rem;
+    font-size: 1rem;
+}
+
+.col {
+    margin-bottom: 1rem;
+}
+
+.contact-btn {
+    border: none;
+    background-color: var(--primary);
+    color: white;
+    padding: 1rem;
+    margin-top: 1rem;
+    width: 50%;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 1rem;
+}
+
+.contact-btn:hover {
+    background-color: var(--tertiary);
+}
+
+.sent {
+    text-align: center;
+    padding-bottom: 500px;
+}
+
+@media(max-width: 750px){
+    #contact {
+        display: block;
+        gap: 0;
+    }
+    .contact-form {
+        margin-top: 4rem;
+    }
+    #contact form {
+        width: 95%;
+    }
+    .form-control {
+        width: 100%;
+    }
+}
