@@ -39,11 +39,11 @@ function displayData(data, searchQuery) {
             <div class="heading">
                 <h2><a target="blank" href="${object.URL}"><span class="counter">${counter++}. </span>${object.Resource_Title}</a></h2>
                 <p class="institution">${object.Institutional_Host}</p>
-                <p><span class="inline-label">Subject Area: </span>${object.Broad_Subject_Categories}</p>
+                <p><span class="inline-label">Broad Subject Areas: </span>${object.Broad_Subject_Categories}</p>
                 <p><span class="inline-label">Country: </span>${object.Country_Coverage}</p>
-                <p><span class="inline-label">Type: </span>${object.Resource_Type}</p>
+                <p><span class="inline-label">Resource Types: </span>${object.Resource_Type}</p>
             </div>
-            <button class="resource-accordion">Details <i class="fa-solid fa-caret-down"></i></button>
+            <button aria-label="Expand Details" class="resource-accordion">Details <i class="fa-solid fa-caret-down"></i></button>
             <div class="resource-panel">
                 <div class="field">
                     <p class="label">Summary:</p>
@@ -66,16 +66,12 @@ function displayData(data, searchQuery) {
                     <p class="value">${object.Subjects_Portuguese}</p
                 </div>
                 <div class="field">
-                    <p class="label">Format:</p>
+                    <p class="label">Specific Formats:</p>
                     <p class="value">${object.Specific_Formats}</p>
                 </div>
                 <div class="field">
-                    <p class="label">Region:</p>
+                    <p class="label">Geographical Area Coverage:</p>
                     <p class="value">${object.Geographical_Area_Coverage}</p>
-                </div>
-                <div class="field">
-                    <p class="label">Countries:</p>
-                    <p class="value">${object.Country_Coverage}</p>
                 </div>
                 <div class="field">
                     <p class="label">Time Coverage:</p>
