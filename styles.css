@@ -483,6 +483,10 @@ footer.footer-primary {
     display: flex;
 }
 
+#field-selector{
+    margin-right: 2px;
+}
+
 #library-search {
     width: 100%;
     border: 1px solid var(--primary);

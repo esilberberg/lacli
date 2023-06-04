@@ -73,7 +73,12 @@
         <section id="library-searchfield">
             <div class="search-top-line">
                 <div class="library-search-wrapper">
-                    <input autocomplete="off" type="text" id="library-search" placeholder="Search...">
+                    <select name="field-selector" id="field-selector">
+                        <option value="all">All fields</option>
+                        <option value="subject">Subject</option>
+                        <option value="type">Type</option>
+                    </select>
+                    <input autocomplete="off" type="text" id="library-search" placeholder="Keywords...">
                     <button id="library-search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>  
                 </div>
                 <div class="search-tools">

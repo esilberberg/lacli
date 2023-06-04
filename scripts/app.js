@@ -112,12 +112,12 @@ function displayData(data, searchQuery) {
 }
 
 
-// Filter data based on search query
-async function filterData(url, searchQuery) {
+// Filter data based on search parameters
+async function filterData(url, searchQuery, selectedField) {
     // Show loading animation
     loader.style.display = 'block';
     display.style.display = 'none';
-  
+
     // Fetch data from API
     const payload = await fetchData(url);
 
@@ -133,11 +133,33 @@ async function filterData(url, searchQuery) {
         if (!searchQuery) {
             return true;
         } else {
-            return searchTerms.every(term => {
-                return Object.values(eventData).some(value => {
-                    return value && removeDiacritics(value.toString().toLowerCase()).includes(term);
+            if (selectedField === 'subject') {
+                return searchTerms.every(term => {
+                    return [
+                        eventData.Subjects_English,
+                        eventData.Subjects_Spanish,
+                        eventData.Subjects_Portuguese,
+                        eventData.Broad_Subject_Categories
+                    ].some(value => {
+                        return value && removeDiacritics(value.toString().toLowerCase()).includes(term);
+                    });
                 });
-            });
+            } else if (selectedField === 'type') {
+                return searchTerms.every(term => {
+                    return [
+                        eventData.Resource_Type,
+                        eventData.Specific_Formats
+                    ].some(value => {
+                        return value && removeDiacritics(value.toString().toLowerCase()).includes(term);
+                    });
+                });
+            } else {
+                return searchTerms.every(term => {
+                    return Object.values(eventData).some(value => {
+                        return value && removeDiacritics(value.toString().toLowerCase()).includes(term);
+                    });
+                });
+            }
         }
     });
 
@@ -147,6 +169,8 @@ async function filterData(url, searchQuery) {
     // Display filtered data
     displayData(filteredData, searchQuery);
 }
+
+
 
 
 async function getRandomResource() {
@@ -175,10 +199,9 @@ randomBtn.addEventListener('click', async () => {
 
 
 // Filter data based on search query from URL or search bar input
-function runSearch() {
+function runSearch(selectedField) {
     const searchQuery = search.value.trim();
-
-    filterData(apiEndpoint, searchQuery);
+    filterData(apiEndpoint, searchQuery, selectedField);
 
     // Update URL with search query
     const newURL = new URL(window.location.href);
@@ -186,20 +209,26 @@ function runSearch() {
     window.history.pushState(null, '', newURL);
 }
 
+
 // Event listener for librarySearchBtn click
-librarySearchBtn.addEventListener('click', runSearch);
+librarySearchBtn.addEventListener('click', () => {
+    const selectedField = document.getElementById('field-selector').value;
+    runSearch(selectedField);
+});
 
 // Event listener for search input keypress
 search.addEventListener('keypress', (event) => {
     if (event.key === 'Enter') {
-        runSearch();
+        const selectedField = document.getElementById('field-selector').value;
+        runSearch(selectedField);
     }
 });
+
 
 // Run initial search based on URL search terms
 filterData(apiEndpoint, searchParams.get('q'));
 
-// Export JSON Functionality
+// Export to a JSON file functionality
 async function storeData(data) {
     const dataAsString = JSON.stringify(data);
     sessionStorage.setItem('data', dataAsString);
