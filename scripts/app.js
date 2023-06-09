@@ -144,7 +144,7 @@ async function filterData(url, searchQuery, selectedField) {
                         return value && removeDiacritics(value.toString().toLowerCase()).includes(term);
                     });
                 });
-            } else if (selectedField === 'type') {
+            } else if (selectedField === 'format') {
                 return searchTerms.every(term => {
                     return [
                         eventData.Resource_Type,
