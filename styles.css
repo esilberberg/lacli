@@ -34,7 +34,6 @@ header a{
 }
 
 /* ----- HEADER LANGUAGE ----- */
-
 .lang-nav {
     display: flex;
     justify-content: flex-end;
@@ -211,7 +210,6 @@ textarea:focus, input:focus{
 }
 
 /* ----- MAIN ----- */
-
 main {
     max-width: 800px;
     margin: 0 auto 6rem auto;
@@ -483,9 +481,47 @@ footer.footer-primary {
     display: flex;
 }
 
-#field-selector{
-    margin-right: 2px;
+#field-selector {
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    -ms-appearance:none;
+    appearance:none;
+    outline:0;
+    box-shadow:none;
+    border:0!important;
+    background: transparent;
+    background-image: none;
+    flex: 1;
+    padding: 0 0.5em;
+    color:black;
+    cursor:pointer;
+    font-size: 0.8em;
+    font-family: 'Lato', sans-serif;
 }
+
+.select {
+    position: relative;
+    border: 1px solid black;
+    display: flex;
+    width: 7em;
+    background: transparent;
+    overflow: hidden;
+    margin-right: 2px;
+ }
+ .select::after {
+    content: '\23F7';
+    position: absolute;
+    top: 7px;
+    right: 0;
+    padding: 0 3px;
+    background: transparent;
+    cursor:pointer;
+    pointer-events:none;
+    transition:.25s all ease;
+ }
+ .select:hover::after {
+    color: var(--tertiary)
+ }
 
 #library-search {
     width: 100%;
@@ -544,7 +580,6 @@ footer.footer-primary {
 }
 
 /* ----- RESOURCE DISPLAY ----- */
-
 .resource {
     margin: 2rem 0;
 }
@@ -650,7 +685,6 @@ footer.footer-primary {
 
 
 /* ----- SUBPAGES ----- */
-
 .subpage h1 {
     font-family: 'EB Garamond', serif;
     font-size: 2.5rem;
@@ -688,7 +722,6 @@ footer.footer-primary {
 
 
 /* ----- ABOUT ----- */
-
 .team {
     padding-top: 3rem;
 }
@@ -792,7 +825,6 @@ footer.footer-primary {
 }
 
 /* ----- CONTACT ----- */
-
 #contact {
     display: flex;
     gap: 2rem;
