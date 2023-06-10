@@ -15,7 +15,6 @@
 header {
     background-color: var(--primary);
     font-family: 'EB Garamond', serif;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
 header li{
@@ -209,6 +208,18 @@ textarea:focus, input:focus{
     cursor: pointer;
 }
 
+.credit {
+    font-family: 'Lato', sans-serif;
+    font-size: 9px;
+    text-align: right;
+    width: 40%;
+    max-width: 300px;
+    padding: 0.3rem 1rem 0 0;
+    position: absolute;
+    right: 0;
+    color: var(--secondary);
+}
+
 /* ----- MAIN ----- */
 main {
     max-width: 800px;
@@ -220,7 +231,7 @@ main {
 /* ----- INDEX CONTENT ----- */
 #index-content {
     max-width: 1000px;
-    margin: 3rem auto;
+    margin: 5rem auto 3rem auto;
     padding: 0 1rem;
 }
 
