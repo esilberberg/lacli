@@ -497,7 +497,6 @@ footer.footer-primary {
     -moz-appearance:none;
     -ms-appearance:none;
     appearance:none;
-    outline:0;
     box-shadow:none;
     border:0!important;
     background: transparent;
@@ -533,6 +532,10 @@ footer.footer-primary {
  .select:hover::after {
     color: var(--tertiary)
  }
+
+/* .select:focus {
+    border: 1px solid blue;
+} */
 
 #library-search {
     width: 100%;
@@ -648,6 +651,11 @@ footer.footer-primary {
 .resource-accordion-active, .resource-accordion:hover {
     background-color: white;
     color: var(--primary);
+}
+
+.resource-accordion:focus {
+    outline: none;
+    border: 1px solid blue;
 }
   
 .resource-panel {
@@ -800,7 +808,12 @@ footer.footer-primary {
 .help-accordion-active:after {
     content: "\02013"; /* Unicode character for "minus" sign (-) */
 }
-  
+
+.help-accordion-btn:focus {
+    outline: none;
+    border: 1px solid blue;
+}
+
 .help-accordion-panel {
     padding: 0 18px;
     max-height: 0;
