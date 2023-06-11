@@ -44,8 +44,13 @@ header a{
     font-family: 'Lato', sans-serif;
 }
 
+.lang-link {
+    border: 3px solid transparent;
+    transition: 0.3s ease-out;
+}
+
 .lang-link:hover {
-    font-weight: bold;
+    border-bottom-color: white;
 }
 
 /* ----- HEADER NAVIGATION ----- */
@@ -212,7 +217,7 @@ textarea:focus, input:focus{
     font-family: 'Lato', sans-serif;
     font-size: 9px;
     text-align: right;
-    width: 40%;
+    /* width: 40%; */
     max-width: 300px;
     padding: 0.3rem 1rem 0 0;
     position: absolute;
@@ -230,7 +235,7 @@ main {
 
 /* ----- INDEX CONTENT ----- */
 #index-content {
-    max-width: 1000px;
+    max-width: 1300px;
     margin: 5rem auto 3rem auto;
     padding: 0 1rem;
 }
@@ -248,12 +253,13 @@ main {
 
 .populations {
     display: flex;
-    justify-content: space-between;
+    align-items: flex-start;
+    gap: 5%;
 }
 
 .pop {
     text-align: center;
-    padding: 0 2rem;
+    flex: 1;
 }
 
 .index-item h2 {
@@ -532,10 +538,6 @@ footer.footer-primary {
  .select:hover::after {
     color: var(--tertiary)
  }
-
-/* .select:focus {
-    border: 1px solid blue;
-} */
 
 #library-search {
     width: 100%;
