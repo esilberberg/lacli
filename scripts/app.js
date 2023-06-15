@@ -34,6 +34,13 @@ function displayData(data, searchQuery) {
     // Generate HTML for filtered data and display on the page
     let counter = 1;
     let dataDisplay = data.map((object)=>{
+        let creatorsField = object.Creators ? `
+            <div class="field">
+            <p class="label">Creators:</p>
+            <p class="value">${object.Creators}</p>
+            </div>
+        ` : '';
+        
         return `
         <div class="resource">
             <div class="heading">
@@ -77,6 +84,7 @@ function displayData(data, searchQuery) {
                     <p class="label">Time Coverage:</p>
                     <p class="value">${object.Time_Coverage}</p>
                 </div>
+                ${creatorsField}
             </div>
         </div>
         `
@@ -136,19 +144,31 @@ async function filterData(url, searchQuery, selectedField) {
             if (selectedField === 'subject') {
                 return searchTerms.every(term => {
                     return [
-                        eventData.Subjects_English,
-                        eventData.Subjects_Spanish,
-                        eventData.Subjects_Portuguese,
                         eventData.Broad_Subject_Categories
                     ].some(value => {
                         return value && removeDiacritics(value.toString().toLowerCase()).includes(term);
                     });
                 });
-            } else if (selectedField === 'format') {
+            } else if (selectedField === 'type') {
                 return searchTerms.every(term => {
                     return [
-                        eventData.Resource_Type,
-                        eventData.Specific_Formats
+                        eventData.Resource_Type
+                    ].some(value => {
+                        return value && removeDiacritics(value.toString().toLowerCase()).includes(term);
+                    });
+                });
+            } else if (selectedField === 'lang') {
+                return searchTerms.every(term => {
+                    return [
+                        eventData.Language
+                    ].some(value => {
+                        return value && removeDiacritics(value.toString().toLowerCase()).includes(term);
+                    });
+                });
+            } else if (selectedField === 'geo') {
+                return searchTerms.every(term => {
+                    return [
+                        eventData.Geographical_Area_Coverage
                     ].some(value => {
                         return value && removeDiacritics(value.toString().toLowerCase()).includes(term);
                     });

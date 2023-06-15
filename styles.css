@@ -520,7 +520,7 @@ footer.footer-primary {
     padding: 0 0.5em;
     color:black;
     cursor:pointer;
-    font-size: 0.8em;
+    font-size: 0.6em;
     font-family: 'Lato', sans-serif;
 }
 
@@ -528,13 +528,13 @@ footer.footer-primary {
     position: relative;
     border: 1px solid black;
     display: flex;
-    width: 7em;
+    width: 15em;
     background: transparent;
     overflow: hidden;
     margin-right: 2px;
  }
  .select::after {
-    content: '\23F7';
+    content: '⏷';
     position: absolute;
     top: 7px;
     right: 0;
