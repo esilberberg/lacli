@@ -121,77 +121,41 @@ function displayData(data, searchQuery) {
 
 
 // Filter data based on search parameters
-async function filterData(url, searchQuery, selectedField) {
+async function filterData(url, searchQuery) {
     // Show loading animation
     loader.style.display = 'block';
     display.style.display = 'none';
-
+  
     // Fetch data from API
     const payload = await fetchData(url);
-
+  
     if (!searchQuery) {
-        // If no search query provided, return all data
-        loader.style.display = 'none';
-        displayData(payload, '');
-        return;
+      // If no search query provided, return all data
+      loader.style.display = 'none';
+      displayData(payload, '');
+      return;
     }
-
+  
     const searchTerms = searchQuery.toLowerCase().split(/\s+/).map(term => removeDiacritics(term));
     const filteredData = payload.filter(eventData => {
-        if (!searchQuery) {
-            return true;
-        } else {
-            if (selectedField === 'subject') {
-                return searchTerms.every(term => {
-                    return [
-                        eventData.Broad_Subject_Categories
-                    ].some(value => {
-                        return value && removeDiacritics(value.toString().toLowerCase()).includes(term);
-                    });
-                });
-            } else if (selectedField === 'type') {
-                return searchTerms.every(term => {
-                    return [
-                        eventData.Resource_Type
-                    ].some(value => {
-                        return value && removeDiacritics(value.toString().toLowerCase()).includes(term);
-                    });
-                });
-            } else if (selectedField === 'lang') {
-                return searchTerms.every(term => {
-                    return [
-                        eventData.Language
-                    ].some(value => {
-                        return value && removeDiacritics(value.toString().toLowerCase()).includes(term);
-                    });
-                });
-            } else if (selectedField === 'geo') {
-                return searchTerms.every(term => {
-                    return [
-                        eventData.Geographical_Area_Coverage
-                    ].some(value => {
-                        return value && removeDiacritics(value.toString().toLowerCase()).includes(term);
-                    });
-                });
-            } else {
-                return searchTerms.every(term => {
-                    return Object.values(eventData).some(value => {
-                        return value && removeDiacritics(value.toString().toLowerCase()).includes(term);
-                    });
-                });
-            }
-        }
+      if (!searchQuery) {
+        return true;
+      } else {
+        return searchTerms.every(term => {
+          return Object.values(eventData).some(value => {
+            return value && removeDiacritics(value.toString().toLowerCase()).includes(term);
+          });
+        });
+      }
     });
-
+  
     // Hide loader
     loader.style.display = 'none';
-
+  
     // Display filtered data
     displayData(filteredData, searchQuery);
-}
-
-
-
+  }
+  
 
 async function getRandomResource() {
     // Show loading animation
@@ -219,9 +183,9 @@ randomBtn.addEventListener('click', async () => {
 
 
 // Filter data based on search query from URL or search bar input
-function runSearch(selectedField) {
+function runSearch() {
     const searchQuery = search.value.trim();
-    filterData(apiEndpoint, searchQuery, selectedField);
+    filterData(apiEndpoint, searchQuery);
 
     // Update URL with search query
     const newURL = new URL(window.location.href);
@@ -232,15 +196,13 @@ function runSearch(selectedField) {
 
 // Event listener for librarySearchBtn click
 librarySearchBtn.addEventListener('click', () => {
-    const selectedField = document.getElementById('field-selector').value;
-    runSearch(selectedField);
+    runSearch();
 });
 
 // Event listener for search input keypress
 search.addEventListener('keypress', (event) => {
     if (event.key === 'Enter') {
-        const selectedField = document.getElementById('field-selector').value;
-        runSearch(selectedField);
+        runSearch();
     }
 });
 
