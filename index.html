@@ -28,15 +28,15 @@
     <header>
         <div class="header-content"> 
             <div class="languages">
-                <ul class="lang-nav">
+                <ul class="lang-nav" id="language-navbar">
                     <li class="lang">
-                        <a href="#" class="lang-link">ES</a>
+                        <a href="" data-lang="es" class="lang-link" aria-label="Español" lang="es">ES</a>
                     </li>
                     <li class="lang">
-                        <a href="#" class="lang-link">PT</a>
+                        <a href="" data-lang="pt" class="lang-link" aria-label="Português" lang="pt">PT</a>
                     </li>
                     <li class="lang">
-                        <a href="index.html" class="lang-link">EN</a>
+                        <a href="" data-lang="en" class="lang-link lang-link-active" aria-label="English" lang="en">EN</a>
                     </li>
                 </ul>
             </div>
@@ -44,22 +44,22 @@
               <a href="index.html" class="nav-logo"><img src="media\whitesun.svg" alt="lacli-rays" class="lacli-rays-nav">LACLI</a>
               <ul class="nav-menu">
                 <li class="nav-item">
-                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="index.html" class="nav-link" id="nav-home">Home</a>
                   </li>
                 <li class="nav-item">
-                    <a href="library.html" class="nav-link">Library</a>
+                    <a href="library.html" class="nav-link" id="nav-library">Library</a>
                 </li>
                 <li class="nav-item">
-                    <a href="about.html" class="nav-link">About</a>
+                    <a href="about.html" class="nav-link" id="nav-about">About</a>
                 </li>
                 <li class="nav-item">
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfJGksX1uBHoNNTHSPsRv9wQp4K0yYc4a-OmLMUrciXYqfwMg/viewform" target="_blank" class="nav-link">Contribute</a>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfJGksX1uBHoNNTHSPsRv9wQp4K0yYc4a-OmLMUrciXYqfwMg/viewform" target="_blank" class="nav-link" id="nav-contribute">Contribute</a>
                 </li>
                 <li class="nav-item">
-                    <a href="help.html" class="nav-link">Help</a>
+                    <a href="help.html" class="nav-link" id="nav-help">Help</a>
                 </li>
                 <li class="nav-item">
-                    <a href="contact.html" class="nav-link">Contact</a>
+                    <a href="contact.html" class="nav-link" id="nav-contact">Contact</a>
                 </li>
               </ul>
               <div class="hamburger">
@@ -73,7 +73,7 @@
     <section id="index-searchfield">
         <div class="hero-img" alt="&ldquo;Mapa de la Relación Geográfica de Metztitlan&rdquo; // Benson Latin American Collection">
             <div class="hero-content">
-                <p>Explore a repository of free online resources for Latin American, Caribbean, Latinx, and Iberian studies.</p>
+                <p id="hero-text">Explore a repository of free online resources for Latin American, Caribbean, Latinx, and Iberian studies.</p>
                 <div class="hero-search-wrapper">
                     <input autocomplete="off" type="text" id="index-search" placeholder="Search...">
                     <button id="index-search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
@@ -86,31 +86,31 @@
         <div class="index-item">
             <div class="populations">
                 <div class="pop">
-                    <h2><i class="fa-solid fa-graduation-cap"></i> Students</h2>
-                    <p>Explore collections by subject, country, language, time period and more to support original research projects.</p>
+                    <h2><i class="fa-solid fa-graduation-cap"></i> <span id="students">Students</span></h2>
+                    <p id="students-description">Explore collections by subject, country, language, time period and more to support original research projects.</p>
                 </div>
                 <div class="pop">
-                    <h2><i class="fa-solid fa-chalkboard-user"></i> Faculty</h2>
-                    <p>Enhance courses with primary sources, reference materials, scholarly articles, and more!</p>
+                    <h2><i class="fa-solid fa-chalkboard-user"></i> <span id="faculty">Faculty</span></h2>
+                    <p id="faculty-description">Enhance courses with primary sources, reference materials, scholarly articles, and more!</p>
                 </div>
                 <div class="pop">
-                    <h2><i class="fa-solid fa-building-columns"></i> Librarians</h2>
-                    <p>Discover resources for research consultations and develop subject or country-specific research guides.</p>
+                    <h2><i class="fa-solid fa-building-columns"></i> <span id="librarians">Librarians</span></h2>
+                    <p id="librarians-description">Discover resources for research consultations and develop subject or country-specific research guides.</p>
                 </div>
                 <div class="pop">
-                    <h2><i class="fa-solid fa-feather"></i></i> Digital Scholars</h2>
-                    <p>Fuel your digital scholarship projects with open data and primary source collections.</p>
+                    <h2><i class="fa-solid fa-feather"></i> <span id="digital-scholars">Digital Scholars</span></h2>
+                    <p id="digital-scholars-description">Fuel your digital scholarship projects with open data and primary source collections.</p>
                 </div>
             </div>
         </div>
         <div class="index-item">
             <div class="contributors">
                 <div class="main-contributor">
-                    <h3>Developed by</h3>
+                    <h3 id="developed-by">Developed by</h3>
                     <a href="https://salalm.org/lane" target="_blank"><img src="media/lane-logo.jpg" alt="LANE logo"></a>
                 </div>
                 <div class="collaborating-contributors">
-                    <h3>Collaborating Institutions</h3>
+                    <h3 id="collaborating-institutions">Collaborating Institutions</h3>
                     <a href="https://biblioteca.colmex.mx/" target="_blank"><img src="media/colmex-bib-logo.png" alt="Biblioteca Daniel Cosío Villegas"></a>
                     <a href="https://cpdoc.fgv.br/" target="_blank"><img src="media/FGV-CPDOC.png" alt="FGV CPDOC"></a>
                 </div>
@@ -129,32 +129,34 @@
             </div>
             <div class="footer-col">
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="library.html">Library</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="help.html">Help</a></li>
+                    <li><a href="index.html" id="footer-home">Home</a></li>
+                    <li><a href="library.html" id="footer-library">Library</a></li>
+                    <li><a href="about.html" id="footer-about">About</a></li>
+                    <li><a href="contact.html" id="footer-contact">Contact</a></li>
+                    <li><a href="help.html" id="footer-help">Help</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <ul>
-                    <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfJGksX1uBHoNNTHSPsRv9wQp4K0yYc4a-OmLMUrciXYqfwMg/viewform" target="_blank" >Contribute</a></li>
-                    <li><a href="https://docs.google.com/spreadsheets/d/17ngPVWCOFe4YpuDWhP37JJQIFIrrDL0qYbX28iLneWo/edit?usp=sharing" target="_blank">Open Data</a></li>
+                    <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfJGksX1uBHoNNTHSPsRv9wQp4K0yYc4a-OmLMUrciXYqfwMg/viewform" target="_blank" id="footer-contribute">Contribute</a></li>
+                    <li><a href="https://docs.google.com/spreadsheets/d/17ngPVWCOFe4YpuDWhP37JJQIFIrrDL0qYbX28iLneWo/edit?usp=sharing" target="_blank" id="footer-open-data">Open Data</a></li>
                     <li><a href="https://github.com/esilberberg/lacli" target="_blank">GitHub</a></li>
                 </ul>
             </div>
             <div class="footer-col">
-                <ul>
-                    <li><a href="#">Español</a></li>
-                    <li><a href="#">Português</a></li>
-                    <li><a href="index.html">English</a></li>
+                <ul id="footer-language">
+                    <li><a href="" data-lang="es" aria-label="Español" lang="es">Español</a></li>
+                    <li><a href="" data-lang="pt" aria-label="Português" lang="pt">Português</a></li>
+                    <li><a href="" data-lang="en" aria-label="English" lang="en">English</a></li>
                 </ul>
             </div>
             <div class="footer-col" id="cc">
-                <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"><img alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /><p></a>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License, 2023</a>.</p>
+                <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"><img alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /><p></a><span id="cc-license-1">This work is licensed under a</span> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" id="cc-license-2">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License, 2023.</a></p>
             </div>
         </div>
     </footer>
-<script src="scripts\navigation.js"></script>
-<script src="scripts\initQuery.js"></script>
+<script src="scripts/navigation.js"></script>
+<script src="scripts/initQuery.js"></script>
+<script src="./translation/navbar.js"></script>
+<script src="./translation/index.js"></script>
 </body>

@@ -49,8 +49,8 @@ header a{
     transition: 0.3s ease-out;
 }
 
-.lang-link:hover {
-    border-bottom-color: white;
+.lang-link-active {
+    color: var(--highlight);
 }
 
 /* ----- HEADER NAVIGATION ----- */
