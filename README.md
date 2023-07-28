@@ -26,12 +26,12 @@ function doGet(request) {
 }
 ```
 
-## Search Functionality
-- Not case sensitive
-- Each search term separated by a space is treated as an independent search term
-- Search covers all resource description fields
-- Search only returns those resources that have all search terms in any of their description fields.
-- Ignores diacritics
+## Search Functionality (app.js)
+- Searches are not case sensitive and ignore diacritics.
+- Truncation, wildcards, quotation marks, and lemmatization are not supported. It is preferable to search with singular rather than plural nouns.
+- Search terms separated by a space are treated as independent search terms and are linked with the AND operator.
+- All search terms must appear somewhere in the resource description fields for a resource to be returned in the results.
+- To save a search, copy the url from the results page or use the export button to download the results as a JSON file.
 
 ## facets.js
 This script is under development to at some point include faceted searching.
