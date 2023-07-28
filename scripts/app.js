@@ -153,12 +153,35 @@ function displayData(data, searchQuery) {
 
     // Print data to HTML
     display.innerHTML = dataDisplay;
+    const storedLanguage = localStorage.getItem('lacliLanguagePreference');
 
-    if (searchQuery === '') {
-        displaySearchSummary.textContent = `Showing all ${data.length} records.`;
-    } else {
-        displaySearchSummary.textContent = `A search for \u{201C}${searchQuery}\u{201D} returned ${data.length} result${data.length !== 1 ? 's' : ''}.`;
+    if (storedLanguage === 'en' || !storedLanguage){
+        if (searchQuery === '') {
+            displaySearchSummary.textContent = `Showing all ${data.length} records.`;
+        } else {
+            displaySearchSummary.textContent = `A search for \u{201C}${searchQuery}\u{201D} returned ${data.length} result${data.length !== 1 ? 's' : ''}.`;
+        }
     }
+    if (storedLanguage === 'es'){
+        if (searchQuery === '') {
+            displaySearchSummary.textContent = `Mostrando todos los  ${data.length}  resultados.`;
+        } else {
+            displaySearchSummary.textContent = `La búsqueda de \u{201C}${searchQuery}\u{201D} devolvió ${data.length} resultado${data.length !== 1 ? 's' : ''}.`;
+        }
+    }
+    if (storedLanguage === 'pt'){
+        if (searchQuery === '') {
+            displaySearchSummary.textContent = `Exibindo todos ${data.length}  registros.`;
+        } else {
+            displaySearchSummary.textContent = `Sua pesquisa por \u{201C}${searchQuery}\u{201D} retornou ${data.length} resultado${data.length !== 1 ? 's' : ''}.`;
+        }
+    }
+
+    // if (searchQuery === '') {
+    //     displaySearchSummary.textContent = `Showing all ${data.length} records.`;
+    // } else {
+    //     displaySearchSummary.textContent = `A search for \u{201C}${searchQuery}\u{201D} returned ${data.length} result${data.length !== 1 ? 's' : ''}.`;
+    // }
 
     // Accordion for extended resource records display
     var acc = document.getElementsByClassName("resource-accordion");

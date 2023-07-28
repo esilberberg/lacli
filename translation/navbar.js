@@ -95,16 +95,16 @@ document.addEventListener('DOMContentLoaded', function () {
       navHelp.textContent = translations[language].help;
       navContribute.textContent = translations[language].contribute;
 
-      if (footerHome) footerHome.textContent = translations[language].home;
-      if (footerLibrary) footerLibrary.textContent = translations[language].library;
-      if (footerAbout) footerAbout.textContent = translations[language].about;
-      if (footerContact) footerContact.textContent = translations[language].contact;
-      if (footerHelp) footerHelp.textContent = translations[language].help;
-      if (footerContribute) footerContribute.textContent = translations[language].contribute;
-      if (footerOpenData) footerOpenData.textContent = translations[language].openData;
-      if (footerCCLicense1) footerCCLicense1.textContent = translations[language].ccLicense1;
-      if (footerCCLicense2) footerCCLicense2.textContent = translations[language].ccLicense2;
-      if (footerCCLicense2) footerCCLicense2.setAttribute('href', translations[language].ccLicenseURL);
+      footerHome.textContent = translations[language].home;
+      footerLibrary.textContent = translations[language].library;
+      footerAbout.textContent = translations[language].about;
+      footerContact.textContent = translations[language].contact;
+      footerHelp.textContent = translations[language].help;
+      footerContribute.textContent = translations[language].contribute;
+      footerOpenData.textContent = translations[language].openData;
+      footerCCLicense1.textContent = translations[language].ccLicense1;
+      footerCCLicense2.textContent = translations[language].ccLicense2;
+      footerCCLicense2.setAttribute('href', translations[language].ccLicenseURL);
     }
   
     languageNavbar.addEventListener('click', function (event) {

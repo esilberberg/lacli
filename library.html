@@ -27,46 +27,46 @@
     <header>
         <div class="header-content"> 
             <div class="languages">
-                <ul class="lang-nav">
+                <ul class="lang-nav" id="language-navbar">
                     <li class="lang">
-                        <a href="#" class="lang-link">ES</a>
+                        <a href="" data-lang="es" class="lang-link" aria-label="Español" lang="es">ES</a>
                     </li>
                     <li class="lang">
-                        <a href="#" class="lang-link">PT</a>
+                        <a href="" data-lang="pt" class="lang-link" aria-label="Português" lang="pt">PT</a>
                     </li>
                     <li class="lang">
-                        <a href="index.html" class="lang-link">EN</a>
+                        <a href="" data-lang="en" class="lang-link lang-link-active" aria-label="English" lang="en">EN</a>
                     </li>
                 </ul>
             </div>
-            <nav>
-                <a href="index.html" class="nav-logo"><img src="media\whitesun.svg" alt="lacli-rays" class="lacli-rays-nav">LACLI</a>
-                <ul class="nav-menu">
-                  <li class="nav-item">
-                      <a href="index.html" class="nav-link">Home</a>
-                    </li>
-                  <li class="nav-item">
-                      <a href="library.html" class="nav-link">Library</a>
+           <nav>
+              <a href="index.html" class="nav-logo"><img src="media\whitesun.svg" alt="lacli-rays" class="lacli-rays-nav">LACLI</a>
+              <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link" id="nav-home">Home</a>
                   </li>
-                  <li class="nav-item">
-                      <a href="about.html" class="nav-link">About</a>
-                  </li>
-                  <li class="nav-item">
-                      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfJGksX1uBHoNNTHSPsRv9wQp4K0yYc4a-OmLMUrciXYqfwMg/viewform" target="_blank" class="nav-link">Contribute</a>
-                  </li>
-                  <li class="nav-item">
-                      <a href="help.html" class="nav-link">Help</a>
-                  </li>
-                  <li class="nav-item">
-                      <a href="contact.html" class="nav-link">Contact</a>
-                  </li>
-                </ul>
-                <div class="hamburger">
-                   <span class="bar"></span>
-                   <span class="bar"></span>
-                   <span class="bar"></span>
-                </div>
-             </nav>
+                <li class="nav-item">
+                    <a href="library.html" class="nav-link" id="nav-library">Library</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link" id="nav-about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfJGksX1uBHoNNTHSPsRv9wQp4K0yYc4a-OmLMUrciXYqfwMg/viewform" target="_blank" class="nav-link" id="nav-contribute">Contribute</a>
+                </li>
+                <li class="nav-item">
+                    <a href="help.html" class="nav-link" id="nav-help">Help</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link" id="nav-contact">Contact</a>
+                </li>
+              </ul>
+              <div class="hamburger">
+                 <span class="bar"></span>
+                 <span class="bar"></span>
+                 <span class="bar"></span>
+              </div>
+           </nav>
         </div>
     </header>
     <main>
@@ -77,8 +77,8 @@
                     <button id="library-search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </div>
                 <div class="search-tools">
-                    <button id="random-btn"><i class="fa-solid fa-bolt"></i> Random</button>
-                    <button id="export-btn"><i class="fa-solid fa-up-right-from-square"></i> Export</button>
+                    <button id="random-btn"><i class="fa-solid fa-bolt"></i> <span id="random">Random</span></button>
+                    <button id="export-btn"><i class="fa-solid fa-up-right-from-square"></i> <span id="export">Export</span></button>
                 </div>
             </div>
         </section>
@@ -94,6 +94,8 @@
         <p>LACLI, 2023</p>
         <p>Latin American, Caribbean, Latinx, and Iberian Free Online Resources</p>
     </footer>
-<script src="scripts\app.js"></script>
-<script src="scripts\navigation.js"></script>
+<script src="scripts/app.js"></script>
+<script src="scripts/navigation.js"></script>
+<script src="translation/libraryNavbar.js"></script>
+<script src="translation/library.js"></script>
 </body>
