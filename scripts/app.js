@@ -1,5 +1,5 @@
 // Define API endpoint and DOM elements
-const apiEndpoint = 'https://script.google.com/macros/s/AKfycbwd6T2yIHT0e0ifSgVrf5yAIB1A24ata21InKodZeLISG8IWf6jNLd59kNCk9AbPYGz/exec';
+const apiEndpoint = 'https://script.google.com/macros/s/AKfycbyCaGzy2WqRXGzi-gdsfT2byznr0NXCszzl-G_Hr-j_Kvb4fh0QD7KWvniZbqUwi22Bvg/exec';
 const search = document.getElementById('library-search');
 const librarySearchBtn = document.getElementById('library-search-btn');
 const display = document.getElementById('display');
@@ -106,7 +106,7 @@ function displayData(data, searchQuery) {
             <div class="heading">
                 <h2><a target="blank" href="${object.URL}"><span class="counter">${counter++}. </span>${object.Resource_Title}</a></h2>
                 <p class="institution">${object.Institutional_Host}</p>
-                <p><span class="inline-label">Broad Subject Areas: </span>${object.Broad_Subject_Categories}</p>
+                <p><span class="inline-label">Broad Subject Areas: </span>${object.Broad_Subject_Areas}</p>
                 <p><span class="inline-label">Country: </span>${object.Country_Coverage}</p>
                 <p><span class="inline-label">Resource Types: </span>${object.Resource_Type}</p>
             </div>
