@@ -1,5 +1,5 @@
 // Define API endpoint and DOM elements
-const apiEndpoint = 'https://script.google.com/macros/s/AKfycbyME0jVmwcrOQx8IcwXzz9Wg4IBRTDbxOlGb8T-k8ZF0TygyMLScZ3TC8YR3SNBg2mGbQ/exec';
+const apiEndpoint = 'https://script.google.com/macros/s/AKfycbwqOiChg2y2cgk46aFVZ0zFPtR0eiVeUNVQAqmksI31W7yQgXOW4_E4qAHvBbIor8bCJQ/exec';
 const search = document.getElementById('library-search');
 const librarySearchBtn = document.getElementById('library-search-btn');
 const display = document.getElementById('display');
