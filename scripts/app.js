@@ -1,5 +1,5 @@
 // Define API endpoint and DOM elements
-const apiEndpoint = 'https://script.google.com/macros/s/AKfycbyCaGzy2WqRXGzi-gdsfT2byznr0NXCszzl-G_Hr-j_Kvb4fh0QD7KWvniZbqUwi22Bvg/exec';
+const apiEndpoint = 'https://script.google.com/macros/s/AKfycbyME0jVmwcrOQx8IcwXzz9Wg4IBRTDbxOlGb8T-k8ZF0TygyMLScZ3TC8YR3SNBg2mGbQ/exec';
 const search = document.getElementById('library-search');
 const librarySearchBtn = document.getElementById('library-search-btn');
 const display = document.getElementById('display');
@@ -22,6 +22,7 @@ function removeDiacritics(str) {
 }
 
 // Fetch data from Google Sheets API
+// This is where data is stored to avoid making API calls every search
 let initialData = [];
 
 async function fetchData(url) {
@@ -105,10 +106,10 @@ function displayData(data, searchQuery) {
         <div class="resource">
             <div class="heading">
                 <h2><a target="blank" href="${object.URL}"><span class="counter">${counter++}. </span>${object.Resource_Title}</a></h2>
-                <p class="institution">${object.Institutional_Host}</p>
+                <p class="institution">${object.Institutional_Hosts}</p>
                 <p><span class="inline-label">Broad Subject Areas: </span>${object.Broad_Subject_Areas}</p>
-                <p><span class="inline-label">Country: </span>${object.Country_Coverage}</p>
-                <p><span class="inline-label">Resource Types: </span>${object.Resource_Type}</p>
+                <p><span class="inline-label">Countries: </span>${object.Countries}</p>
+                <p><span class="inline-label">Resource Types: </span>${object.Resource_Types}</p>
             </div>
             <button aria-label="Expand Details" class="resource-accordion">Details <i class="fa-solid fa-caret-down"></i></button>
             <div class="resource-panel">
@@ -118,27 +119,27 @@ function displayData(data, searchQuery) {
                 </div>
                 <div class="field">
                     <p class="label">Languages:</p>
-                    <p class="value">${object.Language}</p>
+                    <p class="value">${object.Languages}</p>
                 </div>
                 <div class="field">
                     <p class="label">Subjects in English:</p>
-                    <p class="value">${object.Subjects_English}</p>
+                    <p class="value">${object.Subjects_in_English}</p>
                 </div>
                 <div class="field">
                     <p class="label">Materias en Español:</p>
-                    <p class="value">${object.Subjects_Spanish}</p>
+                    <p class="value">${object.Materias_en_Espanol}</p>
                 </div>
                 <div class="field">
                     <p class="label">Assuntos em Português:</p>
-                    <p class="value">${object.Subjects_Portuguese}</p
+                    <p class="value">${object.Assuntos_em_Portugues}</p
                 </div>
                 <div class="field">
                     <p class="label">Specific Formats:</p>
                     <p class="value">${object.Specific_Formats}</p>
                 </div>
                 <div class="field">
-                    <p class="label">Geographical Area Coverage:</p>
-                    <p class="value">${object.Geographical_Area_Coverage}</p>
+                    <p class="label">Geographical Area:</p>
+                    <p class="value">${object.Geographical_Area}</p>
                 </div>
                 <div class="field">
                     <p class="label">Time Coverage:</p>
