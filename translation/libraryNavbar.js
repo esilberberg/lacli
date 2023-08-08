@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
           about: 'Acerca de',
           contact: 'Contacto',
           help: 'Ayuda',
-          contribute: 'Contribuye'
+          contribute: 'Contribuya'
         },
         pt: {
           home: 'Principal',

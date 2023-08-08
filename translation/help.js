@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function () {
           li14: 'Todos los términos de búsqueda deben aparecer en algún lugar de los campos de descripción del recurso para que éste aparezca en los resultados.',
           li15: 'Para guardar una búsqueda, copie la url de la página de resultados o utilice el botón de exportación para descargar los resultados como archivo JSON.',
 
-          btn2: '¿Cuáles son algunas de las preguntas puedo responder con LACLI?',
+          btn2: '¿Cuáles son algunas de las preguntas que puedo responder con LACLI?',
           li21: '¿Cómo puedo buscar recursos sobre el estudio científico de las plantas?',
           li22: 'Intente buscar: Botánica',
           li23: '¿Cómo puedo encontrar el conjunto más completo de recursos gratuitos sobre la esclavitud?',
@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', function () {
           li35: 'Gratuito no siempre significa acceso abierto. Esto se aplica a los recursos que requieren un registro gratuito para acceder a su contenido.',
 
           btn4: '¿Cómo están descritos los recursos?',
-          li4: 'Los recursos se catalogan de acuerdo con las  <a href="https://docs.google.com/document/d/1tYwdb74lGH7BbXzmO27iWkIHyogtuBi5PoMMwfb__Fk/edit?usp=sharing" target="_blank"> Directrices LACLI</a>. <br><br>Los campos de metadatos incluyen Formato, Idioma, Área geográfica, Periodo de tiempo, Temas, entre otros. El contenido de la mayoría de los campos está en inglés. Los campos que se presentan en su idioma original son Título del recurso, País, Idioma, Host institucional y Creadores. El acceso por materias está disponible utilizando los <a href="https://hapi.ucla.edu/about" target="_blank">Encabezamientos de Materia del Hispanic American Periodicals Index (HAPI)</a>, que es un vocabulario controlado trilingüe basado en los Encabezamientos de Materia de la Biblioteca del Congreso y traducido al español y al portugués.',
+          li4: 'Los recursos se catalogan de acuerdo con las  <a href="https://docs.google.com/document/d/1wyZVn-3nGJEJNerU54zkpD5VlAL5q3shVGW6RwGtcLU/edit?usp=sharing" target="_blank"> Directrices LACLI</a>. <br><br>Los campos de metadatos incluyen Formato, Idioma, Área geográfica, Periodo de tiempo, Temas, entre otros. El contenido de la mayoría de los campos está en inglés. Los campos que se presentan en su idioma original son Título del recurso, País, Idioma, Host institucional y Creadores. El acceso por materias está disponible utilizando los <a href="https://hapi.ucla.edu/about" target="_blank">Encabezamientos de Materia del Hispanic American Periodicals Index (HAPI)</a>, que es un vocabulario controlado trilingüe basado en los Encabezamientos de Materia de la Biblioteca del Congreso y traducido al español y al portugués.',
           
           btn5: '¿Puedo sugerir recursos para el repositorio?',
           li5: 'Sí. Utilice  <a href="https://docs.google.com/forms/d/e/1FAIpQLSfJGksX1uBHoNNTHSPsRv9wQp4K0yYc4a-OmLMUrciXYqfwMg/viewform" target="_blank">este formulario </a> para postular sus recursos en línea favoritos o un proyecto que haya desarrollado.',
@@ -152,7 +152,7 @@ document.addEventListener('DOMContentLoaded', function () {
           li35: 'Gratuidade não significa que um recurso está em acesso aberto. Isso se aplica a alguns recursos que necessitam de um registro gratuito para acessar o material.',
 
           btn4: 'Como os recursos são descritos?',
-          li4: 'Os recursos são catalogados de acordo com as <a href="https://docs.google.com/document/d/1tYwdb74lGH7BbXzmO27iWkIHyogtuBi5PoMMwfb__Fk/edit?usp=sharing" target="_blank"> diretrizes do LACLI</a>. <br><br>Os campos de metadados incluem Formato, Idioma, Área Geografia, Tempo de cobertura, Assuntos, entre outros. Os conteúdos na maioria dos campos estão em inglês. Os campos apresentados no seu idioma original são: Título do recurso, País, Idioma, Host Institucional e Criador. O acesso por assunto está disponível utilizando os <a href="https://hapi.ucla.edu/about" target="_blank">cabeçalhos por assunto do Hispanic American Periodicals Index (HAPI).</a>',
+          li4: 'Os recursos são catalogados de acordo com as <a href="https://docs.google.com/document/d/10N81BZxhWWjbwqBt1NTodIyPrjOHNJbNzSJT0bkX-AU/edit?usp=sharing" target="_blank"> diretrizes do LACLI</a>. <br><br>Os campos de metadados incluem Formato, Idioma, Área Geografia, Tempo de cobertura, Assuntos, entre outros. Os conteúdos na maioria dos campos estão em inglês. Os campos apresentados no seu idioma original são: Título do recurso, País, Idioma, Host Institucional e Criador. O acesso por assunto está disponível utilizando os <a href="https://hapi.ucla.edu/about" target="_blank">cabeçalhos por assunto do Hispanic American Periodicals Index (HAPI).</a>',
           
           btn5: 'Posso sugerir recursos para o repositório?',
           li5: 'Claro! Utilize <a href="https://docs.google.com/forms/d/e/1FAIpQLSfJGksX1uBHoNNTHSPsRv9wQp4K0yYc4a-OmLMUrciXYqfwMg/viewform" target="_blank">esse formulário</a> para enviar seu recurso online favorito que encontrou ou um projeto que você desenvolveu.',

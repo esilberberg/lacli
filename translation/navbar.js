@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function () {
           about: 'Acerca de',
           contact: 'Contacto',
           help: 'Ayuda',
-          contribute: 'Contribuye',
+          contribute: 'Contribuya',
           openData: 'Datos abiertos',
           ccLicense1: 'Esta obra está bajo una',
           ccLicense2: 'Licencia Creative Commons Reconocimiento-NoComercial-CompartirIgual 4.0 Internacional, 2023.',
