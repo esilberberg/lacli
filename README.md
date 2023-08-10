@@ -7,20 +7,24 @@ A webapp to display and search through LACLI resources.
 Google Sheet data is first processed with a Google Apps Script:
 ```
 function doGet(request) {
-  var spreadsheetId = '1234567890abcefg'; // Replace with Google Sheet ID
-  var sheetName = 'Sheet1'; // Replace with the sheet you want to retrieve data from
+  var spreadsheetId = '17ngPVWCOFe4YpuDWhP37JJQIFIrrDL0qYbX28iLneWo'; // Replace with Google Sheet ID
+  var sheetName = 'Main'; // Replace with the sheet you want to retrieve data from
   var sheet = SpreadsheetApp.openById(spreadsheetId).getSheetByName(sheetName);
   var dataRange = sheet.getDataRange();
   var dataValues = dataRange.getValues();
-  var headers = dataValues[0];
+  
+  // Change the index from 0 to 2 to use row 3 as column headings
+  var headers = dataValues[2];
+  
   var rows = [];
-  for (var i = 1; i < dataValues.length; i++) {
+  for (var i = 3; i < dataValues.length; i++) { // Start from row 4, as row 3 is the column headings
     var row = {};
     for (var j = 0; j < headers.length; j++) {
       row[headers[j]] = dataValues[i][j];
     }
     rows.push(row);
   }
+  
   var output = JSON.stringify(rows);
   return ContentService.createTextOutput(output).setMimeType(ContentService.MimeType.JSON);
 }
