@@ -150,7 +150,7 @@ nav{
 #index-searchfield .hero-img {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("media/mapa-metztitlan.png");
     position: relative;
-    height: 55vh;
+    height: 70vh;
     overflow: hidden;
     background-size: cover;
     background-repeat: no-repeat;

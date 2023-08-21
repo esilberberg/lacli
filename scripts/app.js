@@ -178,12 +178,6 @@ function displayData(data, searchQuery) {
         }
     }
 
-    // if (searchQuery === '') {
-    //     displaySearchSummary.textContent = `Showing all ${data.length} records.`;
-    // } else {
-    //     displaySearchSummary.textContent = `A search for \u{201C}${searchQuery}\u{201D} returned ${data.length} result${data.length !== 1 ? 's' : ''}.`;
-    // }
-
     // Accordion for extended resource records display
     var acc = document.getElementsByClassName("resource-accordion");
     var i;
