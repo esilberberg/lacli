@@ -7,6 +7,9 @@ const loader = document.getElementById('loader');
 const displaySearchSummary = document.getElementById('search-summary');
 const randomBtn = document.getElementById('random-btn');
 const exportBtn = document.getElementById('export-btn');
+const loadMoreBtn = document.getElementById('loadMore');
+let displayedCount = 0; // Track how many data objects are currently displayed
+const itemsPerPage = 200; // Number of items to display per page
 
 // Get search terms from URL and display in search bar
 const searchURL = window.location.href;
@@ -38,6 +41,8 @@ async function fetchData(url) {
 
 fetchData(apiEndpoint);
 
+let activeDataToDisplay = []
+
 function filterData(searchQuery) {
 
     const urlSearchParams = new URLSearchParams(window.location.search);
@@ -53,8 +58,8 @@ function filterData(searchQuery) {
             });
         });
         });
-
-        displayData(filteredData, searchQuery);
+        activeDataToDisplay = filteredData;
+        displayData(filteredData, searchQuery, displayedCount, refresh=true);
     } else if (urlSearchQuery) {
         const searchTerms = urlSearchQuery.toLowerCase().split(/\s+/).map(term => removeDiacritics(term));
         const filteredData = initialData.filter(eventData => {
@@ -64,15 +69,17 @@ function filterData(searchQuery) {
             });
         });
         });
-
-        displayData(filteredData, urlSearchQuery);
+        activeDataToDisplay = filteredData;
+        displayData(filteredData, urlSearchQuery, displayedCount, refresh=true);
 
     } else {
-        displayData(initialData, '');
+        activeDataToDisplay = initialData;
+        displayData(initialData, '', displayedCount, refresh=true);
     }
 }
 
 function runSearch() {
+    displayedCount = 0;
     const searchQuery = search.value.trim();
     filterData(searchQuery);
 
@@ -90,70 +97,83 @@ search.addEventListener('keypress', (event) => {
     }
 });
 
-function displayData(data, searchQuery) {
+function displayData(data, searchQuery, count, refresh) {
     storeData(data);
     loader.style.display = 'none';
-    let counter = 1;
-    let dataDisplay = data.map((object)=>{
+
+    const paginatedData = data.slice(count, count + itemsPerPage);
+    let counter = count + 1;
+    let dataDisplay = paginatedData.map((object)=>{
         let creatorsField = object.Creators ? `
-            <div class="field">
-            <p class="label">Creators:</p>
-            <p class="value">${object.Creators}</p>
-            </div>
-        ` : '';
-        
-        return `
-        <div class="resource">
-            <div class="heading">
-                <h2><a target="blank" href="${object.URL}"><span class="counter">${counter++}. </span>${object.Resource_Title}</a></h2>
-                <p class="institution">${object.Institutional_Hosts}</p>
-                <p><span class="inline-label">Broad Subject Areas: </span>${object.Broad_Subject_Areas}</p>
-                <p><span class="inline-label">Countries: </span>${object.Countries}</p>
-                <p><span class="inline-label">Resource Types: </span>${object.Resource_Types}</p>
-            </div>
-            <button aria-label="Expand Details" class="resource-accordion">Details <i class="fa-solid fa-caret-down"></i></button>
-            <div class="resource-panel">
-                <div class="field">
-                    <p class="label">Summary:</p>
-                    <p class="value">${object.Summary}</p>
-                </div>
-                <div class="field">
-                    <p class="label">Languages:</p>
-                    <p class="value">${object.Languages}</p>
-                </div>
-                <div class="field">
-                    <p class="label">Subjects in English:</p>
-                    <p class="value">${object.Subjects_in_English}</p>
-                </div>
-                <div class="field">
-                    <p class="label">Materias en Español:</p>
-                    <p class="value">${object.Materias_en_Espanol}</p>
-                </div>
-                <div class="field">
-                    <p class="label">Assuntos em Português:</p>
-                    <p class="value">${object.Assuntos_em_Portugues}</p
-                </div>
-                <div class="field">
-                    <p class="label">Specific Formats:</p>
-                    <p class="value">${object.Specific_Formats}</p>
-                </div>
-                <div class="field">
-                    <p class="label">Geographical Area:</p>
-                    <p class="value">${object.Geographical_Area}</p>
-                </div>
-                <div class="field">
-                    <p class="label">Time Coverage:</p>
-                    <p class="value">${object.Time_Coverage}</p>
-                </div>
-                ${creatorsField}
-            </div>
+        <div class="field">
+        <p class="label">Creators:</p>
+        <p class="value">${object.Creators}</p>
         </div>
-        `
+    ` : '';
+    
+    return `
+    <div class="resource">
+        <div class="heading">
+            <h2><a target="blank" href="${object.URL}"><span class="counter">${counter++}. </span>${object.Resource_Title}</a></h2>
+            <p class="institution">${object.Institutional_Hosts}</p>
+            <p><span class="inline-label">Broad Subject Areas: </span>${object.Broad_Subject_Areas}</p>
+            <p><span class="inline-label">Countries: </span>${object.Countries}</p>
+            <p><span class="inline-label">Resource Types: </span>${object.Resource_Types}</p>
+        </div>
+        <button aria-label="Expand Details" class="resource-accordion">Details <i class="fa-solid fa-caret-down"></i></button>
+        <div class="resource-panel">
+            <div class="field">
+                <p class="label">Summary:</p>
+                <p class="value">${object.Summary}</p>
+            </div>
+            <div class="field">
+                <p class="label">Languages:</p>
+                <p class="value">${object.Languages}</p>
+            </div>
+            <div class="field">
+                <p class="label">Subjects in English:</p>
+                <p class="value">${object.Subjects_in_English}</p>
+            </div>
+            <div class="field">
+                <p class="label">Materias en Español:</p>
+                <p class="value">${object.Materias_en_Espanol}</p>
+            </div>
+            <div class="field">
+                <p class="label">Assuntos em Português:</p>
+                <p class="value">${object.Assuntos_em_Portugues}</p
+            </div>
+            <div class="field">
+                <p class="label">Specific Formats:</p>
+                <p class="value">${object.Specific_Formats}</p>
+            </div>
+            <div class="field">
+                <p class="label">Geographical Area:</p>
+                <p class="value">${object.Geographical_Area}</p>
+            </div>
+            <div class="field">
+                <p class="label">Time Coverage:</p>
+                <p class="value">${object.Time_Coverage}</p>
+            </div>
+            ${creatorsField}
+        </div>
+    </div>
+    `
     }).join('');
 
+    // Print data to DOM
+    if (refresh === true) {
+        display.innerHTML = dataDisplay;
+    }   else {
+        display.innerHTML += dataDisplay;
+        displayedCount += itemsPerPage; // Update the count of displayed items
+    }
 
-    // Print data to HTML
-    display.innerHTML = dataDisplay;
+    if (displayedCount < activeDataToDisplay.length) {
+        loadMoreBtn.style.display = 'block';
+    } else {
+        loadMoreBtn.style.display = 'none';
+    }
+
     const storedLanguage = localStorage.getItem('lacliLanguagePreference');
 
     if (storedLanguage === 'en' || !storedLanguage){
@@ -193,34 +213,48 @@ function displayData(data, searchQuery) {
         }
     });
     }
-}
+};
 
+// Load More button
+loadMoreBtn.addEventListener('click', () => {
+    // Check if there is more data to display
+    if (displayedCount < activeDataToDisplay.length) {
+        // Increment `displayedCount` by the number of itemsPerPage
+        displayedCount += itemsPerPage;
 
-// Add an event listener to the random button
+        // Use the correct `refresh` value, which is `false` to append more data
+        displayData(activeDataToDisplay, search.value, displayedCount, refresh=false);
+
+        // Check if all objects are now displayed and hide the button
+        if (displayedCount >= activeDataToDisplay.length) {
+            loadMoreBtn.style.display = 'none';
+        }
+    }
+});
+
+// Get random resource
 randomBtn.addEventListener('click', getRandomResource);
 
-// Get random resource functionality
 function getRandomResource() {
     const randomIndex = Math.floor(Math.random() * initialData.length);
     const randomResource = initialData[randomIndex]
-    displayData([randomResource], randomResource.Resource_Title)
+    displayedCount = 0;
+    displayData([randomResource], randomResource.Resource_Title, displayedCount, refresh=true);
+    loadMoreBtn.style.display = 'none';
 
     const newURL = new URL(window.location.href);
     newURL.searchParams.set('q', randomResource.Resource_Title);
     window.history.pushState(null, '', newURL);
-  }
+};
 
-
-// Add an event listener to the export btn
+// JSON export
 exportBtn.addEventListener('click', exportJSON);
 
-// Store data for JSON export
 function storeData(data) {
     const dataAsString = JSON.stringify(data);
     sessionStorage.setItem('data', dataAsString);
 }
 
-// Export current results to JSON file
 function exportJSON() {
     const data = JSON.parse(sessionStorage.getItem('data'));
     const jsonData = JSON.stringify(data, null, 2);

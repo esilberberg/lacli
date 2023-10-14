@@ -507,47 +507,6 @@ footer.footer-primary {
     display: flex;
 }
 
-#field-selector {
-    -webkit-appearance:none;
-    -moz-appearance:none;
-    -ms-appearance:none;
-    appearance:none;
-    box-shadow:none;
-    border:0!important;
-    background: transparent;
-    background-image: none;
-    flex: 1;
-    padding: 0 0.5em;
-    color:black;
-    cursor:pointer;
-    font-size: 0.6em;
-    font-family: 'Lato', sans-serif;
-}
-
-.select {
-    position: relative;
-    border: 1px solid black;
-    display: flex;
-    width: 15em;
-    background: transparent;
-    overflow: hidden;
-    margin-right: 2px;
- }
- .select::after {
-    content: '⏷';
-    position: absolute;
-    top: 7px;
-    right: 0;
-    padding: 0 3px;
-    background: transparent;
-    cursor:pointer;
-    pointer-events:none;
-    transition:.25s all ease;
- }
- .select:hover::after {
-    color: var(--tertiary)
- }
-
 #library-search {
     width: 100%;
     border: 1px solid var(--primary);
@@ -591,7 +550,21 @@ footer.footer-primary {
     color: var(--tertiary);
     cursor: pointer;
   }
-  
+
+#loadMore {
+    border: none;
+    border-radius: 4px;
+    color: white;
+    background-color: var(--primary);
+    font-size: 14px;
+    padding: 12px;
+    margin-top: 20px;
+}
+
+#loadMore:hover {
+    cursor: pointer;
+    background-color: var(--tertiary);
+}
 
 @media(max-width: 800px){
     .search-top-line {
