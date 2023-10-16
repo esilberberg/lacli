@@ -165,7 +165,6 @@ function displayData(data, searchQuery, count, refresh) {
         display.innerHTML = dataDisplay;
     }   else {
         display.innerHTML += dataDisplay;
-        displayedCount += itemsPerPage; // Update the count of displayed items
     }
 
     if (displayedCount < activeDataToDisplay.length) {
