@@ -7,6 +7,7 @@ const loader = document.getElementById('loader');
 const displaySearchSummary = document.getElementById('search-summary');
 const randomBtn = document.getElementById('random-btn');
 const exportBtn = document.getElementById('export-btn');
+const refreshBtn = document.getElementById('refresh-btn');
 const loadMoreBtn = document.getElementById('loadMore');
 let displayedCount = 0; // Track how many data objects are currently displayed
 const itemsPerPage = 200; // Number of items to display per page
@@ -23,6 +24,13 @@ search.value = indexSearchTerms;
 function removeDiacritics(str) {
     return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 }
+
+refreshBtn.addEventListener('click', () => {
+    search.value = '';
+    runSearch();
+    filterData('');
+  });
+  
 
 // Fetch data from Google Sheets API
 // This is where data is stored to avoid making API calls every search

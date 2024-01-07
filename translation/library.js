@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     const languageNavbar = document.getElementById('language-navbar');
     const librarySearch = document.getElementById('library-search');
+    const refreshBtn = document.getElementById('refresh');
     const randomBtn = document.getElementById('random');
     const exportBtn = document.getElementById('export');
 
@@ -29,22 +30,26 @@ document.addEventListener('DOMContentLoaded', function () {
       const translations = {
         en: {
           placeholder: 'Search terms',
+          refresh: 'Refresh',
           random: 'Random',
           export: 'Export',
         },
         es: {
           placeholder: 'Términos de búsqueda',
+          refresh: 'Actualizar',
           random: 'Aleatorio',
           export: 'Exportar',
         },
         pt: {
           placeholder: 'Termos pesquisados',
+          refresh: 'Atualizar',
           random: 'Aleatório',
           export: 'Exportar',
         },
       };
   
       librarySearch.placeholder = translations[language].placeholder;
+      refreshBtn.textContent = translations[language].refresh;
       randomBtn.textContent = translations[language].random;
       exportBtn.textContent = translations[language].export;
 
