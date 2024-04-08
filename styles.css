@@ -11,19 +11,19 @@
 }
 
 /* ------  ALERT -------- */
-/* .alert {
+.alert {
     padding: 20px;
-    background-color: #f44336;
+    background-color: goldenrod;
     color: white;
     font-family: 'Lato', sans-serif;
     text-align: center;
   }
 
   .alert a {
-    color: var(--highlight)
+    color: white;
   }
   .alert a:hover {
-    color: var(--primary);
+    color: var(--highlight);
   }
   
   .closebtn {
@@ -39,7 +39,7 @@
   
   .closebtn:hover {
     color: black;
-  } */
+  }
 
 
 
