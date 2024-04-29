@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function () {
           header4: 'Acknowledgements & Recognitions',
           p5: 'We extend our gratitude to Judith Alspach and James Simon from the Center for Research Libraries (CRL) for sharing the data that helped start this project and Orchid Mazurkiewicz for authorizing us to adapt the Hispanic American Periodicals Index (HAPI) subjects list.',
           p6: 'In 2022, LANE, La Biblioteca Daniel Cosío Villegas de El Colegio de México, and the Fundação Getulio Vargas Centro de Pesquisa e Documentação de História Contemporânea do Brasil (CPDOC) were recognized with the Seminar on the Acquisition of Latin American Library Materials (SALALM) Award for Institutional Collaborative Initiatives for their work to expand multilingual access to LACLI resources by adding metadata in English, Spanish, and Portuguese.',
-          header5: 'How You Can Use Our Data',
+          header5: 'Use Our Data',
           p71: 'LACLI is licensed under under a',
           p72: 'Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.',
           p73: 'LACLI emerged from an identified need for a place to share and reuse data to create tailored research support content (e.g. subject guides, pedagogical guides).',

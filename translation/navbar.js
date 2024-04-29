@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
           contribute: 'Contribute',
           openData: 'Open Data',
           ccLicense1: 'This work is licensed under a',
-          ccLicense2: 'Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License, 2023.',
+          ccLicense2: 'Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License',
           ccLicenseURL: 'https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en',
         },
         es: {
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function () {
           contribute: 'Contribuya',
           openData: 'Datos abiertos',
           ccLicense1: 'Esta obra está bajo una',
-          ccLicense2: 'Licencia Creative Commons Reconocimiento-NoComercial-CompartirIgual 4.0 Internacional, 2023.',
+          ccLicense2: 'Licencia Creative Commons Reconocimiento-NoComercial-CompartirIgual 4.0 Internacional',
           ccLicenseURL: 'https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es',
         },
         pt: {
@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function () {
           contribute: 'Contribua',
           openData: 'Dados abertos',
           ccLicense1: 'Este trabalho está sob um',
-          ccLicense2: 'Licencia Creative Commons Atribuição-NãoComercial-CompartilhaIgual 4.0 Internacional, 2023.',
+          ccLicense2: 'Licencia Creative Commons Atribuição-NãoComercial-CompartilhaIgual 4.0 Internacional',
           ccLicenseURL: 'https://creativecommons.org/licenses/by-nc-sa/4.0/deed.pt_BR',
         },
       };
@@ -120,8 +120,11 @@ document.addEventListener('DOMContentLoaded', function () {
     footerLanguage.addEventListener('click', function (event) {
       event.preventDefault();
       const selectedLanguage = event.target.getAttribute('data-lang');
-      localStorage.setItem('lacliLanguagePreference', selectedLanguage);
-      updateLanguageSelection(selectedLanguage);
-      updateContentLanguage(selectedLanguage);
+      if (selectedLanguage) { // Check if a language is selected
+        localStorage.setItem('lacliLanguagePreference', selectedLanguage);
+        updateLanguageSelection(selectedLanguage);
+        updateContentLanguage(selectedLanguage);
+      }
     });
+    
 });
