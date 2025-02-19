@@ -776,35 +776,18 @@ footer.footer-secondary {
 
 
 /* ----- ABOUT ----- */
-.team {
-    padding-top: 3rem;
-}
-
-.team-member {
-    margin-bottom: 1rem;
-}
-
-.team-member p {
-    margin-bottom: 0;
-    color: black
-}
-
-.team-title {
-    font-style: italic;
-    font-weight: 200;
-    margin: 0;
-}
-
-#collaborators-heading {
-    cursor: pointer;
-}
-
-#collaborators-accordion {
-    display: none;
+.person {
+    width: 200px;
   }
-  
-#collaborators-accordion.collaborators-accordion-active {
-    display: block
+.affiliation {
+    font-weight: 200;
+    font-style: italic;
+}
+#execTeam, #qcTeam, #collaborators {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
 }
 
 
