@@ -10,7 +10,7 @@ const exportBtn = document.getElementById('export-btn');
 const refreshBtn = document.getElementById('refresh-btn');
 const loadMoreBtn = document.getElementById('loadMore');
 let displayedCount = 0; // Track how many data objects are currently displayed
-const itemsPerPage = 200; // Number of items to display per page
+const itemsPerPage = 15; // Number of items to display per page
 
 // Get search terms from URL and display in search bar
 const searchURL = window.location.href;
