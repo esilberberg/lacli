@@ -9,9 +9,8 @@ Google Sheet data is first processed with a Google Apps Script:
 function doGet(request) {
   var spreadsheetId = '....'; // Replace with Google Sheet ID
   var sheetName = 'Main'; // Replace with the sheet you want to retrieve data from
-  var sheet = SpreadsheetApp.openById(spreadsheetId).getSheetByName(sheetName);
-  var dataRange = sheet.getDataRange();
-  var dataValues = dataRange.getValues();
+  // make sure the advanced sheets service is enabled for this script
+  var dataValues = Sheets.Spreadsheets.Values.get(spreadsheetId, sheetName).values;
   
   // Change the index from 0 to 2 to use row 3 as column headings
   var headers = dataValues[2];
