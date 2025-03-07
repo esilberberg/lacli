@@ -1,5 +1,5 @@
 # LACLI
-A webapp to display and search through LACLI resources.
+LACLI, an international repository of free online resources for Latin American, Caribbean, Latinx, and Iberian studies. It is an essential tool to find websites that provide access to a great variety of resources such as audiovisual materials, books, data, ephemera, government documents, oral histories, periodicals, reference works, visual materials, web archives and more!
 
 [LACLI Homepage](https://salalm.org/lane-lacli)<br>
 [LACLI Spreadsheet](https://docs.google.com/spreadsheets/d/17ngPVWCOFe4YpuDWhP37JJQIFIrrDL0qYbX28iLneWo/edit?usp=sharing)
