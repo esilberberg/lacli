@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G8MVH2C5PD"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-G8MVH2C5PD');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#19505c">
+    <meta name="msapplication-TileColor" content="#19505c">
+    <meta name="theme-color" content="#ffffff">
+
+    <script src="https://kit.fontawesome.com/1d9765704f.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;700&family=Lato:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+
+    <title>LACLI</title>
+</head>
+<body>
+  <header id="header-main"></header>
+    <main>
+        <div class="subpage">
+            <h1 id="pageheading">Impact</h1>
+            <div id="awards-display"></div>
+            <section class="impact-story-wrapper">
+              <iframe src="https://www.youtube.com/embed/WYhmkKhJWVY?si=2Wt3YC7bl7a_TwZR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              <div class="impact-news-item">
+                <h2 id="headerexperiential">Experiential Learning</h2>
+                <p><span id="pexperiential1">Students from the United States, Mexico, and Brazil have contributed to indexing LACLI resources as part of experiential learning opportunities.</span> <a href="https://www.albany.edu/news-center/news/2024-ualbany-faculty-students-build-online-repository-latin-american-caribbean" target="_blank" rel="noopener noreferrer" id="linksuny">Read more about the work of students at the University at Albany, SUNY</a>. <span id="pexperiential2">The LACLI team has also hosted trainings and edit-a-thons across Argentina, Mexico, Spain, and the United States.</span></p>
+              </div>
+            </section>
+
+            <h2 class="features-display-heading" id="headerfeatured">LACLI has been featured by:</h2>
+            <div id="features-display"></div>
+        </div>
+            
+    </main>
+<footer class="footer-main" id="footer-main"></footer>
+
+<script src="header.js"></script>
+<script src="footer.js"></script>
+<script src="scripts/navigation.js"></script>
+<script src="translation/navbar.js"></script>  
+<script src="translation/impact.js"></script>
+
+</body>
+<script>
+const awards = [
+    {"year": "2024", "name": "UCLA Lessons for Librarians in Open Science", "url": "https://ucla-imls-open-sci.info/", "description": "UCLA Library, with funding from the Institute of Museum and Library Services, invited authors to create lessons on open science topics for librarians."},
+    {"year": "2024", "name": "LASA Archives, Libraries, & Digital Scholarship Section Award: Best Public Project", "url": "https://sections.lasaweb.org/sections/scholarly-research-resources/?pg=6", "description": "Presented by the Archives, Libraries and Digital Scholarship Section."},
+    {"year": "2024", "name": "Minerva Center Innovation Funding", "url": "https://www.albany.edu/minerva-center", "description": "Experiential Learning for UAlbany undergraduate students."},
+    {"year": "2023", "name": "DH Awards: Best DH Dataset", "url": "http://dhawards.org/dhawards2023/results/", "description": "For best corpus of texts, table of data, or similar used for DH research."},
+    {"year": "2022", "name": "SALALM Institutional Collaborative Initiatives Award", "url": "https://salalm.org/blog_home.asp?display=804", "description": "For outstanding collaborative or partnership initiatives for new or ongoing projects involving several educational, research, or other non-profit organizations, with at least one being in Latin America, the Caribbean, or the Iberian Peninsula."},
+];
+
+const features = [
+    {"alt": "Librarians with Lattes Podcast", "img": "media/librarianswithlattes.jpg", "url": "https://open.spotify.com/episode/5NnfCVb4FN4UFDoIONLsrj?si=bchyfRqpQw68gHFOSglc3w"},
+    {"alt": "Handbook of European Studies. Chapter 5: Iberian Studies", "img": "media/handbook-euro-studies.png", "url": "https://open.lib.umn.edu/europeanstudieslibrarians/chapter/5-iberian-studies/"},
+    {"alt": "Handbook of Latin American Studies", "img": "media/hlas-logo.svg", "url": "https://hlasopac.loc.gov/vwebv/search?searchCode=LCCN&searchArg=bi2024001009&searchType=1&permalink=y"},
+    {"alt": "Library of Congress Digital Resources", "img": "media/loc-logo.png", "url": "https://eresources.loc.gov/c/fdij6k/database/details/1000176620?count=25&highlightTag=mark&offset=1&orderby=relevance&search=lacli&searchField=keyword&searchType=contains&subjectFacetSchemaFilter=library%20of%20congress"},
+    {"alt": "Resources for College Libraries", "img": "media/rcl-logo.jpg", "url": "https://www.choice360.org/products/resources-for-college-libraries/"},
+]
+
+const awardsDisplay = document.getElementById('awards-display');
+
+let awardsHTML = '';
+
+awards.forEach(award => {
+  awardsHTML += `
+    <div class="award-item">
+    <i class="fa-solid fa-award"></i><br>
+    <a href="${award.url}" target="_blank" rel="noopener noreferrer">${award.year}<br>${award.name}</a>
+    </div>
+  `;
+});
+
+awardsDisplay.innerHTML = awardsHTML;
+
+const featuresDisplay = document.getElementById('features-display');
+let featuresHTML = '';
+
+features.forEach(feature => {
+  featuresHTML += `
+    <div class="feature-item">
+      <a href="${feature.url}" target="_blank" rel="noopener noreferrer">
+        <img class="feature-item-img" src="${feature.img}" alt="${feature.alt || ''}" srcset=""> 
+      </a>
+    </div>
+  `;
+});
+
+featuresDisplay.innerHTML = featuresHTML;
+
+</script>
+</html>

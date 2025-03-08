@@ -34,52 +34,8 @@
     <title>LACLI</title>
 </head>
 <body>
-    <header>
-        <div class="header-content"> 
-            <div class="languages">
-                <ul class="lang-nav" id="language-navbar">
-                    <li class="lang">
-                        <a href="" data-lang="es" class="lang-link" aria-label="Español" lang="es">ES</a>
-                    </li>
-                    <li class="lang">
-                        <a href="" data-lang="pt" class="lang-link" aria-label="Português" lang="pt">PT</a>
-                    </li>
-                    <li class="lang">
-                        <a href="" data-lang="en" class="lang-link lang-link-active" aria-label="English" lang="en">EN</a>
-                    </li>
-                </ul>
-            </div>
-           <nav>
-              <a href="index.html" class="nav-logo"><img src="media\whitesun.svg" alt="lacli-rays" class="lacli-rays-nav">LACLI</a>
-              <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="index.html" class="nav-link" id="nav-home">Home</a>
-                  </li>
-                <li class="nav-item">
-                    <a href="library.html" class="nav-link" id="nav-library">Library</a>
-                </li>
-                <li class="nav-item">
-                    <a href="about.html" class="nav-link" id="nav-about">About</a>
-                </li>
-                <li class="nav-item">
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfJGksX1uBHoNNTHSPsRv9wQp4K0yYc4a-OmLMUrciXYqfwMg/viewform" target="_blank" class="nav-link" id="nav-contribute">Contribute</a>
-                </li>
-                <li class="nav-item">
-                    <a href="help.html" class="nav-link" id="nav-help">Help</a>
-                </li>
-                <li class="nav-item">
-                    <a href="contact.html" class="nav-link" id="nav-contact">Contact</a>
-                </li>
-              </ul>
-              <div class="hamburger">
-                 <span class="bar"></span>
-                 <span class="bar"></span>
-                 <span class="bar"></span>
-              </div>
-           </nav>
-        </div>
-    </header>
-    <main>
+    <header id="header-main"></header>
+    <main class="library-main">
         <section id="library-searchfield">
             <div class="search-top-line">
                 <div class="library-search-wrapper">
@@ -99,15 +55,17 @@
             <div class="loader"></div>
         </section>
         <section id="display"></section>
-        <button id="loadMore">Load More</button>
+        <button id="loadMore">Load More <i class="fa-solid fa-chevron-down"></i></button>
         <button id="topButton" class="top-button"><i class="fa-regular fa-circle-up"></i></button> 
     </main>
     <footer class="footer-secondary">
         <p>LACLI, 2024</p>
         <p>Latin American, Caribbean, Latinx, and Iberian Free Online Resources</p>
     </footer>
+<script src="header.js"></script>
 <script src="scripts/app.js"></script>
 <script src="scripts/navigation.js"></script>
 <script src="translation/libraryNavbar.js"></script>
 <script src="translation/library.js"></script>
+
 </body>

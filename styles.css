@@ -275,14 +275,6 @@ textarea:focus, input:focus{
     color: var(--secondary);
 }
 
-/* ----- MAIN ----- */
-main {
-    max-width: 800px;
-    margin: 0 auto 6rem auto;
-    padding: 0 1rem;
-    font-family: 'Lato', sans-serif;
-}
-
 /* ----- INDEX CONTENT ----- */
 #index-content {
     max-width: 1300px;
@@ -528,6 +520,10 @@ footer.footer-secondary {
 
 
 /* ----- LIBRARY ----- */
+.library-main {
+    max-width: 800px;
+    margin: 0 auto;
+}
 #library-searchfield {
     margin-top: 3rem;
 }
@@ -673,7 +669,9 @@ footer.footer-secondary {
 }
 
 .resource-accordion {
-    background-color: white;
+    background-color: lightgray;
+    border-radius: 10px;
+    padding: 3px 6px;
     color: var(--secondary);
     cursor: pointer;
     border: none;
@@ -684,8 +682,8 @@ footer.footer-secondary {
   }
   
 .resource-accordion-active, .resource-accordion:hover {
-    background-color: white;
-    color: var(--primary);
+    background-color: var(--primary);
+    color: white;
 }
 
 .resource-accordion:focus {
@@ -702,6 +700,19 @@ footer.footer-secondary {
 
 .field {
     margin-top: 0.5rem;
+}
+
+.subject-tag {
+    border: none;
+    background-color: transparent;
+    text-decoration: underline;
+    cursor: pointer;
+    font-family: 'Lato', sans-serif;
+    font-weight: 100;
+}
+
+.subject-tag:hover {
+    color: var(--tertiary);
 }
 
 
@@ -737,61 +748,249 @@ footer.footer-secondary {
     justify-content: center;
 }
 
+/* ----- MAIN ----- */
+main {
+    margin: 0 auto 6rem auto;
+    padding: 0 1rem;
+    font-family: 'Lato', sans-serif;
+}
 
-/* ----- SUBPAGES ----- */
-.subpage h1 {
+/* ----- PAGES ----- */
+main h1 {
     font-family: 'EB Garamond', serif;
     font-size: 2.5rem;
     margin: 3rem 0 2rem 0;
     text-align: center;
 }
 
-.subpage a {
+main a {
     color: var(--primary);
     text-decoration: underline;
 }
 
-.subpage a:hover {
+main a:hover {
     color: var(--tertiary)
 }
 
-.subpage h2 {
+main h2 {
     margin-top: 2.5rem;
     padding-bottom: 1rem;
     font-family: 'EB Garamond', serif;
 }
 
-.subpage p {
-    margin-bottom: 1rem;
-}
-
-.subpage ul {
+main ul {
     list-style-type: circle;
     padding-left: 2rem;
 }
 
-.subpage li {
+main li {
     padding-bottom: 1rem;
 }
 
 
 /* ----- ABOUT ----- */
+
+.about-cards-wrapper {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+}
+
+.about-card {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-radius: 10px;
+    width: 450px;
+    background-color: rgba(25, 80, 92, 0.1);
+    display: flex;
+    flex-direction: column;
+    position: relative; 
+}
+
+.about-card-title { 
+    margin: 0;
+    padding: 15px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: rgba(25, 80, 92, 0.3);
+}
+
+.about-card-content {
+    padding: 15px;
+    font-weight: 100;
+    line-height: 1.5;
+    flex-grow: 1;
+}
+
+.about-card-links-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 15px;
+    margin-top: auto; 
+}
+
+.about-card-link {
+    margin-left: 15px;
+    text-decoration: none;
+}
+
+.about-card-link i {
+    margin-right: 5px;
+}
+
+.about-collaborators-logos-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 3rem;
+}
+@media (max-width: 1100px) {
+    .about-cards-wrapper {
+        flex-direction: column;
+    }
+    .about-card {
+        margin: 0 auto;
+        width: 100%;
+        max-width: 800px;
+    }
+}
+@media (max-width: 800px) {
+    .about-collaborators-logos-wrapper {
+        flex-direction: column;
+        gap: 40px;
+    }
+}
+
+.team {
+    max-width: 800px;
+    margin: 5rem auto;
+}
+
+.team h2 {
+    text-align: center;
+    border-bottom: 1px solid var(--secondary);
+    margin-bottom: 1rem;
+    padding: 5px;
+}
+
 .person {
     width: 200px;
-  }
+    text-align: center;
+}
+
 .affiliation {
     font-weight: 200;
     font-style: italic;
 }
+
 #execTeam, #qcTeam, #collaborators {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 30px;
 }
+@media (max-width: 500px) {
+    #execTeam, #qcTeam, #collaborators{
+        flex-wrap: none;
+        flex-direction: column;
+        align-items: center;
+    }
+}
 
+
+/* ----- IMPACT ----- */
+
+.impact-story-wrapper {
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    margin-top: 3rem;
+}
+  
+.impact-story-wrapper iframe {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    height: 315px;
+    width: 100%;
+    max-width: 560px;
+}
+  
+.impact-story-wrapper .impact-news-item {
+    padding-left: 50px;
+    width: 30%;
+    max-width: 400px; 
+    text-align: left;
+}
+.impact-news-item {
+    font-weight: 100;
+    line-height: 1.5;
+}
+@media (max-width: 900px) {
+    .impact-story-wrapper {
+        flex-direction: column;
+    }
+    .impact-story-wrapper .impact-news-item {
+        padding-left: 0;
+        width: 100%;
+        text-align: center;
+        max-width: 600px; 
+    }
+}
+
+#awards-display {
+    margin: 3rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    gap: 40px;
+}
+
+.award-item {
+    width: 150px;
+    padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.award-item a {
+    text-decoration: none;
+}
+.award-item i {
+    font-size: 2rem;
+    padding-bottom: 1rem;
+    color: var(--primary);
+}
+.features-display-heading {
+    text-align: center;
+    margin-top: 4rem;
+}
+
+#features-display {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+.feature-item {
+    width: 200px;
+    padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 5px;
+}
+
+.feature-item-img {
+    width: 100%;
+}
 
 /* ----- HELP ----- */
+
+.help-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+}
 .help-accordion-wrapper {
     padding-bottom: 150px;
 }
@@ -870,6 +1069,7 @@ footer.footer-secondary {
 #contact {
     display: flex;
     gap: 2rem;
+    justify-content: center;
 }
 
 .form-control {
@@ -877,6 +1077,10 @@ footer.footer-secondary {
     font-family: 'Lato', sans-serif;
     padding: 1rem 0.5rem;
     font-size: 1rem;
+}
+.contact-text {
+    font-weight: 100;
+    max-width: 400px;
 }
 
 .col {

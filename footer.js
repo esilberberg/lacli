@@ -18,14 +18,14 @@ const htmlContent = `
         </div> 
         <div class="footer-creative-commons">
             <span id="cc-license-1">This work is licensed under a</span><br><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" id="cc-license-2">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License </a>
-            <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"><img class="cc-license-img" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> <span class="year">2023&#8211;2024</span>
+            <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"><img class="cc-license-img" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> <span class="year">2023&#8211;2025</span>
         </div>    
     </div>
     <div class="footer-main-box">
         <ul class="footer-nav-links">
-            <li><a href="index.html" id="footer-home">Home</a></li>
             <li><a href="library.html" id="footer-library">Library</a></li>
             <li><a href="about.html" id="footer-about">About</a></li>
+            <li><a href="impact.html" id="footer-home">Impact</a></li>
             <li><a href="https://docs.google.com/spreadsheets/d/17ngPVWCOFe4YpuDWhP37JJQIFIrrDL0qYbX28iLneWo/edit?usp=sharing" target="_blank" id="footer-open-data">Open Data</a></li>
             <li><a href="help.html" id="footer-help">Help</a></li>
         </ul>

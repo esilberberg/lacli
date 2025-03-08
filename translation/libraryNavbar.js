@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function updateContentLanguage(language) {
       const translations = {
         en: {
-          home: 'Home',
+          home: 'Impact',
           library: 'Library',
           about: 'About',
           contact: 'Contact',
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
           contribute: 'Contribute'
         },
         es: {
-          home: 'Inicio',
+          home: 'Impacto',
           library: 'Biblioteca',
           about: 'Acerca de',
           contact: 'Contacto',
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
           contribute: 'Contribuya'
         },
         pt: {
-          home: 'Principal',
+          home: 'Impacto',
           library: 'Biblioteca',
           about: 'Sobre',
           contact: 'Contacto',

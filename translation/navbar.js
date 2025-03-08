@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function updateContentLanguage(language) {
       const translations = {
         en: {
-          home: 'Home',
+          home: 'Impact',
           library: 'Library',
           about: 'About',
           contact: 'Contact',
@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function () {
           ccLicenseURL: 'https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en',
         },
         es: {
-          home: 'Inicio',
+          home: 'Impacto',
           library: 'Biblioteca',
           about: 'Acerca de',
           contact: 'Contacto',
@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function () {
           ccLicenseURL: 'https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es',
         },
         pt: {
-          home: 'Principal',
+          home: 'Impacto',
           library: 'Biblioteca',
           about: 'Sobre',
           contact: 'Contacto',

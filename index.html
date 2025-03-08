@@ -41,51 +41,7 @@
         <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
         We won <a href="http://dhawards.org/dhawards2023/results/" target="_blank" rel="noopener noreferrer">Best Dataset from the DH Awards</a>! Thank you to all who voted and all the project collaborators.
     </div> -->
-    <header>
-        <div class="header-content"> 
-            <div class="languages">
-                <ul class="lang-nav" id="language-navbar">
-                    <li class="lang">
-                        <a href="" data-lang="es" class="lang-link" aria-label="Español" lang="es">ES</a>
-                    </li>
-                    <li class="lang">
-                        <a href="" data-lang="pt" class="lang-link" aria-label="Português" lang="pt">PT</a>
-                    </li>
-                    <li class="lang">
-                        <a href="" data-lang="en" class="lang-link lang-link-active" aria-label="English" lang="en">EN</a>
-                    </li>
-                </ul>
-            </div>
-           <nav>
-              <a href="index.html" class="nav-logo"><img src="media\whitesun.svg" alt="lacli-rays" class="lacli-rays-nav">LACLI</a>
-              <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="index.html" class="nav-link" id="nav-home">Home</a>
-                  </li>
-                <li class="nav-item">
-                    <a href="library.html" class="nav-link" id="nav-library">Library</a>
-                </li>
-                <li class="nav-item">
-                    <a href="about.html" class="nav-link" id="nav-about">About</a>
-                </li>
-                <li class="nav-item">
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfJGksX1uBHoNNTHSPsRv9wQp4K0yYc4a-OmLMUrciXYqfwMg/viewform" target="_blank" class="nav-link" id="nav-contribute">Contribute</a>
-                </li>
-                <li class="nav-item">
-                    <a href="help.html" class="nav-link" id="nav-help">Help</a>
-                </li>
-                <li class="nav-item">
-                    <a href="contact.html" class="nav-link" id="nav-contact">Contact</a>
-                </li>
-              </ul>
-              <div class="hamburger">
-                 <span class="bar"></span>
-                 <span class="bar"></span>
-                 <span class="bar"></span>
-              </div>
-           </nav>
-        </div>
-    </header>
+    <header id="header-main"></header>
     <section id="index-searchfield">
         <div class="hero-img" alt="&ldquo;Mapa de la Relación Geográfica de Metztitlan&rdquo; // Benson Latin American Collection">
             <div class="hero-content">
@@ -94,9 +50,6 @@
                     <input autocomplete="off" type="text" id="index-search" placeholder="Search...">
                     <button id="index-search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </div>
-            </div>
-            <div class="hero-award-wrapper">
-                <a href="http://dhawards.org/dhawards2023/results/" target="_blank" rel="noopener noreferrer"><img src="media/DHAwards2023-dataset.png" alt="DH Award"></a>
             </div>
         </div>
         <p class="credit">"Mapa de la relación geográfica de Metztitlan," [JGI XXIV-12]. LLILAS Benson Latin American Studies Collections, The University of Texas at Austin.</p>
@@ -140,9 +93,11 @@
    
     <footer class="footer-main" id="footer-main"></footer>
 
-<script src="scripts/navigation.js"></script>
+<script src="header.js"></script>
+<script src="footer.js"></script>
 <script src="scripts/initQuery.js"></script>
 <script src="./translation/navbar.js"></script>
 <script src="./translation/index.js"></script>
-<script src="footer.js"></script>
+<script src="scripts/navigation.js"></script>
+
 </body>
