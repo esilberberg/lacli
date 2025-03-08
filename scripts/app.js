@@ -292,16 +292,3 @@ function exportJSON() {
     link.click();
     document.body.removeChild(link);
   }
-
-function subjectLinkGenerator(event, link) {
-    filterData(link.textContent);
-
-    search.value = link.textContent
-
-    const newURL = new URL(window.location.href);
-    newURL.searchParams.set('q', link.textContent);
-    window.history.pushState(null, '', newURL);
-
-    document.body.scrollTop = 0; // For Safari
-    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-}
