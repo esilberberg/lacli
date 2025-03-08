@@ -277,7 +277,7 @@ exportBtn.addEventListener('click', exportJSON);
 function storeData(data) {
     const dataAsString = JSON.stringify(data);
     sessionStorage.setItem('data', dataAsString);
-}
+};
 
 function exportJSON() {
     const data = JSON.parse(sessionStorage.getItem('data'));
@@ -292,8 +292,9 @@ function exportJSON() {
     link.click();
     document.body.removeChild(link);
   }
-  
-  function subjectLinkGenerator(event, link) {
+
+// Manage subject links within resource description
+function subjectLinkGenerator(event, link) {
     filterData(link.textContent);
 
     search.value = link.textContent
