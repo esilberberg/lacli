@@ -35,6 +35,3 @@ function doGet(request) {
 - Search terms separated by a space are treated as independent search terms and are linked with the AND operator.
 - All search terms must appear somewhere in the resource description fields for a resource to be returned in the results.
 - To save a search, copy the url from the results page or use the export button to download the results as a JSON file.
-
-## facets.js
-This script is under development to at some point include faceted searching.
