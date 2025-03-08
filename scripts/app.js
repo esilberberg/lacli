@@ -256,6 +256,20 @@ loadMoreBtn.addEventListener('click', () => {
     }
 });
 
+// Manage subject links within resource description
+function subjectLinkGenerator(event, link) {
+    filterData(link.textContent);
+
+    search.value = link.textContent
+
+    const newURL = new URL(window.location.href);
+    newURL.searchParams.set('q', link.textContent);
+    window.history.pushState(null, '', newURL);
+
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
+
 // Get random resource
 randomBtn.addEventListener('click', getRandomResource);
 
@@ -292,17 +306,3 @@ function exportJSON() {
     link.click();
     document.body.removeChild(link);
   }
-
-// Manage subject links within resource description
-function subjectLinkGenerator(event, link) {
-    filterData(link.textContent);
-
-    search.value = link.textContent
-
-    const newURL = new URL(window.location.href);
-    newURL.searchParams.set('q', link.textContent);
-    window.history.pushState(null, '', newURL);
-
-    document.body.scrollTop = 0; // For Safari
-    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-}
