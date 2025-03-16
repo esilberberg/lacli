@@ -119,6 +119,7 @@ function displayData(data, searchQuery, count, refresh) {
         </div>
     ` : '';
     
+    const arrayOfInstitutionalHosts = object.Institutional_Hosts.split(';');
     const arrayOfBroadSubjects = object.Broad_Subject_Areas.split(';');
     const arrayOfCountries = object.Countries.split(';');
     const arrayOfResourceTypes = object.Resource_Types.split(';');
@@ -135,7 +136,7 @@ function displayData(data, searchQuery, count, refresh) {
     <div class="resource">
         <div class="heading">
             <h2><a target="blank" href="${object.URL}"><span class="counter">${counter++}. </span>${object.Resource_Title}</a></h2>
-            <p class="institution">${object.Institutional_Hosts}</p>
+            <p class="institution">${arrayOfInstitutionalHosts.map(subject => `<button class="subject-tag">${subject}</button>`).join('&ensp; ')}</p>
             <p><span class="inline-label">Broad Subject Areas: </span>${arrayOfBroadSubjects.map(type => `<button class="subject-tag">${type}</button>`).join('&ensp; ')}</p>
             <p><span class="inline-label">Countries: </span>${arrayOfCountries.map(country => `<button class="subject-tag">${country}</button>`).join('&ensp; ')}</p>
             <p><span class="inline-label">Resource Types: </span>${arrayOfResourceTypes.map(type => `<button class="subject-tag">${type}</button>`).join('&ensp; ')}</p>
