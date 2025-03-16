@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const footerContact = document.getElementById('footer-contact');
   const footerHelp = document.getElementById('footer-help');
   const footerContribute = document.getElementById('footer-contribute');
+  const footerContributeURL = document.getElementById('footer-contribute-url');
   const footerOpenData = document.getElementById('footer-open-data');
   const footerCCLicense1 = document.getElementById('cc-license-1');
   const footerCCLicense2 = document.getElementById('cc-license-2');
@@ -57,6 +58,8 @@ document.addEventListener('DOMContentLoaded', function () {
           contact: 'Contact',
           help: 'Help',
           contribute: 'Contribute',
+          navContributeURL: 'https://docs.google.com/forms/d/e/1FAIpQLSfJGksX1uBHoNNTHSPsRv9wQp4K0yYc4a-OmLMUrciXYqfwMg/viewform',
+          footerContributeURL: 'https://docs.google.com/forms/d/e/1FAIpQLSfJGksX1uBHoNNTHSPsRv9wQp4K0yYc4a-OmLMUrciXYqfwMg/viewform',
           openData: 'Open Data',
           ccLicense1: 'This work is licensed under a',
           ccLicense2: 'Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License',
@@ -69,18 +72,22 @@ document.addEventListener('DOMContentLoaded', function () {
           contact: 'Contacto',
           help: 'Ayuda',
           contribute: 'Contribuya',
+          navContributeURL: 'https://docs.google.com/forms/d/e/1FAIpQLScLGp69Y9hWgUdPKW53WUBziGdwtt1745eYCFw2vEV-4ogiKg/viewform',
+          footerContributeURL: 'https://docs.google.com/forms/d/e/1FAIpQLScLGp69Y9hWgUdPKW53WUBziGdwtt1745eYCFw2vEV-4ogiKg/viewform',
           openData: 'Datos abiertos',
           ccLicense1: 'Esta obra está bajo una',
           ccLicense2: 'Licencia Creative Commons Reconocimiento-NoComercial-CompartirIgual 4.0 Internacional',
           ccLicenseURL: 'https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es',
         },
         pt: {
-          home: 'Impacto',
+          home: 'Relevância',
           library: 'Biblioteca',
           about: 'Sobre',
           contact: 'Contacto',
           help: 'Ajuda',
           contribute: 'Contribua',
+          navContributeURL: 'https://docs.google.com/forms/d/e/1FAIpQLSfJGksX1uBHoNNTHSPsRv9wQp4K0yYc4a-OmLMUrciXYqfwMg/viewform',
+          footerContributeURL: 'https://docs.google.com/forms/d/e/1FAIpQLSfJGksX1uBHoNNTHSPsRv9wQp4K0yYc4a-OmLMUrciXYqfwMg/viewform',
           openData: 'Dados abertos',
           ccLicense1: 'Este trabalho está sob um',
           ccLicense2: 'Licencia Creative Commons Atribuição-NãoComercial-CompartilhaIgual 4.0 Internacional',
@@ -94,6 +101,7 @@ document.addEventListener('DOMContentLoaded', function () {
       navContact.textContent = translations[language].contact;
       navHelp.textContent = translations[language].help;
       navContribute.textContent = translations[language].contribute;
+      navContribute.setAttribute('href', translations[language].navContributeURL);
 
       footerHome.textContent = translations[language].home;
       footerLibrary.textContent = translations[language].library;
@@ -101,6 +109,7 @@ document.addEventListener('DOMContentLoaded', function () {
       footerContact.textContent = translations[language].contact;
       footerHelp.textContent = translations[language].help;
       footerContribute.textContent = translations[language].contribute;
+      footerContributeURL.setAttribute('href', translations[language].footerContributeURL);
       footerOpenData.textContent = translations[language].openData;
       footerCCLicense1.textContent = translations[language].ccLicense1;
       footerCCLicense2.textContent = translations[language].ccLicense2;

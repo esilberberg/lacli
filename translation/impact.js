@@ -27,19 +27,19 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         es: {
             pageheading: 'Impacto',
-            headerexperiential: "Aprendizaje Experiencial",
+            headerexperiential: "Prácticas profesionales",
             pexperiential1: "Estudiantes de Estados Unidos, México y Brasil han contribuido a la indexación de recursos de LACLI como parte de oportunidades de aprendizaje experiencial.",
             pexperiential2: "El equipo de LACLI también ha organizado capacitaciones y editatones en Argentina, México, España y Estados Unidos.",
             linksuny: "Lea más sobre el trabajo de los estudiantes en la Universidad de Albany, SUNY.",
             headerfeatured: "LACLI ha sido destacado en"
         },
         pt: {
-            pageheading: 'Impacto',
-            headerexperiential: "Aprendizagem Experiencial",
-            pexperiential1: "Estudiantes de Estados Unidos, México y Brasil han contribuido a la indexación de recursos de LACLI como parte de oportunidades de aprendizaje experiencial.",
-            pexperiential2: "El equipo de LACLI también ha organizado capacitaciones y editatones en Argentina, México, España y Estados Unidos.",
-            linksuny: "Lea más sobre el trabajo de los estudiantes en la Universidad de Albany, SUNY.",
-            headerfeatured: "LACLI ha sido destacado en"
+            pageheading: 'Relevância',
+            headerexperiential: "Práticas de aprendizagem",
+            pexperiential1: "Estudantes dos Estados Unidos, México e Brasil contribuíram para indexar recursos do LACLI como parte de oportunidades de aprendizagem acadêmica.",
+            pexperiential2: "A equipe do LACLI também organizou treinamentos e edit-a-thons na Argentina, México, Espanha e Estados Unidos.",
+            linksuny: "Leia mais sobre o trabalho de estudantes na University at Albany, SUNY.",
+            headerfeatured: "O LACLI foi destaque em:"
         },
     };
   

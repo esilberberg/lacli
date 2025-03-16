@@ -40,7 +40,7 @@ const htmlContent = `
     <div class="footer-main-box">
         <div class="footer-btns">
             <a href="contact.html"><div class="footer-btn" id="footer-contact">Contact</div></a>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfJGksX1uBHoNNTHSPsRv9wQp4K0yYc4a-OmLMUrciXYqfwMg/viewform" target="_blank"><div class="footer-btn" id="footer-contribute">Contribute</div></a>  
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfJGksX1uBHoNNTHSPsRv9wQp4K0yYc4a-OmLMUrciXYqfwMg/viewform" target="_blank" id="footer-contribute-url"><div class="footer-btn" id="footer-contribute">Contribute</div></a>  
         </div>
     </div>
 </div>
