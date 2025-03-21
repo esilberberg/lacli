@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function () {
           li4: 'Los recursos se catalogan de acuerdo con las  <a href="https://docs.google.com/document/d/1wyZVn-3nGJEJNerU54zkpD5VlAL5q3shVGW6RwGtcLU/edit?usp=sharing" target="_blank"> Directrices LACLI</a>. <br><br>Los campos de metadatos incluyen Formato, Idioma, Área geográfica, Periodo de tiempo, Temas, entre otros. El contenido de la mayoría de los campos está en inglés. Los campos que se presentan en su idioma original son Título del recurso, País, Idioma, Host institucional y Creadores. El acceso por materias está disponible utilizando los <a href="https://hapi.ucla.edu/about" target="_blank">Encabezamientos de Materia del Hispanic American Periodicals Index (HAPI)</a>, que es un vocabulario controlado trilingüe basado en los Encabezamientos de Materia de la Biblioteca del Congreso y traducido al español y al portugués.',
           
           btn5: '¿Puedo sugerir recursos para el repositorio?',
-          li5: 'Sí. Utilice  <a href="https://docs.google.com/forms/d/e/1FAIpQLSfJGksX1uBHoNNTHSPsRv9wQp4K0yYc4a-OmLMUrciXYqfwMg/viewform" target="_blank">este formulario </a> para postular sus recursos en línea favoritos o un proyecto que haya desarrollado.',
+          li5: 'Sí. Utilice  <a href="https://docs.google.com/forms/d/e/1FAIpQLScLGp69Y9hWgUdPKW53WUBziGdwtt1745eYCFw2vEV-4ogiKg/viewform" target="_blank">este formulario </a> para postular sus recursos en línea favoritos o un proyecto que haya desarrollado.',
         },
         pt: {
           heading: 'Ajuda',

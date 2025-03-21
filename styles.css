@@ -1036,6 +1036,7 @@ main li {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.2s ease-out;
+    line-height: 1.7;
 }
 
 .help-accordion-panel ul {
