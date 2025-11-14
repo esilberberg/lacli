@@ -26,7 +26,7 @@ const subjectsEngFacet = document.getElementById('subjects-in-english-facet');
 const materiasEnEspanolFacet = document.getElementById('materias-en-espanol-facet');
 const assuntosEmPortuguesFacet = document.getElementById('assuntos-em-portugues-facet');
 const languagesFacet = document.getElementById('languages-facet');
-const geographicalAreaFacet = document.getElementById('geographical-area-facet');
+const geographicalAreasFacet = document.getElementById('geographical-area-facet');
 const timeCoverageFacet = document.getElementById('time-coverage-facet');
 const institutionalHostsFacet = document.getElementById('institutional-hosts-facet');
 
@@ -288,7 +288,7 @@ function displayData(data, searchQuery, count, refresh) {
     createFacets(activeDataToDisplay, 'Materias_en_Espanol', materiasEnEspanolFacet, 'No se encontraron.');
     createFacets(activeDataToDisplay, 'Assuntos_em_Portugues', assuntosEmPortuguesFacet, 'Nenhum assunto encontrado.');
     createFacets(activeDataToDisplay, 'Languages', languagesFacet, 'No languages found.');
-    createFacets(activeDataToDisplay, 'Geographical_Areas', geographicalAreaFacet, 'No geographic areas found.');
+    createFacets(activeDataToDisplay, 'Geographical_Areas', geographicalAreasFacet, 'No geographic areas found.');
     createFacets(activeDataToDisplay, 'Time_Coverage', timeCoverageFacet, 'No times found.');
     createFacets(activeDataToDisplay, 'Institutional_Hosts', institutionalHostsFacet, 'No institutions found.');
    
