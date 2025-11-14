@@ -30,17 +30,17 @@ document.addEventListener('DOMContentLoaded', function () {
         en: {
           heading: 'Contact',
           p1: 'LACLI is an ongoing project and we value your feedback.',
-          p2: 'Share your thoughts or discoveries with us using the form provided or reach out via email:',     
+          p2: 'Share your thoughts or discoveries with us via our email:',     
         },
         es: {
           heading: 'Contacto',
           p1: 'LACLI es un proyecto en curso y valoramos sus comentarios.',
-          p2: 'Comparta con nosotros sus ideas o descubrimientos a través del formulario proporcionado o por correo electrónico:',
+          p2: 'Comparta con nosotros sus ideas o descubrimientos por nuestro correo electrónico:',
         },
         pt: {
           heading: 'Contato',
           p1: 'LACLI é um projeto contínuo e valorizamos seu feedback.',
-          p2: 'Compartilhe suas ideias e descobertas conosco usando o formulário fornecido ou pelo email:',
+          p2: 'Compartilhe suas ideias e descobertas conosco pelo email:',
 
         },
       };

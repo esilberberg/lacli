@@ -57,7 +57,7 @@ let currentActiveFacets = {};
 let facetDataCache = {}; // e.g., { 'Resource_Types': [['Journal', 10], ['Book', 5]], 'Countries': [...] }
 let currentFacetSortOrder = {
     'Resource_Types': 'count',
-    'Specific_Formats': 'count',
+    'Formats': 'count',
     'Countries': 'count',
     'Broad_Subject_Areas': 'count',
     'Subjects_in_English': 'count',
@@ -225,7 +225,7 @@ function displayData(data, searchQuery, count, refresh) {
                         </div>
                         <div>
                             <p class="heading-label">Formats:</p>
-                            <p>${getTagsHtml(object.Specific_Formats, 'Specific_Formats')}</p>
+                            <p>${getTagsHtml(object.Formats, 'Formats')}</p>
                         </div>
                         <div>
                             <p class="heading-label">Geographical Areas:</p>
@@ -281,7 +281,7 @@ function displayData(data, searchQuery, count, refresh) {
 
     // Recreate facets based on the currentData
     createFacets(activeDataToDisplay, 'Resource_Types', resourceTypesFacet, 'No resource types found.');
-    createFacets(activeDataToDisplay, 'Specific_Formats', specificFormatsFacet, 'No specific formats found.');
+    createFacets(activeDataToDisplay, 'Formats', specificFormatsFacet, 'No specific formats found.');
     createFacets(activeDataToDisplay, 'Countries', countriesFacet, 'No countries found.');
     createFacets(activeDataToDisplay, 'Broad_Subject_Areas', broadSubjectAreasFacet, 'No subjects found.');
     createFacets(activeDataToDisplay, 'Subjects_in_English', subjectsEngFacet, 'No subjects found.');
