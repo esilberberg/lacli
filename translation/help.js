@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function () {
           li29: 'How can I find ephemera materials focusing on the Caribbean?',
           li210: 'Try searching: ephemera Caribbean',
 
-          btn3: 'What types of resources are in the directory?',
+          btn3: 'What types of resources are in the index?',
           li31: 'Resources with full content.',
           li32: 'Resources with valuable but partial online digital content. Example:',
           li33: 'Resources that are part of a larger project but include a distinctive stable link to content within our scope. Example:',
@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function () {
           btn4: 'How are resources described?',
           li4: 'Resources are cataloged according to the <a href="https://docs.google.com/document/d/1tYwdb74lGH7BbXzmO27iWkIHyogtuBi5PoMMwfb__Fk/edit?usp=sharing" target="_blank"> LACLI Guidelines</a>. <br><br>Metadata fields include Format, Language, Geographic Area, Time Period, Subjects, among others. The content of most fields is in English. The fields presented in their original language are Resource Title, Country, Language, Institutional Host, and Creators. Subject access is available using the <a href="https://hapi.ucla.edu/about" target="_blank">Hispanic American Periodicals Index (HAPI)</a> Subject Headings, which is a trilingual controlled vocabulary based on Library of Congress Subject Headings and translated into Spanish and Portuguese.',
           
-          btn5: 'Can I suggest resources to the directory?',
+          btn5: 'Can I suggest resources to the index?',
           li5: 'Yes! Please use <a href="https://docs.google.com/forms/d/e/1FAIpQLSfJGksX1uBHoNNTHSPsRv9wQp4K0yYc4a-OmLMUrciXYqfwMg/viewform" target="_blank">this form to submit</a> your favorite online resources or a project you\'ve developed.',
         },
         es: {
@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', function () {
           li29: '¿Cómo puedo buscar recursos sobre el COVID en América Latina y el Caribe?',
           li210: 'Busque por: COVID-19 (Enfermedad)',
 
-          btn3: '¿Qué tipos de recursos están listados en el directorio?',
+          btn3: '¿Qué tipos de recursos están listados en el índice?',
           li31: 'Recursos con contenido completo.',
           li32: 'Recursos con contenido digital en línea valioso pero parcial. Ejemplo:',
           li33: 'Recursos que forman parte de un proyecto más amplio pero que incluyen un enlace estable distintivo a contenidos de nuestro ámbito. Ejemplo: ',
@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', function () {
           btn4: '¿Cómo están descritos los recursos?',
           li4: 'Los recursos se catalogan de acuerdo con las  <a href="https://docs.google.com/document/d/1wyZVn-3nGJEJNerU54zkpD5VlAL5q3shVGW6RwGtcLU/edit?usp=sharing" target="_blank"> Directrices LACLI</a>. <br><br>Los campos de metadatos incluyen Formato, Idioma, Área geográfica, Periodo de tiempo, Temas, entre otros. El contenido de la mayoría de los campos está en inglés. Los campos que se presentan en su idioma original son Título del recurso, País, Idioma, Host institucional y Creadores. El acceso por materias está disponible utilizando los <a href="https://hapi.ucla.edu/about" target="_blank">Encabezamientos de Materia del Hispanic American Periodicals Index (HAPI)</a>, que es un vocabulario controlado trilingüe basado en los Encabezamientos de Materia de la Biblioteca del Congreso y traducido al español y al portugués.',
           
-          btn5: '¿Puedo sugerir recursos para el directorio?',
+          btn5: '¿Puedo sugerir recursos para el índice?',
           li5: 'Sí. Utilice  <a href="https://docs.google.com/forms/d/e/1FAIpQLScLGp69Y9hWgUdPKW53WUBziGdwtt1745eYCFw2vEV-4ogiKg/viewform" target="_blank">este formulario </a> para postular sus recursos en línea favoritos o un proyecto que haya desarrollado.',
         },
         pt: {
@@ -183,7 +183,7 @@ document.addEventListener('DOMContentLoaded', function () {
           li29: 'Como posso buscar por recursos sobre o COVID na América Latina e no Caribe?',
           li210: 'Busque por: COVID-19 (Doença)',
 
-          btn3: 'Quais tipos de recursos estão no diretório?',
+          btn3: 'Quais tipos de recursos estão no índice?',
           li31: 'Recursos com conteúdo completo.',
           li32: 'Recursos com conteúdo digital online valioso, mas parcial. Exemplo:',
           li33: 'Recursos que fazem parte de um projeto maior mas que se relacionam com o conteúdo do nosso âmbito. Exemplo:',
@@ -193,7 +193,7 @@ document.addEventListener('DOMContentLoaded', function () {
           btn4: 'Como os recursos são descritos?',
           li4: 'Os recursos são catalogados de acordo com as <a href="https://docs.google.com/document/d/10N81BZxhWWjbwqBt1NTodIyPrjOHNJbNzSJT0bkX-AU/edit?usp=sharing" target="_blank"> diretrizes do LACLI</a>. <br><br>Os campos de metadados incluem Formato, Idioma, Área Geografia, Tempo de cobertura, Assuntos, entre outros. Os conteúdos na maioria dos campos estão em inglês. Os campos apresentados no seu idioma original são: Título do recurso, País, Idioma, Host Institucional e Criador. O acesso por assunto está disponível utilizando os <a href="https://hapi.ucla.edu/about" target="_blank">cabeçalhos por assunto do Hispanic American Periodicals Index (HAPI).</a>',
           
-          btn5: 'Posso sugerir recursos para o diretório?',
+          btn5: 'Posso sugerir recursos para o índice?',
           li5: 'Claro! Utilize <a href="https://docs.google.com/forms/d/e/1FAIpQLSfJGksX1uBHoNNTHSPsRv9wQp4K0yYc4a-OmLMUrciXYqfwMg/viewform" target="_blank">esse formulário</a> para enviar seu recurso online favorito que encontrou ou um projeto que você desenvolveu.',
 
         },

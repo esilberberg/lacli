@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
           placeholder: 'Search terms',
           refresh: 'New Search',
           random: 'Random',
-          export: 'Download',
+          export: 'Download Results',
           filters: 'Filters',
           modal: `<div class="modal-heading">About LACLI Search</div>
               <h3><i class="fa-solid fa-magnifying-glass"></i> Keywords</h3>
@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function () {
           placeholder: 'Términos de búsqueda',
           refresh: 'Actualizar',
           random: 'Aleatorio',
-          export: 'Descargar',
+          export: 'Descargar resultados',
           filters: 'Filtros',
           modal: `<div class="modal-heading">Acerca de la búsqueda</div>
               <h3><i class="fa-solid fa-magnifying-glass"></i> Palabras clave</h3>
@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function () {
           placeholder: 'Termos pesquisados',
           refresh: 'Atualizar',
           random: 'Aleatório',
-          export: 'Exportar',
+          export: 'Exportar resultados',
           filters: 'Filtros',
           modal: `<div class="modal-heading">Sobre a Busca</div>
               <h3><i class="fa-solid fa-magnifying-glass"></i> Palavras-chave</h3>
