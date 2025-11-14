@@ -1,0 +1,569 @@
+:root {
+    --primary: #19505D;
+    --light-primary : #257589;
+    --secondary: #54514a;
+    --tertiary: #9B0000;
+    --highlight: #FDEFC8;
+    --lightgray: #f0f0f0;
+    --warmgray: #8A8A8A;
+}
+
+/* General */
+.library-wrapper button {
+    cursor: pointer;
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem;
+}
+.library-wrapper p {
+    font-size: 1rem;
+    font-family: 'Lato', sans-serif;
+}
+
+.library-wrapper {
+    background-color: var(--lightgray);
+    padding: 3rem 1rem 0 1rem;
+}
+
+.library-content {
+    display: flex;
+}
+
+.library-content section {
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 5px;
+    margin-bottom: 2rem;
+}
+
+.search-results {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1.5rem;
+    padding: 1rem 2rem 2rem 2rem;
+    width: 100%;
+}
+
+.facets {
+    flex: 0 0 25%;
+    max-width: 25%;
+    max-height: fit-content;
+}
+
+/* Search interface */
+.search-interface {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; 
+    max-width: 800px; 
+    min-width: 300px;
+    width: 90%;
+    margin: 0 auto 3rem auto;
+
+}
+
+@media only screen and (max-width: 800px) {
+    .search-interface {
+        margin: 0 0 3rem 0;
+    }
+}
+
+.search-bar {
+    display: flex;
+    align-items: stretch;
+    position: relative; /* For positioning the X button */
+    width: 110%; 
+}
+
+#library-search {
+    flex-grow: 1;
+    padding-right: 30px; /* Make space for the X button */
+    padding: 0 1rem;
+    border: 1px solid var(--secondary);
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    min-width: 150px; 
+    font-size: 18px;
+    font-family: 'Lato', sans-serif;
+}
+
+#x-btn { /* This targets the 'X' button */
+    position: absolute;
+    right: 150px; /* Adjust this value to position the X button inside the input field, accounting for the "Search" button */
+    top: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-weight: 400;
+    color: #999;
+    padding: 0;
+    font-size: 16px;
+}
+
+#x-btn:hover {
+    color: var(--tertiary);
+}
+
+#library-search-btn {
+    padding: 1.2rem 2rem;
+    background-color: var(--primary);
+    color: white;
+    font-size: 1.1rem;
+    border: none;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    cursor: pointer;
+    flex-shrink: 0; /* Prevent the search button from shrinking */
+}
+
+#search-help-btn {
+    border: none;
+    background-color: transparent;
+    font-size: 1.7rem;
+    color: var(--primary);
+    margin-left: 20px;
+}
+
+#search-help-btn:hover {
+    color: var(--light-primary);
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  padding-top: 10px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4);
+}
+
+/* Modal Content */
+
+.modal-content {
+    max-height: 90vh; 
+    overflow-y: auto;
+    background-color: white;
+    margin: auto;
+    padding: 2rem;
+    border: 10px solid var(--secondary);
+    color: black;
+    width: 80%;
+}
+
+.modal-heading {
+    text-align: center;
+    font-size: 2rem;
+    font-family: 'EB Garamond', serif;
+    margin-bottom: 2rem;
+}
+
+.modal-content h3 {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.3rem;
+    margin: 1rem 0 0.5rem 0;
+}
+.modal-content ul {
+    margin-left: 1.3rem;
+    list-style-type: circle;
+    padding-left: 1.7rem;
+}
+.modal-content li {
+    font-family: 'Lato', sans-serif;
+    padding-bottom: 1rem;
+    font-weight: 100;
+}
+
+/* The Close Button */
+.search-help-btn-close {
+  color: var(--secondary);
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.search-help-btn-close:hover,
+.search-help-btn-close:focus {
+  color: var(--tertiary);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.search-interface-utilities {
+    display: flex;
+    justify-content: flex-start; 
+    gap: 10px;
+}
+
+.search-interface-utilities > button {
+    padding: 8px 12px;
+    background-color: var(--secondary);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    flex-shrink: 0; 
+}
+
+/* Optional: Hover effects for buttons */
+#library-search-btn:hover,
+.search-interface-utilities > button:hover {
+    background-color: var(--light-primary);
+}
+
+/* Search Summary display */
+.search-summary {
+    display: flex;
+    gap: 50px;
+    margin-bottom: 1rem;
+}
+
+@media only screen and (max-width: 800px) {
+    .search-summary {
+        display: flex;
+        flex-direction: column;
+        /* flex-direction: column-reverse; */
+        gap: 10px;
+        margin-bottom: 1rem;
+    }
+    #activeFacetsSummary {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        gap: 4px !important;
+    }
+}
+
+#displaySearchSummary {
+    font-size: 1.5rem;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+}
+
+.active-facets-label {
+    font-family: 'Lato', sans-serif;
+}
+
+#activeFacetsSummary {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.active-facet-tag {
+    border: 1px solid var(--light-primary);
+    padding: 5px 8px;
+    border-radius: 5px;
+    color: var(--light-primary);
+}
+
+.active-facet-tag:hover {
+    border: 1px solid var(--secondary);
+    color: var(--secondary);
+}
+
+
+.lacli-resources-display {
+    /* flex: 1;  */
+    min-width: 0;
+
+}
+#export-btn {
+    margin-left: auto;
+    margin-bottom: 1rem;
+    width: fit-content;
+    background-color: var(--secondary);
+    color: white;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+#export-btn:hover {
+    background-color: var(--light-primary);
+}
+
+
+/* Facet Accordion Styles */
+.facet-accordion-header {
+    cursor: pointer;
+    padding: 10px;
+    font-family: 'Lato', sans-serif;
+    border-bottom: 3px solid var(--lightgray);
+    user-select: none; /* Prevent text selection on double-click */
+}
+
+.accordion-icon {
+    font-size: 1.2em; 
+    display: inline-block; 
+    transition: transform 0.3s ease; 
+    margin-left: 5px; 
+    transform-origin: center; 
+}
+
+/* + -> x rotation */
+.facet-accordion-header.active .accordion-icon {
+    transform: rotate(45deg); 
+}
+
+.facet-accordion-header:hover {
+    text-decoration: underline;
+}
+
+.facet-accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+    padding: 0;
+    box-sizing: border-box; 
+    position: relative; 
+}
+
+.facet-accordion-content.active {
+    max-height: 300px;
+    overflow-y: auto; 
+    padding: 0; 
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: var(--primary);
+    border-bottom: 1px solid var(--lightgray);
+}
+
+
+/* Styles for the sort buttons container */
+.sort-buttons {
+    position: sticky;
+    top: 0; 
+    text-align: right;
+    z-index: 10; 
+    background-color: white; 
+    padding: 5px 20px 5px 0; 
+}
+
+.sort-btn {
+    background-color: #eee;
+    border: 1px solid #ccc;
+    padding: 3px 8px;
+    font-size: 0.7em; 
+    cursor: pointer;
+    border-radius: 3px;
+    transition: background-color 0.2s ease;
+}
+
+.sort-btn:hover {
+    background-color: #ddd;
+}
+
+.sort-btn.active-sort {
+    background-color: var(--primary); 
+    color: white;
+    border-color: var(--primary);
+}
+
+.facet-list-scroll-container {
+    padding: 5px 10px 0 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.facet {
+    background-color: transparent;
+    border: none;
+    text-align: left;
+    padding: 0;
+    color: var(--primary);
+}
+
+.facet:hover, .facet.active {
+    color: var(--tertiary);
+}
+
+/* Mobile responsive facets bar */
+#filters-btn, #facets-mobile-panel-heading {
+    display: none;
+}
+
+#close-facets-btn {
+    background-color: transparent;
+    font-size: 28px;
+    cursor: pointer;
+    border: none;
+    color: white;
+    font-weight: 800;
+    width: 100%;
+    padding: 10px 20px;
+    text-align: right;
+}
+
+@media only screen and (max-width: 800px) {
+    #filters-btn {
+        display: inline;
+    }
+    #facets-mobile-panel-heading {
+        display: none;
+        background-color: var(--light-primary);
+        display: flex;
+        justify-content: center; 
+    }
+
+    .library-content section {
+        background-color: white;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        border-radius: 5px;
+        margin-bottom: 2rem;
+    }
+
+    .search-results {
+        margin-left: 0;
+    } 
+    .facets {
+        display: none;
+        position: fixed;
+        z-index: 100;
+        top: 0;
+        left: 0;
+        width: 100%; /* Occupy full width */
+        height: 100%; /* Occupy full height */
+        transition: 0.5s;
+        flex: none;
+        max-width: none; /* Remove max-width constraint */
+        max-height: none; /* Remove max-height constraint */
+        overflow-y: auto; /* Use 'auto' to enable scrolling when content overflows */
+        background-color: white; /* Add a background color to the facets panel */
+    }
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); 
+    z-index: 98; 
+    display: none; 
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
+
+.overlay.visible {
+    display: block;
+    opacity: 1;
+}
+
+/* Styles for resource display */
+#display > div {
+    border-bottom: 4px solid var(--lightgray);
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+    font-family: 'Lato', sans-serif;
+    font-weight: 200;
+}
+
+#display a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+#display h2 {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+
+#display a:hover {
+    color: var(--tertiary);
+}
+
+.heading-label {
+    font-weight: 400;
+}
+
+#display button {
+    background-color: transparent;
+    border: none;
+    text-decoration: underline;
+    font-weight: 100;
+}
+
+.resource-top-line-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+#display button:hover {
+    color: var(--tertiary);
+}
+
+/* Styles for the resource display accordion */
+
+.resource-accordion {
+    cursor: pointer;
+    background-color: var(--primary) !important;
+    border-radius: 10px;
+    padding: 5px 10px;
+    text-decoration: none !important;
+    color: white;
+    margin-top: 1rem;
+}
+
+.resource-accordion:hover {
+    color: white !important;
+    background-color: var(--light-primary) !important;
+}
+
+.resource-panel {
+    padding-top: 1rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out, padding 0.2s ease-out;
+    box-sizing: border-box; /* Ensure padding is included in height calculations */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#loadMore {
+    color: white;
+    font-family: 'Lato', sans-serif;
+    padding: 10px 0;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--primary);
+    cursor: pointer;
+}
+
+#loadMore:hover {
+    background-color: var(--light-primary);
+}
+
+.top-button {
+  display: none; 
+  position: fixed;
+  bottom: 50px; 
+  right: 30px; 
+  z-index: 99;
+  border: none; 
+  outline: none; 
+  background-color: var(--primary); 
+  color: white; 
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 10px; 
+  font-size: 1.5rem !important;
+}
+
+.top-button:hover {
+    background-color: var(--light-primary);
+}

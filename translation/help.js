@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const languageNavbar = document.getElementById('language-navbar');
     const heading = document.getElementById('help');
     const btn1= document.getElementById('btn-1');
-    const li11 = document.getElementById('li-1-1');
+    const searchFeatureInfo = document.getElementById('searchFeatureInfo');
     const li12 = document.getElementById('li-1-2');
     const li13 = document.getElementById('li-1-3');
     const li14 = document.getElementById('li-1-4');
@@ -58,11 +58,24 @@ document.addEventListener('DOMContentLoaded', function () {
         en: {
           heading: 'Help',
           btn1: 'How does the library search feature work?',
-          li11: 'Searches are not case sensitive and ignore diacritics.',
-          li12: 'Truncation, wildcards, quotation marks, and lemmatization are not supported. It is preferable to search with singular rather than plural nouns.',
-          li13: 'Search terms separated by a space are treated as independent search terms and are linked with the AND operator.',
-          li14: 'All search terms must appear somewhere in the resource description fields for a resource to be returned in the results.',
-          li15: 'To save a search, copy the url from the results page or use the export button to download the results as a JSON file.',
+          searchFeatureInfo: `
+              <h3><i class="fa-solid fa-magnifying-glass"></i> Keywords</h3>
+              <ul>
+                  <li>Searches are not case sensitive and ignore diacritics.</li>
+                  <li>Truncation, wildcards, quotation marks, and lemmatization are not supported.</li>
+                  <li>It is preferable to search with singular rather than plural nouns.</li>
+                  <li>Search terms separated by a space are treated as independent search terms and are linked with the AND operator. Therefore, all search terms must appear in at least one description field for a resource to be returned in the results.</li>
+              </ul>
+              <h3><i class="fa-solid fa-sliders"></i> Filters</h3>
+              <ul>
+                <li>When a user selects multiple values from the same filter, such as two languages, LACLI uses OR logic. This means it shows results that match at least one of the selected values (e.g., Spanish OR English).</li>
+                <li>When a user selects values from different filters, like a format and a language, LACLI uses AND logic. This narrows the results to only those that match all of the selected criteria (e.g., Books AND Spanish).</li>
+              </ul>
+              <h3><i class="fa-solid fa-floppy-disk"></i> Saving</h3>
+              <ul>
+                <li>There are two ways to save a search. First, copy the url. Only keywords, and not filters, are captured in the url. Second, download the records currently displayed as a JSON file to your computer via the Download button.</li>
+              </ul>
+            </div>`,
 
           btn2: 'What are some questions I can answer with LACLI?',
           li21: 'How can I find photograhs about cuba in the 1950s?',
@@ -76,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function () {
           li29: 'How can I find ephemera materials focusing on the Caribbean?',
           li210: 'Try searching: ephemera Caribbean',
 
-          btn3: 'What types of resources are in the repository?',
+          btn3: 'What types of resources are in the directory?',
           li31: 'Resources with full content.',
           li32: 'Resources with valuable but partial online digital content. Example:',
           li33: 'Resources that are part of a larger project but include a distinctive stable link to content within our scope. Example:',
@@ -86,17 +99,30 @@ document.addEventListener('DOMContentLoaded', function () {
           btn4: 'How are resources described?',
           li4: 'Resources are cataloged according to the <a href="https://docs.google.com/document/d/1tYwdb74lGH7BbXzmO27iWkIHyogtuBi5PoMMwfb__Fk/edit?usp=sharing" target="_blank"> LACLI Guidelines</a>. <br><br>Metadata fields include Format, Language, Geographic Area, Time Period, Subjects, among others. The content of most fields is in English. The fields presented in their original language are Resource Title, Country, Language, Institutional Host, and Creators. Subject access is available using the <a href="https://hapi.ucla.edu/about" target="_blank">Hispanic American Periodicals Index (HAPI)</a> Subject Headings, which is a trilingual controlled vocabulary based on Library of Congress Subject Headings and translated into Spanish and Portuguese.',
           
-          btn5: 'Can I suggest resources to the repository?',
+          btn5: 'Can I suggest resources to the directory?',
           li5: 'Yes! Please use <a href="https://docs.google.com/forms/d/e/1FAIpQLSfJGksX1uBHoNNTHSPsRv9wQp4K0yYc4a-OmLMUrciXYqfwMg/viewform" target="_blank">this form to submit</a> your favorite online resources or a project you\'ve developed.',
         },
         es: {
           heading: 'Ayuda',
           btn1: '¿Cómo funciona la función de búsqueda en la biblioteca?',
-          li11: 'Las búsquedas no distinguen entre mayúsculas y minúsculas e ignoran los signos diacríticos.',
-          li12: 'No admite truncamiento, comodines, comillas ni lematización. Es preferible buscar con sustantivos en singular y no en plural.',
-          li13: 'Los términos de búsqueda separados por un espacio se tratan como términos de búsqueda independientes y se enlazan con el operador AND.',
-          li14: 'Todos los términos de búsqueda deben aparecer en algún lugar de los campos de descripción del recurso para que éste aparezca en los resultados.',
-          li15: 'Para guardar una búsqueda, copie la url de la página de resultados o utilice el botón de exportación para descargar los resultados como archivo JSON.',
+          searchFeatureInfo: `
+              <h3><i class="fa-solid fa-magnifying-glass"></i> Palabras clave</h3>
+              <ul>
+                  <li>Las búsquedas ignoran los diacríticos y no distinguen entre mayúsculas y minúsculas.</li>
+                  <li>No están implementadas funciones como la búsqueda con truncamiento, los comodines, el uso de comillas, o la lematización.</li>
+                  <li>Es preferible buscar con sustantivos en singular que en plural.</li>
+                  <li>Los términos de búsqueda separados por un espacio se consideran términos de búsqueda independientes y se vinculan con el operador AND. Por lo tanto, todos los términos de búsqueda deben aparecer en al menos un campo de descripción para que un recurso aparezca en los resultados.</li>
+              </ul>
+              <h3><i class="fa-solid fa-sliders"></i> Filtros</h3>
+              <ul>
+                <li>Cuando un usuario selecciona varios valores del mismo filtro, como dos idiomas, LACLI utiliza el operador OR. Esto significa que muestra resultados que coinciden con al menos uno de los valores seleccionados (p. ej., español OR inglés).</li>
+                <li>Cuando un usuario selecciona valores de diferentes filtros, como un formato y un idioma, LACLI utiliza el operador AND. Esto limita los resultados a solo aquellos que coinciden con todos los criterios seleccionados (p. ej., libros AND español).</li>
+              </ul>
+              <h3><i class="fa-solid fa-floppy-disk"></i> Guardar</h3>
+              <ul>
+                <li>Hay dos maneras de guardar una búsqueda: 1) Copie la URL. Tenga en cuenta que en la URL solo se conservan las palabras clave, no los filtros. 2) Descargue los registros que se muestran actualmente como archivo JSON a su computadora mediante el botón Descargar.</li>
+              </ul>
+            </div>`,
 
           btn2: '¿Cuáles son algunas de las preguntas que puedo responder con LACLI?',
           li21: '¿Cómo puedo buscar recursos sobre el estudio científico de las plantas?',
@@ -110,7 +136,7 @@ document.addEventListener('DOMContentLoaded', function () {
           li29: '¿Cómo puedo buscar recursos sobre el COVID en América Latina y el Caribe?',
           li210: 'Busque por: COVID-19 (Enfermedad)',
 
-          btn3: '¿Qué tipos de recursos están listados en el repositorio?',
+          btn3: '¿Qué tipos de recursos están listados en el directorio?',
           li31: 'Recursos con contenido completo.',
           li32: 'Recursos con contenido digital en línea valioso pero parcial. Ejemplo:',
           li33: 'Recursos que forman parte de un proyecto más amplio pero que incluyen un enlace estable distintivo a contenidos de nuestro ámbito. Ejemplo: ',
@@ -120,17 +146,30 @@ document.addEventListener('DOMContentLoaded', function () {
           btn4: '¿Cómo están descritos los recursos?',
           li4: 'Los recursos se catalogan de acuerdo con las  <a href="https://docs.google.com/document/d/1wyZVn-3nGJEJNerU54zkpD5VlAL5q3shVGW6RwGtcLU/edit?usp=sharing" target="_blank"> Directrices LACLI</a>. <br><br>Los campos de metadatos incluyen Formato, Idioma, Área geográfica, Periodo de tiempo, Temas, entre otros. El contenido de la mayoría de los campos está en inglés. Los campos que se presentan en su idioma original son Título del recurso, País, Idioma, Host institucional y Creadores. El acceso por materias está disponible utilizando los <a href="https://hapi.ucla.edu/about" target="_blank">Encabezamientos de Materia del Hispanic American Periodicals Index (HAPI)</a>, que es un vocabulario controlado trilingüe basado en los Encabezamientos de Materia de la Biblioteca del Congreso y traducido al español y al portugués.',
           
-          btn5: '¿Puedo sugerir recursos para el repositorio?',
+          btn5: '¿Puedo sugerir recursos para el directorio?',
           li5: 'Sí. Utilice  <a href="https://docs.google.com/forms/d/e/1FAIpQLScLGp69Y9hWgUdPKW53WUBziGdwtt1745eYCFw2vEV-4ogiKg/viewform" target="_blank">este formulario </a> para postular sus recursos en línea favoritos o un proyecto que haya desarrollado.',
         },
         pt: {
           heading: 'Ajuda',
-          btn1: 'Como o sistema de busca do repositório funciona?',
-          li11: 'As buscas não diferenciam letras maiúsculas de minúsculas e ignoram os acentos.',
-          li12: 'Truncamento, caracteres especiais, aspas e lematização não são suportados. Busque, preferencialmente, por substantivos no singular, não no plural.',
-          li13: 'Os termos buscados separados por um espaço são considerados como termos independentes de busca e são relacionados com o operador “AND”.',
-          li14: 'Todos os termos de pesquisa devem aparecer em algum lugar nos campos de descrição do recurso para que um recurso seja retornado nos resultados.',
-          li15: 'Para salvar uma busca, copie a URL da página de resultados ou selecione o botão de exportação para fazer o download dos resultados em um arquivo em formato JSON.',
+          btn1: 'Como funciona o sistema de busca da biblioteca?',
+          searchFeatureInfo: `<div class="modal-heading">Sobre a Busca</div>
+              <h3><i class="fa-solid fa-magnifying-glass"></i> Palavras-chave</h3>
+              <ul>
+                  <li>As buscas não diferenciam maiúsculas de minúsculas e ignoram os diacríticos (como acentos agudo, circunflexo e grave; o til, a cedilha e o trema).</li>
+                  <li>Truncamento, curingas, aspas e lematização não são suportados pela pesquisa.</li>
+                  <li>Prefira pesquisar com palavras no singular em vez de no plural.</li>
+                  <li>Os termos de pesquisa separados por um espaço são tratados como termos de pesquisa independentes e são ligados pelo operador AND. Portanto, todos os termos de pesquisa devem aparecer em pelo menos um campo de descrição para que um recurso seja retornado nos resultados.</li>
+              </ul>
+              <h3><i class="fa-solid fa-sliders"></i> Filtros</h3>
+              <ul>
+                <li>Quando um usuário seleciona várias opções de um mesmo filtro, como dois idiomas, por exemplo, o LACLI usa o operador booleano OR. Isso significa que ele mostra resultados que correspondem a pelo menos uma das opções selecionadas (por exemplo, Espanhol OU Inglês).</li>
+                <li>Quando um usuário seleciona opções de filtros diferentes, como um formato e um idioma, o LACLI usa o operador AND. Isso restringe os resultados apenas àqueles que correspondem a todos os critérios selecionados (por exemplo, Livros AND Espanhol).</li>
+              </ul>
+              <h3><i class="fa-solid fa-floppy-disk"></i> Salvando os resultados</h3>
+              <ul>
+                <li>Existem duas maneiras de salvar uma pesquisa. Primeiro, copie a URL. Apenas as palavras-chave, e não os filtros, são capturadas na URL. Segundo, baixe os registros atualmente exibidos para o seu computador através do botão Download (arquivo em formato JSON).</li>
+              </ul>
+            </div>`,
 
           btn2: 'Quais seriam algumas perguntas que posso responder com o LACLI?',
           li21: 'Como posso buscar por recursos sobre o estudo científico das plantas?',
@@ -144,7 +183,7 @@ document.addEventListener('DOMContentLoaded', function () {
           li29: 'Como posso buscar por recursos sobre o COVID na América Latina e no Caribe?',
           li210: 'Busque por: COVID-19 (Doença)',
 
-          btn3: 'Quais tipos de recursos estão no repositório?',
+          btn3: 'Quais tipos de recursos estão no diretório?',
           li31: 'Recursos com conteúdo completo.',
           li32: 'Recursos com conteúdo digital online valioso, mas parcial. Exemplo:',
           li33: 'Recursos que fazem parte de um projeto maior mas que se relacionam com o conteúdo do nosso âmbito. Exemplo:',
@@ -154,7 +193,7 @@ document.addEventListener('DOMContentLoaded', function () {
           btn4: 'Como os recursos são descritos?',
           li4: 'Os recursos são catalogados de acordo com as <a href="https://docs.google.com/document/d/10N81BZxhWWjbwqBt1NTodIyPrjOHNJbNzSJT0bkX-AU/edit?usp=sharing" target="_blank"> diretrizes do LACLI</a>. <br><br>Os campos de metadados incluem Formato, Idioma, Área Geografia, Tempo de cobertura, Assuntos, entre outros. Os conteúdos na maioria dos campos estão em inglês. Os campos apresentados no seu idioma original são: Título do recurso, País, Idioma, Host Institucional e Criador. O acesso por assunto está disponível utilizando os <a href="https://hapi.ucla.edu/about" target="_blank">cabeçalhos por assunto do Hispanic American Periodicals Index (HAPI).</a>',
           
-          btn5: 'Posso sugerir recursos para o repositório?',
+          btn5: 'Posso sugerir recursos para o diretório?',
           li5: 'Claro! Utilize <a href="https://docs.google.com/forms/d/e/1FAIpQLSfJGksX1uBHoNNTHSPsRv9wQp4K0yYc4a-OmLMUrciXYqfwMg/viewform" target="_blank">esse formulário</a> para enviar seu recurso online favorito que encontrou ou um projeto que você desenvolveu.',
 
         },
@@ -162,11 +201,7 @@ document.addEventListener('DOMContentLoaded', function () {
   
       heading.textContent = translations[language].heading;
       btn1.textContent = translations[language].btn1;
-      li11.textContent = translations[language].li11;
-      li12.textContent = translations[language].li12;
-      li13.textContent = translations[language].li13;
-      li14.textContent = translations[language].li14;
-      li15.textContent = translations[language].li15;
+      searchFeatureInfo.innerHTML = translations[language].searchFeatureInfo;
 
       btn2.textContent = translations[language].btn2;
       li21.textContent = translations[language].li21;

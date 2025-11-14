@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
             pageheading: "Impact",
             headerexperiential: "Experiential Learning",
             pexperiential1: "Students from the United States, Mexico, and Brazil have contributed to indexing LACLI resources as part of experiential learning opportunities.",
-            pexperiential2: "The LACLI team has also hosted trainings and edit-a-thons across Argentina, Mexico, Spain, and the United States.",
+            pexperiential2: "The LACLI team has also hosted trainings and edit-a-thons across Argentina, Ecuador, Mexico, Peru, Spain, and the United States.",
             linksuny: "Read more about the work of students at the University at Albany, SUNY",
             headerfeatured: "LACLI has been featured by:"
         },
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
             pageheading: 'Impacto',
             headerexperiential: "Prácticas profesionales",
             pexperiential1: "Estudiantes de Estados Unidos, México y Brasil han contribuido a la indexación de recursos de LACLI como parte de oportunidades de aprendizaje experiencial.",
-            pexperiential2: "El equipo de LACLI también ha organizado capacitaciones y editatones en Argentina, México, España y Estados Unidos.",
+            pexperiential2: "El equipo de LACLI también ha organizado capacitaciones y editatones en Argentina, Ecuador, México, Perú, España y Estados Unidos.",
             linksuny: "Lea más sobre el trabajo de los estudiantes en la Universidad de Albany, SUNY.",
             headerfeatured: "LACLI ha sido destacado en"
         },
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
             pageheading: 'Relevância',
             headerexperiential: "Práticas de aprendizagem",
             pexperiential1: "Estudantes dos Estados Unidos, México e Brasil contribuíram para indexar recursos do LACLI como parte de oportunidades de aprendizagem acadêmica.",
-            pexperiential2: "A equipe do LACLI também organizou treinamentos e edit-a-thons na Argentina, México, Espanha e Estados Unidos.",
+            pexperiential2: "A equipe do LACLI também organizou treinamentos e edit-a-thons na Argentina, Equador, México, Peru, Espanha e Estados Unidos.",
             linksuny: "Leia mais sobre o trabalho de estudantes na University at Albany, SUNY.",
             headerfeatured: "O LACLI foi destaque em:"
         },

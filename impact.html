@@ -29,6 +29,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;700&family=Lato:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
     <link rel="stylesheet" href="styles.css">
 
     <title>LACLI</title>
@@ -43,13 +46,30 @@
               <iframe src="https://www.youtube.com/embed/WYhmkKhJWVY?si=2Wt3YC7bl7a_TwZR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
               <div class="impact-news-item">
                 <h2 id="headerexperiential">Experiential Learning</h2>
-                <p><span id="pexperiential1">Students from the United States, Mexico, and Brazil have contributed to indexing LACLI resources as part of experiential learning opportunities.</span> <a href="https://www.albany.edu/news-center/news/2024-ualbany-faculty-students-build-online-repository-latin-american-caribbean" target="_blank" rel="noopener noreferrer" id="linksuny">Read more about the work of students at the University at Albany, SUNY</a>. <span id="pexperiential2">The LACLI team has also hosted trainings and edit-a-thons across Argentina, Mexico, Spain, and the United States.</span></p>
+                <p><span id="pexperiential1">Students from the United States, Mexico, and Brazil have contributed to indexing LACLI resources as part of experiential learning opportunities.</span> <a href="https://www.albany.edu/news-center/news/2024-ualbany-faculty-students-build-online-repository-latin-american-caribbean" target="_blank" rel="noopener noreferrer" id="linksuny">Read more about the work of students at the University at Albany, SUNY</a>. <span id="pexperiential2">The LACLI team has also hosted trainings and edit-a-thons across Argentina, Ecuador, Mexico, Peru, Spain, and the United States.</span></p>
               </div>
             </section>
 
             <h2 class="features-display-heading" id="headerfeatured">LACLI has been featured by:</h2>
             <div id="features-display"></div>
-        </div>
+            <h2 class="features-display-heading" id="">Is your site or project indexed by LACLI?</h2>
+            <div class="lacli-assets">
+              <a href="media/lacli-assets.zip">
+                <img src="media/index-tag-color.svg" alt="Indexed by LACLI" title="This project is indexed by LACLI" style="height: 40px; border: 0;"/>
+              </a>
+              <div class="lacli-assets-instructions">
+                <p>Let the world know with a LACLI indexing badge.</p>
+                <p>By including one of our badges on your site, you help spread the word about the project. It's a simple, high-impact way to contribute to a more open web.</p>
+                <p><a href="media/lacli-assets.zip">Download and add a LACLI badge to your site today!</a></p>
+              </div>
+            </div>
+              <pre><code class="language-html">#Copy this html to embed a LACLI badge on your site. 
+              
+&lt;a href="https://lacli.info/" target="_blank" rel="noopener noreferrer"&gt;
+    &lt;img src="index-tag-color.svg" alt="Indexed by LACLI" title="This project is indexed by LACLI"/&gt;
+&lt;/a&gt;
+</code></pre>
+
             
     </main>
 <footer class="footer-main" id="footer-main"></footer>
@@ -59,7 +79,7 @@
 <script src="scripts/navigation.js"></script>
 <script src="translation/navbar.js"></script>  
 <script src="translation/impact.js"></script>
-
+<script>hljs.highlightAll();</script>
 </body>
 <script>
 const awards = [
@@ -71,6 +91,7 @@ const awards = [
 ];
 
 const features = [
+    {"alt": "The Conference on Latin American History", "img": "media/clah_logo.png", "url": "https://clah.h-net.org/?page_id=299"},
     {"alt": "Librarians with Lattes Podcast", "img": "media/librarianswithlattes.jpg", "url": "https://open.spotify.com/episode/5NnfCVb4FN4UFDoIONLsrj?si=bchyfRqpQw68gHFOSglc3w"},
     {"alt": "Handbook of European Studies. Chapter 5: Iberian Studies", "img": "media/handbook-euro-studies.png", "url": "https://open.lib.umn.edu/europeanstudieslibrarians/chapter/5-iberian-studies/"},
     {"alt": "Handbook of Latin American Studies", "img": "media/hlas-logo.svg", "url": "https://hlasopac.loc.gov/vwebv/search?searchCode=LCCN&searchArg=bi2024001009&searchType=1&permalink=y"},
@@ -81,7 +102,6 @@ const features = [
 const awardsDisplay = document.getElementById('awards-display');
 
 let awardsHTML = '';
-
 awards.forEach(award => {
   awardsHTML += `
     <div class="award-item">
@@ -99,7 +119,7 @@ let featuresHTML = '';
 features.forEach(feature => {
   featuresHTML += `
     <div class="feature-item">
-      <a href="${feature.url}" target="_blank" rel="noopener noreferrer">
+      <a href="${feature.url}" target="_blank" rel="noopener noreferrer" title="${feature.alt}">
         <img class="feature-item-img" src="${feature.img}" alt="${feature.alt || ''}" srcset=""> 
       </a>
     </div>
