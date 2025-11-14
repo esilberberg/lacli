@@ -59,12 +59,12 @@ let currentFacetSortOrder = {
     'Resource_Types': 'count',
     'Formats': 'count',
     'Countries': 'count',
-    'Broad_Subject_Areas': 'count',
+    'Broad_Subjects': 'count',
     'Subjects_in_English': 'count',
     'Materias_en_Espanol': 'count',
     'Assuntos_em_Portugues': 'count',
     'Languages': 'count',
-    'Geographical_Area': 'count',
+    'Geographical_Areas': 'count',
     'Time_Coverage': 'count',
     'Institutional_Hosts': 'count'
 };
@@ -195,7 +195,7 @@ function displayData(data, searchQuery, count, refresh) {
                     <h2><a target="_blank" href="${object.URL || '#'}"><span>${currentItemIndex++}. </span>${object.Resource_Title || 'No Title'}</a></h2>
                     <div class="resource-top-line-info">
                         <p><span class="heading-label">Institutional Hosts: </span>${getTagsHtml(object.Institutional_Hosts, 'Institutional_Hosts')}</p>
-                        <p><span class="heading-label">Broad Subjects: </span> ${getTagsHtml(object.Broad_Subject_Areas, 'Broad_Subject_Areas')}</p>
+                        <p><span class="heading-label">Broad Subjects: </span> ${getTagsHtml(object.Broad_Subjects, 'Broad_Subjects')}</p>
                         <p><span class="heading-label">Countries: </span> ${getTagsHtml(object.Countries, 'Countries')}</p>
                         <p><span class="heading-label">Resource Types: </span> ${getTagsHtml(object.Resource_Types, 'Resource_Types')}</p>
                     </div>
@@ -229,7 +229,7 @@ function displayData(data, searchQuery, count, refresh) {
                         </div>
                         <div>
                             <p class="heading-label">Geographical Areas:</p>
-                            <p>${getTagsHtml(object.Geographical_Area, 'Geographical_Area')}</p>
+                            <p>${getTagsHtml(object.Geographical_Areas, 'Geographical_Areas')}</p>
                         </div>
                         <div>
                             <p class="heading-label">Time Coverage:</p>
@@ -283,12 +283,12 @@ function displayData(data, searchQuery, count, refresh) {
     createFacets(activeDataToDisplay, 'Resource_Types', resourceTypesFacet, 'No resource types found.');
     createFacets(activeDataToDisplay, 'Formats', specificFormatsFacet, 'No specific formats found.');
     createFacets(activeDataToDisplay, 'Countries', countriesFacet, 'No countries found.');
-    createFacets(activeDataToDisplay, 'Broad_Subject_Areas', broadSubjectAreasFacet, 'No subjects found.');
+    createFacets(activeDataToDisplay, 'Broad_Subjects', broadSubjectAreasFacet, 'No subjects found.');
     createFacets(activeDataToDisplay, 'Subjects_in_English', subjectsEngFacet, 'No subjects found.');
     createFacets(activeDataToDisplay, 'Materias_en_Espanol', materiasEnEspanolFacet, 'No se encontraron.');
     createFacets(activeDataToDisplay, 'Assuntos_em_Portugues', assuntosEmPortuguesFacet, 'Nenhum assunto encontrado.');
     createFacets(activeDataToDisplay, 'Languages', languagesFacet, 'No languages found.');
-    createFacets(activeDataToDisplay, 'Geographical_Area', geographicalAreaFacet, 'No geographic areas found.');
+    createFacets(activeDataToDisplay, 'Geographical_Areas', geographicalAreaFacet, 'No geographic areas found.');
     createFacets(activeDataToDisplay, 'Time_Coverage', timeCoverageFacet, 'No times found.');
     createFacets(activeDataToDisplay, 'Institutional_Hosts', institutionalHostsFacet, 'No institutions found.');
    
