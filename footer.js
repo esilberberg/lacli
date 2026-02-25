@@ -18,7 +18,7 @@ const htmlContent = `
         </div> 
         <div class="footer-creative-commons">
             <span id="cc-license-1">This work is licensed under a</span><br><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" id="cc-license-2">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License </a>
-            <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"><img class="cc-license-img" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> <span class="year">2023&#8211;2025</span>
+            <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"><img class="cc-license-img" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> <span class="year">2023&#8211;2026</span>
         </div>    
     </div>
     <div class="footer-main-box">

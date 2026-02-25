@@ -338,7 +338,7 @@ loadMoreBtn.addEventListener('click', () => {
 randomBtn.addEventListener('click', getRandomResource);
 
 // JSON export
-exportBtn.addEventListener('click', exportJSON);
+exportBtn.addEventListener('click', exportCSV);
 
 // --- Facet Functions ---
 function createFacets(data, fieldName, targetElement, noDataMessage, sortType = 'count') {
@@ -566,19 +566,39 @@ function getRandomResource() {
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
 
-// Exports data as JSON
-function exportJSON() {
+// Exports data as CSV
+function exportCSV() {
     if (activeDataToDisplay.length === 0) {
         showMessageBox('No results to export. Please perform a search or refresh to get data.');
         return;
     }
 
-    const jsonString = JSON.stringify(activeDataToDisplay, null, 2);
-    const blob = new Blob([jsonString], { type: 'application/json' });
+    const headers = Object.keys(activeDataToDisplay[0]);
+    
+    const csvRows = activeDataToDisplay.map(row => {
+        return headers.map(fieldName => {
+            let value = row[fieldName] === null || row[fieldName] === undefined ? '' : row[fieldName];
+            
+            // Standard CSV formatting: escape double quotes
+            let stringValue = String(value).replace(/"/g, '""');
+            
+            // Wrap in quotes to protect commas
+            return `"${stringValue}"`;
+        }).join(',');
+    });
+
+    // 1. Combine headers and rows
+    const csvContent = [headers.join(','), ...csvRows].join('\n');
+
+    // 2. Create the BOM (Byte Order Mark) for UTF-8
+    const BOM = '\uFEFF';
+
+    // 3. Combine BOM with content and trigger download
+    const blob = new Blob([BOM + csvContent], { type: 'text/csv;charset=utf-8;' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'lacli_library_results.json';
+    a.download = 'lacli-results.csv';
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
