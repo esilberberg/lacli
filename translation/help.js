@@ -32,6 +32,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const btn5= document.getElementById('btn-5');
     const li5 = document.getElementById('li-5');
+    const btn6 = document.getElementById('btn-6');
+    const li6 = document.getElementById('li-6');
   
 
     const storedLanguage = localStorage.getItem('lacliLanguagePreference');
@@ -101,6 +103,8 @@ document.addEventListener('DOMContentLoaded', function () {
           
           btn5: 'Can I suggest resources to the index?',
           li5: 'Yes! Please use <a href="https://docs.google.com/forms/d/e/1FAIpQLSfJGksX1uBHoNNTHSPsRv9wQp4K0yYc4a-OmLMUrciXYqfwMg/viewform" target="_blank">this form to submit</a> your favorite online resources or a project you\'ve developed.',
+          btn6: 'How do I cite LACLI?',
+          li6: 'When citing LACLI as a project, please follow your preferred style manual\'s guidelines for websites. However, if you are citing a specific resource you discovered through our index, cite the original resource directly. There is no need to cite LACLI as an intermediary.',
         },
         es: {
           heading: 'Ayuda',
@@ -148,6 +152,8 @@ document.addEventListener('DOMContentLoaded', function () {
           
           btn5: '¿Puedo sugerir recursos para el índice?',
           li5: 'Sí. Utilice  <a href="https://docs.google.com/forms/d/e/1FAIpQLScLGp69Y9hWgUdPKW53WUBziGdwtt1745eYCFw2vEV-4ogiKg/viewform" target="_blank">este formulario </a> para postular sus recursos en línea favoritos o un proyecto que haya desarrollado.',
+          btn6: '¿Cómo cito LACLI?',
+          li6: 'Para citar LACLI como proyecto, siga las normas de su manual de estilo para sitios web. Sin embargo, si quisieras citar un recurso específico que descubrió a través de nuestro índice, cite directamente el recurso original. No es necesario citar LACLI como un intermediario.',
         },
         pt: {
           heading: 'Ajuda',
@@ -195,6 +201,8 @@ document.addEventListener('DOMContentLoaded', function () {
           
           btn5: 'Posso sugerir recursos para o índice?',
           li5: 'Claro! Utilize <a href="https://docs.google.com/forms/d/e/1FAIpQLSfJGksX1uBHoNNTHSPsRv9wQp4K0yYc4a-OmLMUrciXYqfwMg/viewform" target="_blank">esse formulário</a> para enviar seu recurso online favorito que encontrou ou um projeto que você desenvolveu.',
+          btn6: 'Como faço para citar a LACLI?',
+          li6:'Para citar o LACLI como um projeto, siga as diretrizes do guia de estilo do site. No entanto, se desejar citar um recurso específico que descobriu por meio do nosso índice, cite o recurso original diretamente. Não é necessário citar o LACLI como intermediário.',
 
         },
       };
@@ -227,6 +235,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
       btn5.textContent = translations[language].btn5;
       li5.innerHTML = translations[language].li5;
+      btn6.textContent = translations[language].btn6;
+      li6.innerHTML = translations[language].li6;
     }
   
     languageNavbar.addEventListener('click', function (event) {
