@@ -813,82 +813,133 @@ pre {
 
 /* ----- HELP ----- */
 
+/* --- Help Container --- */
 .help-wrapper {
-    max-width: 800px;
+    max-width: 900px; /* Slightly wider for readability */
     margin: 0 auto;
-}
-.help-accordion-wrapper {
-    padding-bottom: 150px;
+    padding: 20px;
 }
 
+.help-accordion-wrapper {
+    padding-bottom: 100px;
+}
+
+/* --- The Accordion Buttons --- */
 .help-accordion-btn {
-    background-color: #eee;
+    background-color: #ffffff;
     font-family: 'Lato', sans-serif;
-    font-size: 1rem ;
-    color: #444;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--primary);
     cursor: pointer;
-    padding: 18px;
+    padding: 20px 24px;
     width: 100%;
     text-align: left;
-    border: none;
+    border: 1px solid #afabab; /* Subtle border instead of flat grey */
+    border-radius: 8px; /* Rounded corners for a modern look */
     outline: none;
-    transition: 0.4s;
-}
-  
-.help-accordion-active, .help-accordion-btn:hover {
-    background-color: var(--highlight);
+    transition: all 0.3s ease;
+    margin-bottom: 10px; /* Space between closed items */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.help-accordion-btn:after {
-    content: '\0002B'; /* Unicode character for "plus" sign (+) */
-    font-size: 18px;
-    font-weight: 600;
-    color: #777;
-    float: right;
-    margin-left: 5px;
-}
-  
-.help-accordion-active:after {
-    content: "\02013"; /* Unicode character for "minus" sign (-) */
+.help-accordion-active, 
+.help-accordion-btn:hover {
+    background-color: var(--highlight);
+    border-color: var(--primary);
+    color: var(--primary);
 }
 
 .help-accordion-btn:focus {
-    outline: none;
-    border: 1px solid blue;
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
 }
 
+.help-accordion-btn:after {
+    content: '\002B'; /* Unicode Plus */
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--primary);
+    transition: transform 0.3s ease;
+}
+
+.help-accordion-active:after {
+    content: "\2212"; /* Unicode Minus */
+    transform: rotate(180deg);
+}
 .help-accordion-panel {
-    padding: 0 18px;
+    background-color: #fff;
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.2s ease-out;
-    line-height: 1.7;
+    transition: max-height 0.3s ease-out;
+    border-left: 4px solid var(--primary); /* Deep brand accent when open */
+    margin: -10px 0 15px 0; /* Snap to the button above */
+    border-radius: 0 0 8px 8px;
 }
 
+.help-accordion-panel p, 
 .help-accordion-panel ul {
-    padding: 1rem 2rem 2rem 2rem;
-}
-.help-accordion-panel p {
-    padding: 1rem 2rem 2rem 0;
+    padding: 20px 30px;
+    line-height: 1.8;
+    color: #333;
 }
 
-.sample-questions li {
-    padding-bottom: 0;
+.help-accordion-panel li {
+    margin-bottom: 12px;
+}
+
+#searchFeatureInfo {
+    padding: 2rem 0 0 2rem;
+}
+
+.sample-questions {
+    list-style: none !important;
+    padding-left: 1rem !important;
+}
+
+.sample-questions li:not(.sample-question-suggestion) {
+    font-weight: 500;
+    margin-top: 15px;
+    color: var(--secondary);
 }
 
 .sample-question-suggestion {
     list-style: none;
-    font-style: italic;
-    padding-bottom: 2rem !important;
+    display: inline-block; /* Makes it a pill */
+    background-color: #fdf2f2; /* Very light red */
     color: var(--tertiary);
+    border: 1px dashed var(--tertiary);
+    padding: 4px 12px !important;
+    margin-top: 8px !important;
+    margin-bottom: 10px !important;
+    border-radius: 20px;
+    font-size: 0.95rem;
+    font-style: normal; /* Cleaner than italic */
 }
 
-@media(max-width: 500px){
-    .help-accordion-btn:after {
-        content: none;
+.help-accordion-panel a {
+    color: var(--primary);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    font-weight: 600;
+}
+
+.help-accordion-panel a:hover {
+    color: var(--tertiary);
+    background-color: transparent;
+}
+
+@media(max-width: 600px){
+    .help-accordion-btn {
+        font-size: 1rem;
+        padding: 15px;
     }
-    .help-accordion-active:after {
-        content: none;
+    
+    .help-accordion-panel p, 
+    .help-accordion-panel ul {
+        padding: 15px 20px;
     }
 }
 
