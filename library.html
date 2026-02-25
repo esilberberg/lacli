@@ -111,14 +111,14 @@
         // Define the data for each facet section
         const facetsData = [
             { header: 'Resource Types', id: 'resource-types-facet', lacliField: 'Resource_Types' },
-            { header: 'Formats', id: 'specific-formats-facet', lacliField: 'Specific_Formats' },
+            { header: 'Formats', id: 'specific-formats-facet', lacliField: 'Formats' },
             { header: 'Countries', id: 'countries-facet', lacliField: 'Countries' },
-            { header: 'Broad Subjects', id: 'broad-subject-areas-facet', lacliField: 'Broad_Subject_Areas' },
+            { header: 'Broad Subjects', id: 'broad-subject-areas-facet', lacliField: 'Broad_Subjects' },
             { header: 'Subjects in English', id: 'subjects-in-english-facet', lacliField: 'Subjects_in_English' },
             { header: 'Materias en Español', id: 'materias-en-espanol-facet', lacliField: 'Materias_en_Espanol' },
             { header: 'Assuntos em Portugues', id: 'assuntos-em-portugues-facet', lacliField: 'Assuntos_em_Portugues' },
             { header: 'Languages', id: 'languages-facet', lacliField: 'Languages' },
-            { header: 'Geographical Areas', id: 'geographical-area-facet', lacliField: 'Geographical_Area' },
+            { header: 'Geographical Areas', id: 'geographical-area-facet', lacliField: 'Geographical_Areas' },
             { header: 'Time Coverage', id: 'time-coverage-facet', lacliField: 'Time_Coverage' },
             { header: 'Institutional Hosts', id: 'institutional-hosts-facet', lacliField: 'Institutional_Hosts' }
         ];
@@ -128,7 +128,6 @@
 
         // Loop through the facet data to create HTML for each facet block
         facetsData.forEach(facet => {
-            // Accessing the property using bracket notation since the key has a hyphen
             facetsContentHtml += `
                 <div>
                     <p class="facet-accordion-header">${facet.header} <span class="accordion-icon">+</span></p>
@@ -176,17 +175,17 @@ var searchHelpBtn = document.getElementById("search-help-btn");
 
 var span = document.getElementsByClassName("search-help-btn-close")[0];
 
-// When the user clicks the button, open the modal 
+// open search help modal on click
 searchHelpBtn.onclick = function() {
   modal.style.display = "block";
 }
 
-// When the user clicks on <span> (x), close the modal
+// close search help modal
 span.onclick = function() {
   modal.style.display = "none";
 }
 
-// When the user clicks anywhere outside of the modal, close it
+// close search help modal if clicks outside
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
@@ -224,7 +223,7 @@ closeFacetsBtn.addEventListener("click", () => {
 window.addEventListener('resize', () => {
   if (window.innerWidth > 800) {
     if (facets) {
-      facets.style.display = ''; // This removes the inline style and lets CSS take over
+      facets.style.display = ''; 
     }
     if (overlay) {
       overlay.classList.remove('visible');
@@ -238,7 +237,7 @@ window.addEventListener('resize', () => {
   }
 });
 
-// Optional: Add a click listener to the overlay to close the facets panel
+// click listener to the overlay to close the facets panel
 if (overlay) {
   overlay.addEventListener('click', () => {
     if (facets) {
@@ -258,7 +257,6 @@ if (overlay) {
     </footer>
 <script src="header.js"></script>
 <script src="scripts/app2.js"></script>
-<!-- <script src="scripts/app.js"></script> -->
 <script src="scripts/navigation.js"></script>
 <script src="translation/libraryNavbar.js"></script>
 <script src="translation/library.js"></script>

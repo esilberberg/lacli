@@ -502,6 +502,20 @@ function runFacetFiltering(event) {
     filterData(searchQuery); // filterData will reset displayedCount and refresh
 }
 
+const facetFieldToIdMap = {
+  'Resource_Types': 'resource-types-facet',
+  'Formats': 'specific-formats-facet',
+  'Countries': 'countries-facet',
+  'Broad_Subjects': 'broad-subject-areas-facet',
+  'Subjects_in_English': 'subjects-in-english-facet',
+  'Materias_en_Espanol': 'materias-en-espanol-facet',
+  'Assuntos_em_Portugues': 'assuntos-em-portugues-facet',
+  'Languages': 'languages-facet',
+  'Geographical_Areas': 'geographical-area-facet',
+  'Time_Coverage': 'time-coverage-facet',
+  'Institutional_Hosts': 'institutional-hosts-facet'
+};
+
 function handleFacetSortClick(event) {
     const sortButton = event.currentTarget;
     const sortType = sortButton.dataset.sortType; 
@@ -509,7 +523,7 @@ function handleFacetSortClick(event) {
 
     if (fieldName) {
         currentFacetSortOrder[fieldName] = sortType; // Update the sort order for this facet
-        const targetElement = document.getElementById(fieldName.toLowerCase().replace(/_/g, '-') + '-facet'); 
+        const targetElement = document.getElementById(facetFieldToIdMap[fieldName]);
         createFacets(activeDataToDisplay, fieldName, targetElement, 'No data found.', sortType);
     }
     updateSortButtonStyles(); // Update button styles after a sort
