@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
               </ul>
               <h3><i class="fa-solid fa-floppy-disk"></i> Saving</h3>
               <ul>
-                <li>There are two ways to save a search. First, copy the url. Only keywords, and not filters, are captured in the url. Second, download the records currently displayed as a JSON file to your computer via the Download button.</li>
+                <li>There are two ways to save a search. First, copy the url. Only keywords, and not filters, are captured in the url. Second, download the records currently displayed as a CSV file to your computer via the Download button.</li>
               </ul>
             </div>`
         },
@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function () {
               </ul>
               <h3><i class="fa-solid fa-floppy-disk"></i> Guardar</h3>
               <ul>
-                <li>Hay dos maneras de guardar una búsqueda: 1) Copie la URL. Tenga en cuenta que en la URL solo se conservan las palabras clave, no los filtros. 2) Descargue los registros que se muestran actualmente como archivo JSON a su computadora mediante el botón Descargar.</li>
+                <li>Hay dos maneras de guardar una búsqueda: 1) Copie la URL. Tenga en cuenta que en la URL solo se conservan las palabras clave, no los filtros. 2) Descargue los registros que se muestran actualmente como archivo CSV a su computadora mediante el botón Descargar.</li>
               </ul>
             </div>`
         },
@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function () {
               </ul>
               <h3><i class="fa-solid fa-floppy-disk"></i> Salvando os resultados</h3>
               <ul>
-                <li>Existem duas maneiras de salvar uma pesquisa. Primeiro, copie a URL. Apenas as palavras-chave, e não os filtros, são capturadas na URL. Segundo, baixe os registros atualmente exibidos para o seu computador através do botão Download (arquivo em formato JSON).</li>
+                <li>Existem duas maneiras de salvar uma pesquisa. Primeiro, copie a URL. Apenas as palavras-chave, e não os filtros, são capturadas na URL. Segundo, baixe os registros atualmente exibidos para o seu computador através do botão Download (arquivo em formato CSV).</li>
               </ul>
             </div>`
         },
