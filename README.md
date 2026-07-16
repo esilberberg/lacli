@@ -29,9 +29,9 @@ function doGet(request) {
 }
 ```
 
-## Search Functionality (app.js)
+## Search Functionality (app2.js)
 - Searches are not case sensitive and ignore diacritics.
 - Truncation, wildcards, quotation marks, and lemmatization are not supported. It is preferable to search with singular rather than plural nouns.
 - Search terms separated by a space are treated as independent search terms and are linked with the AND operator.
 - All search terms must appear somewhere in the resource description fields for a resource to be returned in the results.
-- To save a search, copy the url from the results page or use the export button to download the results as a JSON file.
+- To save a search, copy the url from the results page or use the export button to download the results as a CSV file.
