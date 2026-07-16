@@ -1,20 +1,6 @@
-// Custom message box function (replaces alert())
-function showMessageBox(message) {
-    const msgBox = document.getElementById('message-box');
-    const msgContent = document.getElementById('message-content');
-    const msgOkBtn = document.getElementById('message-ok-btn');
-
-    msgContent.textContent = message;
-    msgBox.style.display = 'block';
-
-    msgOkBtn.onclick = () => {
-        msgBox.style.display = 'none';
-    };
-}
-
-// DOM elements
-const apiEndpoint = 'https://script.google.com/macros/s/AKfycbwA7DLdT6UmiOU7B89gdMglsDdXedG3fyh5nmCr0EeIx1iSkXVTr0-mYn615Q7WCPpB/exec';
-
+// ==========================================
+// 1. DOM Selectors
+// ==========================================
 const display = document.getElementById('display');
 const search = document.getElementById('library-search');
 
@@ -33,19 +19,34 @@ const institutionalHostsFacet = document.getElementById('institutional-hosts-fac
 const activeFacetsSummary = document.getElementById('activeFacetsSummary');
 
 const librarySearchBtn = document.getElementById('library-search-btn');
+const fieldsSelector = document.getElementById('fields-selector');
+
 const loader = document.getElementById('loader');
 const displaySearchSummary = document.getElementById('displaySearchSummary');
 const randomBtn = document.getElementById('random-btn');
 const exportBtn = document.getElementById('export-btn');
-// const refreshBtn = document.getElementById('refresh-btn');
 const refreshBtns = document.getElementsByClassName('refresh-btn');
 const loadMoreBtn = document.getElementById('loadMore');
 
+// ==========================================
+// 2. CONFIGURATION & STATE
+// ==========================================
 
-
+// --- API & Constants ---
+const apiEndpoint = 'https://script.google.com/macros/s/AKfycbwA7DLdT6UmiOU7B89gdMglsDdXedG3fyh5nmCr0EeIx1iSkXVTr0-mYn615Q7WCPpB/exec';
 let displayedCount = 0; // Track how many data objects are currently displayed for pagination
 const itemsPerPage = 15; // Number of items to display per page
 
+// Search Selector Dropdown menu
+const searchFieldMapping = {
+    title: ['Resource_Title'],
+    subjects: ['Broad_Subjects', 'Subjects_in_English', 'Materias_en_Espanol', 'Assuntos_em_Portugues'],
+    resource_type: ['Resource_Types'],
+    country: ['Countries'],
+    format: ['Formats']
+};
+
+// --- App State ---
 // Full data from Google Sheets API
 let initialData = [];
 // Stores the currently filtered/displayed dataset (for pagination and export)
@@ -69,18 +70,102 @@ let currentFacetSortOrder = {
     'Institutional_Hosts': 'count'
 };
 
-
-// Function to remove diacritics from a string
-function removeDiacritics(str) {
-    return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-}
-
 // --- URL Search Parameter on Page Load ---
 // Get search terms from URL and display in search bar on page load
 const searchURL = window.location.href;
 const urlParams = new URL(searchURL).searchParams;
 const initialSearchQuery = urlParams.get('q') || ''; // Get 'q' parameter, default to empty string
 search.value = initialSearchQuery; // Populate search bar with URL query
+
+// Parse initial scope on page load
+const initialScope = urlParams.get('scope') || 'all';
+fieldsSelector.value = initialScope; // Set dropdown state
+
+
+// ==========================================
+// 3. HELPER UTILITIES
+// ==========================================
+
+// Custom message box function (replaces alert())
+function showMessageBox(message) {
+    const msgBox = document.getElementById('message-box');
+    const msgContent = document.getElementById('message-content');
+    const msgOkBtn = document.getElementById('message-ok-btn');
+
+    msgContent.textContent = message;
+    msgBox.style.display = 'block';
+
+    msgOkBtn.onclick = () => {
+        msgBox.style.display = 'none';
+    };
+}
+
+// Strip diacritics
+function removeDiacritics(str) {
+    return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+}
+
+// Gets a random resource from the initial full dataset
+function getRandomResource() {
+    if (initialData.length === 0) {
+        showMessageBox('No data available to select a random resource.');
+        return;
+    }
+    const randomIndex = Math.floor(Math.random() * initialData.length);
+    const randomResource = initialData[randomIndex];
+
+    search.value = ''; 
+    currentActiveFacets = {}; 
+    activeDataToDisplay = [randomResource]; 
+    displayedCount = 0; 
+    displayData(activeDataToDisplay, '', displayedCount, true); 
+    // Do not update URL for random resource
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
+
+// Exports data as CSV
+function exportCSV() {
+    if (activeDataToDisplay.length === 0) {
+        showMessageBox('No results to export. Please perform a search or refresh to get data.');
+        return;
+    }
+
+    const headers = Object.keys(activeDataToDisplay[0]);
+    
+    const csvRows = activeDataToDisplay.map(row => {
+        return headers.map(fieldName => {
+            let value = row[fieldName] === null || row[fieldName] === undefined ? '' : row[fieldName];
+            
+            // Standard CSV formatting: escape double quotes
+            let stringValue = String(value).replace(/"/g, '""');
+            
+            // Wrap in quotes to protect commas
+            return `"${stringValue}"`;
+        }).join(',');
+    });
+
+    // 1. Combine headers and rows
+    const csvContent = [headers.join(','), ...csvRows].join('\n');
+
+    // 2. Create the BOM (Byte Order Mark) for UTF-8
+    const BOM = '\uFEFF';
+
+    // 3. Combine BOM with content and trigger download
+    const blob = new Blob([BOM + csvContent], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'lacli-results.csv';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+// ==========================================
+// 4. CORE FILTER & DISPLAY LOGIC
+// ==========================================
 
 // Fetches data from the API endpoint
 async function fetchData(url) {
@@ -103,7 +188,6 @@ async function fetchData(url) {
 
 // Fetch data on load
 fetchData(apiEndpoint);
-
 // Filters data based on search query and active facets
 function filterData(searchQuery) {
     loader.style.display = 'block'; // Show loader during filtering
@@ -114,9 +198,23 @@ function filterData(searchQuery) {
         const searchTerms = searchQuery.toLowerCase().split(/\s+/).map(term => removeDiacritics(term));
         filtered = filtered.filter(item => {
             return searchTerms.every(term => {
-                return Object.values(item).some(value => {
+                const selectedScope = fieldsSelector.value;
+                return Object.keys(item).some(key => {
+                    // Determine which fields we are allowed to search in
+                    let isAllowedField = false;
+
+                    if (selectedScope === 'all') {
+                        isAllowedField = true; // Search everything
+                    } else {
+                        const targetFields = searchFieldMapping[selectedScope] || [];
+                        isAllowedField = targetFields.includes(key);
+                    }
+
+                    if (!isAllowedField) return false;
+
+                    const value = item[key];
                     return value && removeDiacritics(String(value).toLowerCase()).includes(term);
-                });
+                });    
             });
         });
     }
@@ -149,17 +247,27 @@ function filterData(searchQuery) {
 // Runs the search based on the input field value and updates URL
 function runSearch() {
     const searchQuery = search.value.trim();
+    const selectedScope = fieldsSelector.value;
     // Reset active facets when a new search is performed (clear all filters)
     currentActiveFacets = {}; // Clears all facet selections
     filterData(searchQuery);
 
-    // Update URL with search query
     const newURL = new URL(window.location.href);
+    
+    // Update search query param
     if (searchQuery) {
         newURL.searchParams.set('q', searchQuery);
     } else {
-        newURL.searchParams.delete('q'); // Remove 'q' parameter if search query is empty
+        newURL.searchParams.delete('q');
     }
+    
+    // Update scope param
+    if (selectedScope && selectedScope !== 'all') {
+        newURL.searchParams.set('scope', selectedScope);
+    } else {
+        newURL.searchParams.delete('scope');
+    }
+    
     window.history.pushState(null, '', newURL);
 }
 
@@ -299,48 +407,24 @@ function displayData(data, searchQuery, count, refresh) {
     updateSortButtonStyles();
 }
 
-// --- Event Handlers ---
-
-// Main search button and Enter key listener
-librarySearchBtn.addEventListener('click', runSearch);
-search.addEventListener('keypress', (event) => {
-    if (event.key === 'Enter') {
-        runSearch();
+// Accordion function for Resource details
+function handleAccordionClick() {
+    this.classList.toggle("resource-accordion-active");
+    const panel = this.nextElementSibling; 
+    if (panel.style.maxHeight && panel.style.maxHeight !== '0px') {
+        panel.style.maxHeight = '0px'; 
+        panel.classList.remove('active');
+    } else {
+        panel.style.maxHeight = panel.scrollHeight + "px"; 
+        panel.classList.add('active'); 
     }
-});
+}
 
-// Refresh buttons
-Array.from(refreshBtns).forEach(button => {
-    button.addEventListener('click', () => {
-        search.value = ''; // Clear search input
-        currentActiveFacets = {}; // Clear active facets
-        displayedCount = 0; // Reset pagination
-        filterData(''); // Show all data
-        // Clear URL search parameter
-        const newURL = new URL(window.location.href);
-        newURL.searchParams.delete('q');
-        window.history.pushState(null, '', newURL);
-        document.body.scrollTop = 0; // For Safari
-        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-    });
-});
 
-// Load More button
-loadMoreBtn.addEventListener('click', () => {
-    // Check if there is more data to display
-    if (displayedCount < activeDataToDisplay.length) {
-        // `displayData` increments `displayedCount`
-        displayData(activeDataToDisplay, search.value, displayedCount, false); // `false` to append data
-    }
-});
+// =========================================================================
+// 5. FACET FILTERING
+// =========================================================================
 
-// Get random resource
-randomBtn.addEventListener('click', getRandomResource);
-
-// JSON export
-exportBtn.addEventListener('click', exportCSV);
-
-// --- Facet Functions ---
 function createFacets(data, fieldName, targetElement, noDataMessage, sortType = 'count') {
     const counts = new Map();
 
@@ -541,94 +625,74 @@ function updateSortButtonStyles() {
     });
 }
 
-// --- Other Utility Functions ---
-
 // Subject links within resource descriptions
 function handleSubjectTagClick(event) {
     const clickedTag = event.currentTarget;
     const tagValue = clickedTag.textContent.trim();
-    const fieldName = clickedTag.dataset.fieldName; // Get field name from the data attribute of the subject tag
+    const fieldName = clickedTag.dataset.fieldName; 
 
-    // Subject tag as if selecting a single facet for that field
-    currentActiveFacets = {}; // Clear all facets first
+    // 1. Clear text search so we don't do a global keyword match
+    search.value = ''; 
+    
+    // 2. Clear other facets and target ONLY this field
+    currentActiveFacets = {}; 
     if (fieldName) { 
         currentActiveFacets[fieldName] = [tagValue]; 
     }
-    search.value = tagValue; 
-    runSearch(); 
-
-    document.body.scrollTop = 0; // For Safari
-    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-}
-
-// Gets a random resource from the initial full dataset
-function getRandomResource() {
-    if (initialData.length === 0) {
-        showMessageBox('No data available to select a random resource.');
-        return;
-    }
-    const randomIndex = Math.floor(Math.random() * initialData.length);
-    const randomResource = initialData[randomIndex];
-
-    search.value = ''; 
-    currentActiveFacets = {}; 
-    activeDataToDisplay = [randomResource]; 
-    displayedCount = 0; 
-    displayData(activeDataToDisplay, '', displayedCount, true); 
-    // Do not update URL for random resource
-    document.body.scrollTop = 0; // For Safari
-    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-}
-
-// Exports data as CSV
-function exportCSV() {
-    if (activeDataToDisplay.length === 0) {
-        showMessageBox('No results to export. Please perform a search or refresh to get data.');
-        return;
-    }
-
-    const headers = Object.keys(activeDataToDisplay[0]);
     
-    const csvRows = activeDataToDisplay.map(row => {
-        return headers.map(fieldName => {
-            let value = row[fieldName] === null || row[fieldName] === undefined ? '' : row[fieldName];
-            
-            // Standard CSV formatting: escape double quotes
-            let stringValue = String(value).replace(/"/g, '""');
-            
-            // Wrap in quotes to protect commas
-            return `"${stringValue}"`;
-        }).join(',');
-    });
+    // 3. Directly filter the data using the facet (bypassing runSearch)
+    filterData(''); 
 
-    // 1. Combine headers and rows
-    const csvContent = [headers.join(','), ...csvRows].join('\n');
+    // 4. Update the URL without the general 'q' parameter
+    const newURL = new URL(window.location.href);
+    newURL.searchParams.delete('q');
+    window.history.pushState(null, '', newURL);
 
-    // 2. Create the BOM (Byte Order Mark) for UTF-8
-    const BOM = '\uFEFF';
-
-    // 3. Combine BOM with content and trigger download
-    const blob = new Blob([BOM + csvContent], { type: 'text/csv;charset=utf-8;' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'lacli-results.csv';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
+    // 5. Scroll to top
+    document.body.scrollTop = 0; 
+    document.documentElement.scrollTop = 0; 
 }
 
-// Accordion function for Resource details
-function handleAccordionClick() {
-    this.classList.toggle("resource-accordion-active");
-    const panel = this.nextElementSibling; 
-    if (panel.style.maxHeight && panel.style.maxHeight !== '0px') {
-        panel.style.maxHeight = '0px'; 
-        panel.classList.remove('active');
-    } else {
-        panel.style.maxHeight = panel.scrollHeight + "px"; 
-        panel.classList.add('active'); 
+
+// ==========================================
+// 6. EVENT LISTENERS 
+// ==========================================
+
+// Main search button and Enter key listener
+librarySearchBtn.addEventListener('click', runSearch);
+search.addEventListener('keypress', (event) => {
+    if (event.key === 'Enter') {
+        runSearch();
     }
-}
+});
 
+// Refresh button and refresh 'x' in search bar
+Array.from(refreshBtns).forEach(button => {
+    button.addEventListener('click', () => {
+        search.value = ''; // Clear search input
+        currentActiveFacets = {}; // Clear active facets
+        displayedCount = 0; // Reset pagination
+        filterData(''); // Show all data
+        // Clear URL search parameter
+        const newURL = new URL(window.location.href);
+        newURL.searchParams.delete('q');
+        window.history.pushState(null, '', newURL);
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    });
+});
+
+// Load More button
+loadMoreBtn.addEventListener('click', () => {
+    // Check if there is more data to display
+    if (displayedCount < activeDataToDisplay.length) {
+        // `displayData` increments `displayedCount`
+        displayData(activeDataToDisplay, search.value, displayedCount, false); // `false` to append data
+    }
+});
+
+// Get random resource
+randomBtn.addEventListener('click', getRandomResource);
+
+// CSV export
+exportBtn.addEventListener('click', exportCSV);

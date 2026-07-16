@@ -61,17 +61,30 @@
 
 }
 
-@media only screen and (max-width: 800px) {
-    .search-interface {
-        margin: 0 0 3rem 0;
-    }
+#fields-selector {
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--secondary);
+    border-radius: 5px;
+    color: #333;
+    outline: none;
+    cursor: pointer;
+
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'><path d='M0 3l5 5 5-5z' fill='%23666'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.5rem;
 }
 
 .search-bar {
     display: flex;
     align-items: stretch;
     position: relative; /* For positioning the X button */
-    width: 110%; 
+    width: 100%; 
 }
 
 #library-search {
@@ -112,7 +125,7 @@
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     cursor: pointer;
-    flex-shrink: 0; /* Prevent the search button from shrinking */
+    flex-shrink: 0; 
 }
 
 #search-help-btn {
@@ -127,6 +140,53 @@
     color: var(--light-primary);
 }
 
+@media only screen and (max-width: 800px) {
+    .search-interface {
+        margin: 0 0 3rem 0;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+    .search-bar {
+        width: 100%;
+        flex-direction: column;
+        gap: 15px;
+    }
+    #fields-selector {
+        width: 100%;
+        padding: 0.8rem 1rem;
+    }
+
+    /* 2. Style the search elements so they stay in a row on mobile */
+    #library-search {
+      border-radius: 5px;
+      height: 50px;
+    }
+
+    /* Adjust the absolute X button position on mobile */
+    #x-btn {
+        display: none;
+    }
+
+    #library-search-btn {
+        border-radius: 5;
+    }
+
+    #search-help-btn {
+    border: none;
+    background-color: var(--primary);
+    font-size: 1.7rem;
+    color: white;
+    margin-left: 0;
+    border-radius: 5px;
+    padding: 5px 0;
+    font-size: 1.3rem;
+    }
+    #search-help-btn:hover {
+        background-color: var(--light-primary);
+        color: white;
+    }
+}
 /* The Modal (background) */
 .modal {
   display: none; 
@@ -209,7 +269,7 @@
     flex-shrink: 0; 
 }
 
-/* Optional: Hover effects for buttons */
+/* Hover effects for buttons */
 #library-search-btn:hover,
 .search-interface-utilities > button:hover {
     background-color: var(--light-primary);
@@ -256,14 +316,14 @@
 }
 
 .active-facet-tag {
-    border: 1px solid var(--light-primary);
+    border: 2px solid var(--light-primary);
     padding: 5px 8px;
     border-radius: 5px;
     color: var(--light-primary);
 }
 
 .active-facet-tag:hover {
-    border: 1px solid var(--secondary);
+    border: 2px solid var(--secondary);
     color: var(--secondary);
 }
 

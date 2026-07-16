@@ -46,6 +46,14 @@
 <div class="library-wrapper">
     <section class="search-interface">
         <div class="search-bar">
+            <select name="fields-selector" id="fields-selector">
+              <option value="all">All Fields</option>
+              <option value="title">Title</option>
+              <option value="subjects">Subject</option>
+              <option value="resource_type">Resource Type</option>
+              <option value="country">Country</option>
+              <option value="format">Format</option>
+            </select>
             <input type="text" id="library-search" placeholder="Enter keywords...">
             <button class="refresh-btn" id="x-btn"><i class="fa-solid fa-xmark"></i></button>
             <button id="library-search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
