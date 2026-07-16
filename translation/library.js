@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const exportBtn = document.getElementById('export-btn-text');
     const filtersBtn = document.getElementById('filters-btn-text');
     const modal = document.getElementById('modal-content-text');
+    const fieldSelector = document.getElementById('fields-selector'); // Targeted your dropdown
 
     const storedLanguage = localStorage.getItem('lacliLanguagePreference');
   
@@ -35,6 +36,15 @@ document.addEventListener('DOMContentLoaded', function () {
           random: 'Random',
           export: 'Download Results',
           filters: 'Filters',
+          // Added dropdown options translations
+          options: {
+            all: 'All Fields',
+            title: 'Title',
+            subjects: 'Subject',
+            resource_type: 'Resource Type',
+            country: 'Country',
+            format: 'Format'
+          },
           modal: `<div class="modal-heading">About LACLI Search</div>
               <h3><i class="fa-solid fa-magnifying-glass"></i> Keywords</h3>
               <ul>
@@ -60,6 +70,15 @@ document.addEventListener('DOMContentLoaded', function () {
           random: 'Aleatorio',
           export: 'Descargar resultados',
           filters: 'Filtros',
+          // Added dropdown options translations
+          options: {
+            all: 'Todos',
+            title: 'Título',
+            subjects: 'Materia',
+            resource_type: 'Tipo de recurso',
+            country: 'País',
+            format: 'Formato'
+          },
           modal: `<div class="modal-heading">Acerca de la búsqueda</div>
               <h3><i class="fa-solid fa-magnifying-glass"></i> Palabras clave</h3>
               <ul>
@@ -85,6 +104,15 @@ document.addEventListener('DOMContentLoaded', function () {
           random: 'Aleatório',
           export: 'Exportar resultados',
           filters: 'Filtros',
+          // Added dropdown options translations
+          options: {
+            all: 'Todos',
+            title: 'Título',
+            subjects: 'Assunto',
+            resource_type: 'Tipo de recurso',
+            country: 'País',
+            format: 'Formato'
+          },
           modal: `<div class="modal-heading">Sobre a Busca</div>
               <h3><i class="fa-solid fa-magnifying-glass"></i> Palavras-chave</h3>
               <ul>
@@ -96,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function () {
               <h3><i class="fa-solid fa-sliders"></i> Filtros</h3>
               <ul>
                 <li>Quando um usuário seleciona várias opções de um mesmo filtro, como dois idiomas, por exemplo, o LACLI usa o operador booleano OR. Isso significa que ele mostra resultados que correspondem a pelo menos uma das opções selecionadas (por exemplo, Espanhol OU Inglês).</li>
-                <li>Quando um usuário seleciona opções de filtros diferentes, como um formato e um idioma, o LACLI usa o operador AND. Isso restringe os resultados apenas àqueles que correspondem a todos os critérios selecionados (por exemplo, Livros AND Espanhol).</li>
+                <li>Quando um usuário selecciona opções de filtros diferentes, como um formato e um idioma, o LACLI usa o operador AND. Isso restringe os resultados apenas àqueles que correspondem a todos os critérios selecionados (por exemplo, Livros AND Espanhol).</li>
               </ul>
               <h3><i class="fa-solid fa-floppy-disk"></i> Salvando os resultados</h3>
               <ul>
@@ -113,6 +141,18 @@ document.addEventListener('DOMContentLoaded', function () {
       filtersBtn.textContent = translations[language].filters;
       modal.innerHTML = translations[language].modal;
 
+      // Safely loop through and update each option text using its value attribute
+      if (fieldSelector) {
+        const selectOptions = fieldSelector.getElementsByTagName('option');
+        const langOptions = translations[language].options;
+        
+        for (let i = 0; i < selectOptions.length; i++) {
+          const value = selectOptions[i].value;
+          if (langOptions[value]) {
+            selectOptions[i].textContent = langOptions[value];
+          }
+        }
+      }
     }
   
     languageNavbar.addEventListener('click', function (event) {
@@ -123,4 +163,3 @@ document.addEventListener('DOMContentLoaded', function () {
       updateContentLanguage(selectedLanguage);
     });
   });
-  
