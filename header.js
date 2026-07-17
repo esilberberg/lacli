@@ -27,7 +27,7 @@ const headerContent = `
                     <a href="impact.html" class="nav-link" id="nav-home">Impact</a>
                 </li>
                 <li class="nav-item">
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfJGksX1uBHoNNTHSPsRv9wQp4K0yYc4a-OmLMUrciXYqfwMg/viewform" target="_blank" class="nav-link" id="nav-contribute">Contribute</a>
+                    <a href="https://forms.gle/XC7UqyLMGShZVXb5A" target="_blank" class="nav-link" id="nav-contribute">Contribute</a>
                 </li>
                 <li class="nav-item">
                     <a href="help.html" class="nav-link" id="nav-help">Help</a>
