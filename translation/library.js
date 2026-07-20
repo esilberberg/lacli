@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function () {
           filters: 'Filtros',
           // Added dropdown options translations
           options: {
-            all: 'Todos',
+            all: 'Todos los campos',
             title: 'Título',
             subjects: 'Materia',
             resource_type: 'Tipo de recurso',
@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function () {
           filters: 'Filtros',
           // Added dropdown options translations
           options: {
-            all: 'Todos',
+            all: 'Todos os campos',
             title: 'Título',
             subjects: 'Assunto',
             resource_type: 'Tipo de recurso',
