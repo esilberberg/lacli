@@ -869,6 +869,8 @@ pre {
     content: "\2212"; /* Unicode Minus */
     transform: rotate(180deg);
 }
+
+/* --- The Accordion Panels (Safari-Safe max-height approach) --- */
 .help-accordion-panel {
     background-color: #fff;
     max-height: 0;
@@ -877,6 +879,17 @@ pre {
     border-left: 4px solid var(--primary); /* Deep brand accent when open */
     margin: -10px 0 15px 0; /* Snap to the button above */
     border-radius: 0 0 8px 8px;
+    
+    /* Safari Hardware Acceleration & Paint Fixes */
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    will-change: max-height;
+}
+
+/* When active, expand max-height to cleanly fit content */
+.help-accordion-panel.help-accordion-active,
+.help-accordion-btn.help-accordion-active + .help-accordion-panel {
+    max-height: 1000px;
 }
 
 .help-accordion-panel p, 

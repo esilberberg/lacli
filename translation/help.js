@@ -44,6 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   
     function updateLanguageSelection(language) {
+      if (!languageNavbar) return;
       const languageLinks = languageNavbar.getElementsByTagName('a');
       for (let i = 0; i < languageLinks.length; i++) {
         if (languageLinks[i].getAttribute('data-lang') === language) {
@@ -76,8 +77,7 @@ document.addEventListener('DOMContentLoaded', function () {
               <h3><i class="fa-solid fa-floppy-disk"></i> Saving</h3>
               <ul>
                 <li>There are two ways to save a search. First, copy the url. Only keywords, and not filters, are captured in the url. Second, download the records currently displayed as a CSV file to your computer via the Download button.</li>
-              </ul>
-            </div>`,
+              </ul>`,
 
           btn2: 'What are some questions I can answer with LACLI?',
           li21: 'How can I find photograhs about cuba in the 1950s?',
@@ -125,8 +125,7 @@ document.addEventListener('DOMContentLoaded', function () {
               <h3><i class="fa-solid fa-floppy-disk"></i> Guardar</h3>
               <ul>
                 <li>Hay dos maneras de guardar una búsqueda: 1) Copie la URL. Tenga en cuenta que en la URL solo se conservan las palabras clave, no los filtros. 2) Descargue los registros que se muestran actualmente como archivo CSV a su computadora mediante el botón Descargar.</li>
-              </ul>
-            </div>`,
+              </ul>`,
 
           btn2: '¿Cuáles son algunas de las preguntas que puedo responder con LACLI?',
           li21: '¿Cómo puedo buscar recursos sobre el estudio científico de las plantas?',
@@ -158,7 +157,7 @@ document.addEventListener('DOMContentLoaded', function () {
         pt: {
           heading: 'Ajuda',
           btn1: 'Como funciona o sistema de busca da biblioteca?',
-          searchFeatureInfo: `<div class="modal-heading">Sobre a Busca</div>
+          searchFeatureInfo: `
               <h3><i class="fa-solid fa-magnifying-glass"></i> Palavras-chave</h3>
               <ul>
                   <li>As buscas não diferenciam maiúsculas de minúsculas e ignoram os diacríticos (como acentos agudo, circunflexo e grave; o til, a cedilha e o trema).</li>
@@ -174,8 +173,7 @@ document.addEventListener('DOMContentLoaded', function () {
               <h3><i class="fa-solid fa-floppy-disk"></i> Salvando os resultados</h3>
               <ul>
                 <li>Existem duas maneiras de salvar uma pesquisa. Primeiro, copie a URL. Apenas as palavras-chave, e não os filtros, são capturadas na URL. Segundo, baixe os registros atualmente exibidos para o seu computador através do botão Download (arquivo em formato CSV).</li>
-              </ul>
-            </div>`,
+              </ul>`,
 
           btn2: 'Quais seriam algumas perguntas que posso responder com o LACLI?',
           li21: 'Como posso buscar por recursos sobre o estudo científico das plantas?',
@@ -209,7 +207,12 @@ document.addEventListener('DOMContentLoaded', function () {
   
       heading.textContent = translations[language].heading;
       btn1.textContent = translations[language].btn1;
+      
+      // Inject HTML and force Safari repaint so Font Awesome icons render
       searchFeatureInfo.innerHTML = translations[language].searchFeatureInfo;
+      searchFeatureInfo.style.display = 'none';
+      searchFeatureInfo.offsetHeight; // Forces browser reflow
+      searchFeatureInfo.style.display = 'block';
 
       btn2.textContent = translations[language].btn2;
       li21.textContent = translations[language].li21;
@@ -239,21 +242,28 @@ document.addEventListener('DOMContentLoaded', function () {
       li6.innerHTML = translations[language].li6;
     }
   
-    languageNavbar.addEventListener('click', function (event) {
-      event.preventDefault();
-      const selectedLanguage = event.target.getAttribute('data-lang');
-      localStorage.setItem('lacliLanguagePreference', selectedLanguage);
-      updateLanguageSelection(selectedLanguage);
-      updateContentLanguage(selectedLanguage);
-    });
+    if (languageNavbar) {
+      languageNavbar.addEventListener('click', function (event) {
+        event.preventDefault();
+        const selectedLanguage = event.target.getAttribute('data-lang');
+        if (selectedLanguage) {
+          localStorage.setItem('lacliLanguagePreference', selectedLanguage);
+          updateLanguageSelection(selectedLanguage);
+          updateContentLanguage(selectedLanguage);
+        }
+      });
+    }
   
     const footerLanguage = document.getElementById('footer-language');
-    footerLanguage.addEventListener('click', function (event) {
-      event.preventDefault();
-      const selectedLanguage = event.target.getAttribute('data-lang');
-      localStorage.setItem('lacliLanguagePreference', selectedLanguage);
-      updateLanguageSelection(selectedLanguage);
-      updateContentLanguage(selectedLanguage);
-    });
+    if (footerLanguage) {
+      footerLanguage.addEventListener('click', function (event) {
+        event.preventDefault();
+        const selectedLanguage = event.target.getAttribute('data-lang');
+        if (selectedLanguage) {
+          localStorage.setItem('lacliLanguagePreference', selectedLanguage);
+          updateLanguageSelection(selectedLanguage);
+          updateContentLanguage(selectedLanguage);
+        }
+      });
+    }
 });
-  
