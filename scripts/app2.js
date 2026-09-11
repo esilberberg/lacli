@@ -33,7 +33,7 @@ const loadMoreBtn = document.getElementById('loadMore');
 // ==========================================
 
 // --- API & Constants ---
-const apiEndpoint = 'http://esilberberg.github.io/lacli/scripts/data.json';
+const apiEndpoint = 'https://esilberberg.github.io/lacli/scripts/data.json';
 let displayedCount = 0; // Track how many data objects are currently displayed for pagination
 const itemsPerPage = 15; // Number of items to display per page
 
