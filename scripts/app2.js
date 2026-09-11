@@ -33,7 +33,7 @@ const loadMoreBtn = document.getElementById('loadMore');
 // ==========================================
 
 // --- API & Constants ---
-const apiEndpoint = 'https://script.google.com/macros/s/AKfycbwA7DLdT6UmiOU7B89gdMglsDdXedG3fyh5nmCr0EeIx1iSkXVTr0-mYn615Q7WCPpB/exec';
+const apiEndpoint = './data.json';
 let displayedCount = 0; // Track how many data objects are currently displayed for pagination
 const itemsPerPage = 15; // Number of items to display per page
 
