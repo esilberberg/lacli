@@ -181,7 +181,7 @@ nav{
 
 /* ----- INDEX HERO ----- */
 #index-searchfield .hero-img {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("media/mapa-metztitlan.png");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("media/mapa-metztitlan.webp");
     position: relative;
     height: 70vh;
     overflow: hidden;
